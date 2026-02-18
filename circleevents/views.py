@@ -1,7 +1,8 @@
-from django.shortcuts import render
-
 from django.views.generic import ListView, DetailView
 from django.utils import timezone
+
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, redirect
 
 from .models import Event
 
@@ -43,3 +44,19 @@ class EventDetailView(DetailView):
             status="approved",
             published_at__lte=timezone.now()
         )
+
+
+@login_required
+def profile_view(request):
+    profile = request.user.profile
+
+    if request.method == "POST":
+        is_organiser = request.POST.get("is_organiser") == "on"
+        profile.is_organiser = is_organiser
+        profile.save()
+        return redirect("profile")
+
+    context = {
+        "profile": profile
+    }
+    return render(request, "circleevents/profile.html", context)
