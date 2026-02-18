@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block title %}{{ event.title }} | Open Circle{% endblock %}
+
+{% block content %}
+<article>
+    <header>
+        <h2>{{ event.title }}</h2>
+    </header>
+
+    <section>
+        <p>
+            <strong>Date:</strong><br>
+            {{ event.start_datetime|date:"D d M Y H:i" }}
+            –
+            {{ event.end_datetime|date:"H:i" }}
+        </p>
+
+        <p>
+            <strong>Location:</strong><br>
+            {{ event.venue_name }}<br>
+            {{ event.address }}<br>
+            {{ event.city }}
+            {% if event.postcode %}
+                , {{ event.postcode }}
+            {% endif %}
+        </p>
+    </section>
+
+    <section>
+        <h3>About this event</h3>
+        <p>{{ event.description }}</p>
+    </section>
+
+    <section>
+        <h3>Accessibility information</h3>
+        <ul>
+            <li>Step-free access: {{ event.step_free_access|yesno:"Yes,No" }}</li>
+            <li>Accessible toilet: {{ event.accessible_toilet|yesno:"Yes,No" }}</li>
+            <li>Seating available: {{ event.seating_available|yesno:"Yes,No" }}</li>
+            <li>Quiet space available: {{ event.quiet_space|yesno:"Yes,No" }}</li>
+        </ul>
+
+        {% if event.access_notes %}
+            <p><strong>Access notes:</strong> {{ event.access_notes }}</p>
+        {% endif %}
+
+        {% if event.sensory_notes %}
+            <p><strong>Sensory notes:</strong> {{ event.sensory_notes }}</p>
+        {% endif %}
+    </section>
+
+    {% if event.safespace_notes %}
+    <section>
+        <h3>Safer space information</h3>
+        <p>{{ event.safespace_notes }}</p>
+    </section>
+    {% endif %}
+
+    <section>
+        <h3>Contact & tickets</h3>
+
+        <p>
+            <strong>Contact:</strong>
+            <a href="mailto:{{ event.contact_email }}">
+                {{ event.contact_email }}
+            </a>
+        </p>
+
+        {% if event.ticket_url %}
+            <p>
+                <a href="{{ event.ticket_url }}" target="_blank" rel="noopener">
+                    View tickets / event link
+                </a>
+            </p>
+        {% endif %}
+    </section>
+</article>
+{% endblock %}
