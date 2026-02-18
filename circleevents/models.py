@@ -79,24 +79,22 @@ class Event(models.Model):
         """
         return self.title
 
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            base_slug = slugify(self.title)
+            slug = base_slug
+            counter = 1
 
-def save(self, *args, **kwargs):
+            while Event.objects.filter(slug=slug).exists():
+                slug = f"{base_slug}-{counter}"
+                counter += 1
 
-    if not self.slug:
-        base_slug = slugify(self.title)
-        slug = base_slug
-        counter = 1
+            self.slug = slug
 
-        while Event.objects.filter(slug=slug).exists():
-            slug = f"{base_slug}-{counter}"
-            counter += 1
+        if self.status == "approved" and self.published_at is None:
+            self.published_at = timezone.now()
 
-        self.slug = slug
-
-    if self.status == "approved" and self.published_at is None:
-        self.published_at = timezone.now()
-
-    super(Event, self).save(*args, **kwargs)
+        super(Event, self).save(*args, **kwargs)
 
 
 # Notification model to store notifications for users,
