@@ -1,8 +1,13 @@
+# Ignore virtual environment directories and other files that should not be committed to version control #
+
 venv/
 .venv/
+
 .env
 env.py
+
 __pycache__/
 *.pyc
+
 db.sqlite3
 staticfiles/
