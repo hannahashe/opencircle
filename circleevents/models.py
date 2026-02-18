@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
 from django.utils.text import slugify
 
 
@@ -78,29 +79,25 @@ class Event(models.Model):
         """
         return self.title
 
-    def save(self, *args, **kwargs):
-        """
-        Generate a unique slug from the event title if it doesn't exist.
-        This method checks if the slug field is empty.
-        If it is, it creates a base slug using
-        the slugify function on the event title.
-        It then checks if any existing events have the same slug.
-        If a duplicate is found, it appends a counter to the base slug
-        and increments it until a unique slug is generated.
-        Finally, it saves the event instance.
-        """
-        if not self.slug:
-            base_slug = slugify(self.title)
-            slug = base_slug
-            counter = 1
 
-            while Event.objects.filter(slug=slug).exists():
-                slug = f"{base_slug}-{counter}"
-                counter += 1
+def save(self, *args, **kwargs):
 
-            self.slug = slug
+    if not self.slug:
+        base_slug = slugify(self.title)
+        slug = base_slug
+        counter = 1
 
-        super(Event, self).save(*args, **kwargs)
+        while Event.objects.filter(slug=slug).exists():
+            slug = f"{base_slug}-{counter}"
+            counter += 1
+
+        self.slug = slug
+
+    if self.status == "approved" and self.published_at is None:
+        self.published_at = timezone.now()
+
+    super(Event, self).save(*args, **kwargs)
+
 
 # Notification model to store notifications for users,
 # when their events are approved or rejected,
