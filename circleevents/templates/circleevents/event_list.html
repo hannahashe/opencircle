@@ -1,0 +1,26 @@
+{% extends "base.html" %} {% block title %}Events | Open Circle{% endblock %} 
+{% block content %}
+<h2>Upcoming Events</h2>
+
+{% if events %}
+<ul>
+  {% for event in events %}
+  <li>
+    <h3>{{ event.title }}</h3>
+
+    <p>
+      <strong>Date:</strong>
+      {{ event.start_datetime|date:"D d M Y H:i" }} – 
+      {{ event.end_datetime|date:"H:i" }}
+    </p>
+
+    <p>
+      <strong>Location:</strong>
+      {{ event.venue_name }}, {{ event.city }}
+    </p>
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<p>No events are currently available.</p>
+{% endif %} {% endblock %}
