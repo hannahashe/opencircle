@@ -1,11 +1,12 @@
 from django.views.generic import ListView, DetailView
 from django.utils import timezone
 
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 
+from .forms import EventForm
 from .decorators import organiser_required
-
 from .models import Event
 
 
@@ -63,3 +64,23 @@ def profile_view(request):
     }
     return render(request, "circleevents/profile.html", context)
 
+
+@organiser_required
+def create_event(request):
+    if request.method == "POST":
+        form = EventForm(request.POST, request.FILES)
+        if form.is_valid():
+            event = form.save(commit=False)
+            event.organiser = request.user
+            event.status = "pending"
+            event.save()
+
+            messages.success(
+                request,
+                "Your event has been submitted and is awaiting approval."
+            )
+            return redirect("event_list")
+    else:
+        form = EventForm()
+
+    return render(request, "circleevents/create_event.html", {"form": form})
