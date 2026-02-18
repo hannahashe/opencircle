@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}My Profile | Open Circle{% endblock %}
+
+{% block content %}
+<h2>My Profile</h2>
+
+<p><strong>Username:</strong> {{ request.user.username }}</p>
+<p><strong>Email:</strong> {{ request.user.email }}</p>
+
+<hr>
+
+<form method="post">
+    {% csrf_token %}
+
+    <div>
+        <label>
+            <input
+                type="checkbox"
+                name="is_organiser"
+                {% if profile.is_organiser %}checked{% endif %}
+            >
+            I want to submit events as an organiser
+        </label>
+    </div>
+
+    <button type="submit">Save profile</button>
+</form>
+
+{% if profile.is_organiser %}
+    <p><em>You are currently registered as an organiser.</em></p>
+{% else %}
+    <p><em>You are currently registered as an attendee.</em></p>
+{% endif %}
+
+{% endblock %}
