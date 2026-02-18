@@ -3,6 +3,10 @@ from django.contrib.auth.models import User
 from django.utils.text import slugify
 
 
+# Custom user profile to extend the built-in User model,
+# allowing for additional fields like is_organiser, bio, and profile_img.
+
+
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     is_organiser = models.BooleanField(default=False)
@@ -11,6 +15,12 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.user.username
+
+# Custom Event model to store event details,
+# including title, description, date/time, venue information,
+# accessibility features, and status.
+# The save method automatically generates
+# a unique slug based on the event title.
 
 
 class Event(models.Model):
@@ -51,13 +61,21 @@ class Event(models.Model):
 
     event_img = models.URLField(blank=True)
 
-    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default="pending")
+    status = models.CharField(
+        max_length=10, choices=STATUS_CHOICES, default="pending"
+    )
     created_at = models.DateTimeField(auto_now_add=True)
 
     published_at = models.DateTimeField(blank=True, null=True)
 
     def __str__(self):
         return self.title
+
+# Override the save method to automatically generate
+# a unique slug from the event title, ensuring that
+# each event has a unique URL-friendly identifier.
+# If a slug already exists, it appends a counter
+# to the slug until a unique one is found.
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -72,6 +90,10 @@ class Event(models.Model):
             self.slug = slug
 
         super(Event, self).save(*args, **kwargs)
+
+# Notification model to store notifications for users,
+# when their events are approved or rejected,
+# and the message content of the notification.
 
 
 class Notification(models.Model):
