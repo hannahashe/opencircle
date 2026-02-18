@@ -6,7 +6,11 @@
 <ul>
   {% for event in events %}
   <li>
-    <h3>{{ event.title }}</h3>
+    <h3>
+    <a href="{% url 'event_detail' event.slug %}">
+        {{ event.title }}
+    </a>
+</h3>
 
     <p>
       <strong>Date:</strong>
