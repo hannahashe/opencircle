@@ -4,6 +4,8 @@ from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 
+from .decorators import organiser_required
+
 from .models import Event
 
 
@@ -60,3 +62,8 @@ def profile_view(request):
         "profile": profile
     }
     return render(request, "circleevents/profile.html", context)
+
+
+@organiser_required
+def organiser_test_view(request):
+    return render(request, "circleevents/organiser_test.html")
