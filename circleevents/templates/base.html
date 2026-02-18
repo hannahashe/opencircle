@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Open Circle{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <h1>
+          <a href="{% url 'event_list' %}">Open Circle</a>
+        </h1>
+      </nav>
+    </header>
+
+    <main>{% block content %} {% endblock %}</main>
+
+    <footer>
+      <p>Open Circle - Accessible Events Directory</p>
+    </footer>
+  </body>
+</html>
