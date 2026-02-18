@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from django.utils import timezone
 
 from .models import Event
@@ -31,3 +31,15 @@ class EventListView(ListView):
             status="approved",
             published_at__lte=timezone.now()
         ).order_by("-published_at")
+
+
+class EventDetailView(DetailView):
+    model = Event
+    template_name = "circleevents/event_detail.html"
+    context_object_name = "event"
+
+    def get_queryset(self):
+        return Event.objects.filter(
+            status="approved",
+            published_at__lte=timezone.now()
+        )
