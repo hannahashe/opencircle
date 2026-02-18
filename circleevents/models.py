@@ -28,14 +28,15 @@ class Event(models.Model):
     description = models.TextField()
 
     start_datetime = models.DateTimeField()
-    end_datetime = models.DateTimeField(blank=True, null=True)
+    end_datetime = models.DateTimeField()
 
     venue_name = models.CharField(max_length=200)
     address = models.TextField()
     city = models.CharField(max_length=100)
+    postcode = models.CharField(max_length=20, blank=True)
 
     ticket_url = models.URLField(blank=True)
-    contact_email = models.EmailField(blank=True)
+    contact_email = models.EmailField()
 
     # Accessibility booleans
     step_free_access = models.BooleanField(default=False)
@@ -63,7 +64,7 @@ class Notification(models.Model):
         ("approved", "Approved"),
         ("rejected", "Rejected"),
     ]
-    
+
     recipient = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="notifications"
     )
