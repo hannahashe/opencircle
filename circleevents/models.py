@@ -6,7 +6,6 @@ from django.utils.text import slugify
 # Custom user profile to extend the built-in User model,
 # allowing for additional fields like is_organiser, bio, and profile_img.
 
-
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     is_organiser = models.BooleanField(default=False)
@@ -14,6 +13,10 @@ class Profile(models.Model):
     profile_img = models.URLField(blank=True)
 
     def __str__(self):
+        """
+        Return the username of the associated User
+        as the string representation of the Profile.
+        """
         return self.user.username
 
 # Custom Event model to store event details,
@@ -69,15 +72,23 @@ class Event(models.Model):
     published_at = models.DateTimeField(blank=True, null=True)
 
     def __str__(self):
+        """
+        Return the title of the event as
+        its string representation.
+        """
         return self.title
 
-# Override the save method to automatically generate
-# a unique slug from the event title, ensuring that
-# each event has a unique URL-friendly identifier.
-# If a slug already exists, it appends a counter
-# to the slug until a unique one is found.
-
     def save(self, *args, **kwargs):
+        """
+        Generate a unique slug from the event title if it doesn't exist.
+        This method checks if the slug field is empty.
+        If it is, it creates a base slug using
+        the slugify function on the event title.
+        It then checks if any existing events have the same slug.
+        If a duplicate is found, it appends a counter to the base slug
+        and increments it until a unique slug is generated.
+        Finally, it saves the event instance.
+        """
         if not self.slug:
             base_slug = slugify(self.title)
             slug = base_slug
@@ -115,4 +126,5 @@ class Notification(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
+        """Return a string representation of the notification."""
         return f"{self.notification_type} - {self.event.title}"
