@@ -5,6 +5,7 @@ from django.utils import timezone
 
 from .models import Event
 
+
 class EventListView(ListView):
     """
     This view is responsible for displaying a list of events.
