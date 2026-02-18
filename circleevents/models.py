@@ -11,7 +11,12 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     is_organiser = models.BooleanField(default=False)
     bio = models.TextField(blank=True)
-    profile_img = models.URLField(blank=True, null=True)
+    profile_img = models.ImageField(
+        upload_to="profiles/",
+        blank=True,
+        null=True,
+        )
+
 
     def __str__(self):
         """
