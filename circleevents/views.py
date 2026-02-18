@@ -63,7 +63,3 @@ def profile_view(request):
     }
     return render(request, "circleevents/profile.html", context)
 
-
-@organiser_required
-def organiser_test_view(request):
-    return render(request, "circleevents/organiser_test.html")
