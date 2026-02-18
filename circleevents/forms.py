@@ -1,6 +1,8 @@
 from django import forms
 from .models import Event
 
+# Form for organisers to create and edit events
+
 
 class EventForm(forms.ModelForm):
     class Meta:
