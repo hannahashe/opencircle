@@ -44,6 +44,7 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -118,8 +119,6 @@ AUTHENTICATION_BACKENDS = [
 
 LOGIN_REDIRECT_URL = "/events/"
 LOGOUT_REDIRECT_URL = "/events/"
-
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/6.0/topics/i18n/
