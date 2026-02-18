@@ -5,10 +5,6 @@ from django.utils import timezone
 
 from .models import Event
 
-# Events List View below, using Django's generic ListView to
-# display approved events only from ordered by published date.
-
-
 class EventListView(ListView):
     """
     This view is responsible for displaying a list of events.
