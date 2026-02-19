@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 from django.utils import timezone
 from django.utils.text import slugify
 
+from cloudinary.models import CloudinaryField
+
 
 # Custom user profile to extend the built-in User model,
 # allowing for additional fields like is_organiser, bio, and profile_img.
@@ -67,7 +69,11 @@ class Event(models.Model):
     sensory_notes = models.TextField(blank=True)
     safespace_notes = models.TextField(blank=True)
 
-    event_img = models.URLField(blank=True)
+    event_img = CloudinaryField(
+        "event image",
+        blank=True,
+        null=True,
+    )
 
     status = models.CharField(
         max_length=10, choices=STATUS_CHOICES, default="pending"
