@@ -7,8 +7,12 @@
     <header>
         <h2>{{ event.title }}</h2>
     </header>
-
     <section>
+    {% if user.is_authenticated and user == event.organiser %}
+    <a href="{% url 'edit_event' event.slug %}" class="btn btn-outline-secondary">
+        Edit event
+    </a>
+    {% endif %}
         <p>
             <strong>Date:</strong><br>
             {{ event.start_datetime|date:"D d M Y H:i" }}
