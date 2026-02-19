@@ -6,13 +6,6 @@ if os.path.isfile("env.py"):
 
 import cloudinary
 
-cloudinary.config(
-    cloud_name = "Root",
-    api_key = "172561149612287",
-    api_secret = "psWrwT9zVnL2LBTkXnZcKPJMzDU",
-)
-
-
 SITE_ID = 1
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -150,6 +143,15 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
+
+# Cloudinary configuration
+
+cloudinary.config(
+    cloud_name=os.environ.get("CLOUDINARY_CLOUD_NAME"),
+    api_key=os.environ.get("CLOUDINARY_API_KEY"),
+    api_secret=os.environ.get("CLOUDINARY_API_SECRET"),
+)
+
 
 # Default file storage
 DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
