@@ -25,12 +25,11 @@
         </button>
     </form>
     {% endif %}
-
-{% if event.event_img %}
+    {% if event.event_img %}
     <img src="{{ event.event_img.url }}" alt="Image for {{ event.title }}">
-{% else %}
-    <img src="{% static 'images/default_event.jpg' %}" alt="Default event image">
-{% endif %}
+    {% else %}
+    <img src="{% static 'static/images/default_event.jpg' %}" alt="Default event image">
+    {% endif %}
 
         <p>
             <strong>Date:</strong><br>
