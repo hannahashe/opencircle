@@ -5,7 +5,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 
-from .forms import EventForm
+from .forms import EventForm, EditEventForm
 from .decorators import organiser_required
 from .models import Event
 
@@ -94,7 +94,7 @@ def edit_event(request, slug):
         raise PermissionDenied
 
     if request.method == "POST":
-        form = EventForm(request.POST, request.FILES, instance=event)
+        form = EditEventForm(request.POST, request.FILES, instance=event)
         if form.is_valid():
             updated_event = form.save(commit=False)
             updated_event.status = "pending"
@@ -107,7 +107,7 @@ def edit_event(request, slug):
             )
             return redirect("event_detail", slug=event.slug)
     else:
-        form = EventForm(instance=event)
+        form = EditEventForm(instance=event)
 
     return render(
         request,
