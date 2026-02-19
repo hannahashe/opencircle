@@ -4,6 +4,8 @@ from django.utils import timezone
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
+from django.views.decorators.http import require_POST
+from django.core.exceptions import PermissionDenied
 
 from .forms import EventForm, EditEventForm
 from .decorators import organiser_required
