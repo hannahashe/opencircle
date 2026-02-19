@@ -12,8 +12,6 @@
     <a href="{% url 'edit_event' event.slug %}" class="btn btn-outline-secondary">
         Edit event
     </a>
-    {% endif %}
-    {% if user.is_authenticated and user == event.organiser %}
     <form
         action="{% url 'delete_event' event.slug %}"
         method="post"
