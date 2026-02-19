@@ -17,7 +17,6 @@ class Profile(models.Model):
         null=True,
         )
 
-
     def __str__(self):
         """
         Return the username of the associated User
