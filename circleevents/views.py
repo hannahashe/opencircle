@@ -1,10 +1,10 @@
 from django.views.generic import ListView, DetailView
+from django.views.decorators.http import require_POST
 from django.utils import timezone
 
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
-from django.views.decorators.http import require_POST
 from django.core.exceptions import PermissionDenied
 
 from .forms import EventForm, EditEventForm
@@ -143,3 +143,21 @@ def edit_event(request, slug):
         "circleevents/edit_event.html",
         {"form": form, "event": event},
     )
+
+
+@organiser_required
+@require_POST
+def delete_event(request, slug):
+    event = get_object_or_404(Event, slug=slug)
+
+    # Ownership check
+    if event.organiser != request.user:
+        raise PermissionDenied
+
+    event.delete()
+
+    messages.success(
+        request,
+        "Your event has been deleted."
+    )
+    return redirect("event_list")
