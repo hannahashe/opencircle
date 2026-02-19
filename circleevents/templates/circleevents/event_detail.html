@@ -13,6 +13,20 @@
         Edit event
     </a>
     {% endif %}
+    {% if user.is_authenticated and user == event.organiser %}
+    <form
+        action="{% url 'delete_event' event.slug %}"
+        method="post"
+        style="display:inline;"
+        onsubmit="return confirm('Are you sure you want to delete this event? This action cannot be undone.');"
+    >
+        {% csrf_token %}
+        <button type="submit" class="btn btn-outline-danger">
+            Delete event
+        </button>
+    </form>
+    {% endif %}
+
         <p>
             <strong>Date:</strong><br>
             {{ event.start_datetime|date:"D d M Y H:i" }}
