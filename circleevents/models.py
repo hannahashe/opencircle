@@ -131,6 +131,9 @@ class Notification(models.Model):
     is_read = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
 
-    def __str__(self):
-        """Return a string representation of the notification."""
-        return f"{self.notification_type} - {self.event.title}"
+    def save(self, *args, **kwargs):
+        if self.notification_type == "approved":
+            self.message = f"Your event '{self.event.title}' has been approved and is now live on Open Circle."
+        elif self.notification_type == "rejected":
+            self.message = f"Your event '{self.event.title}' has been rejected. Please see the message below for more details."
+        super().save(*args, **kwargs)
