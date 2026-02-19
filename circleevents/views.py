@@ -148,6 +148,12 @@ def edit_event(request, slug):
 @organiser_required
 @require_POST
 def delete_event(request, slug):
+    """
+    This view is responsible for allowing organisers to delete their existing events.
+    It retrieves the event based on the provided slug and checks if the current user is the organiser of the event.
+    If the user is not the organiser, it raises a PermissionDenied exception.
+    If the user is the organiser, it deletes the event from the database and redirects the user to the event list page with a success message.
+    """
     event = get_object_or_404(Event, slug=slug)
 
     # Ownership check
