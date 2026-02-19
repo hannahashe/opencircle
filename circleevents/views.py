@@ -101,11 +101,11 @@ def edit_event(request, slug):
             updated_event.published_at = None
             updated_event.save()
 
-            messages.success(
-                request,
-                "Your changes have been saved and the event has been resubmitted for approval."
-            )
-            return redirect("event_detail", slug=event.slug)
+            messages.info(request,
+                          "Your event has been updated and is awaiting re-approval."
+                          )
+
+            return redirect("event_list")
     else:
         form = EditEventForm(instance=event)
 
