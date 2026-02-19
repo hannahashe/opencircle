@@ -4,6 +4,15 @@ import os
 if os.path.isfile("env.py"):
     import env
 
+import cloudinary
+
+cloudinary.config(
+    cloud_name = "Root",
+    api_key = "172561149612287",
+    api_secret = "psWrwT9zVnL2LBTkXnZcKPJMzDU",
+)
+
+
 SITE_ID = 1
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -36,6 +45,8 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'circleevents.apps.CircleeventsConfig',
+    'cloudinary',
+    'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
@@ -139,6 +150,9 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
+
+# Default file storage
+DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
 
 
 # Static files (CSS, JavaScript, Images)
