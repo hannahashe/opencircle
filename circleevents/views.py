@@ -84,3 +84,33 @@ def create_event(request):
         form = EventForm()
 
     return render(request, "circleevents/create_event.html", {"form": form})
+
+@organiser_required
+def edit_event(request, slug):
+    event = get_object_or_404(Event, slug=slug)
+
+    # Ownership check
+    if event.organiser != request.user:
+        raise PermissionDenied
+
+    if request.method == "POST":
+        form = EventForm(request.POST, request.FILES, instance=event)
+        if form.is_valid():
+            updated_event = form.save(commit=False)
+            updated_event.status = "pending"
+            updated_event.published_at = None
+            updated_event.save()
+
+            messages.success(
+                request,
+                "Your changes have been saved and the event has been resubmitted for approval."
+            )
+            return redirect("event_detail", slug=event.slug)
+    else:
+        form = EventForm(instance=event)
+
+    return render(
+        request,
+        "circleevents/edit_event.html",
+        {"form": form, "event": event},
+    )
