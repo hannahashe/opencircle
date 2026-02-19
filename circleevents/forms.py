@@ -36,3 +36,8 @@ class EventForm(forms.ModelForm):
                 attrs={"type": "datetime-local"}
                 ),
         }
+
+
+class EditEventForm(EventForm):
+    class Meta(EventForm.Meta):
+        exclude = ["title"]
