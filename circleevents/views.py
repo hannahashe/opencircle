@@ -65,6 +65,10 @@ def profile_view(request):
     It checks if the request method is POST, and if so, 
     it updates the user's profile with the new organiser status and saves it to the database.
     If the request method is not POST, it simply renders the profile template with the user's profile information.
+    Also retrieves the events organised by the user and includes them in the context to be displayed on the profile page,  
+    which allows users to see and manage their events directly from their profile. Rejected events are shown with a link to edit them.
+    In the edit event form, a message is shown to the user providing additional information about the reason for rejection
+    and what they can do to get their event approved.
     """
     profile = request.user.profile
 
@@ -74,8 +78,13 @@ def profile_view(request):
         profile.save()
         return redirect("profile")
 
+    from .models import Event
+
+    user_events = Event.objects.filter(organiser=request.user).order_by("-created_at")
+
     context = {
-        "profile": profile
+        "profile": profile,
+        "user_events": user_events,
     }
     return render(request, "circleevents/profile.html", context)
 
