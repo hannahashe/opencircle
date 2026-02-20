@@ -138,6 +138,7 @@ def edit_event(request, slug):
             updated_event = form.save(commit=False)
             updated_event.status = "pending"
             updated_event.published_at = None
+            event.admin_comment = ""
             updated_event.save()
 
             messages.info(request,
