@@ -18,7 +18,7 @@ class EventListView(ListView):
     It uses the Event model to retrieve the events from the database.
     The template used to render the list of events
     is "circleevents/event_list.html".
-    The context variable that will be used in 
+    The context variable that will be used in
     the template to access the list of events is "events".
     """
     model = Event
@@ -44,8 +44,10 @@ class EventDetailView(DetailView):
     """
     This view is responsible for displaying the details of a single event.
     It uses the Event model to retrieve the event from the database.
-    The template used to render the event details is "circleevents/event_detail.html".
-    The context variable that will be used in the template to access the event is "event".
+    The template used to render the event details
+    is "circleevents/event_detail.html".
+    The context variable that will be used in
+    the template to access the event is "event".
     """
     model = Event
     template_name = "circleevents/event_detail.html"
@@ -61,14 +63,19 @@ class EventDetailView(DetailView):
 @login_required
 def profile_view(request):
     """
-    This view is responsible for displaying the user's profile and allowing them to update their organiser status.
-    It checks if the request method is POST, and if so, 
-    it updates the user's profile with the new organiser status and saves it to the database.
-    If the request method is not POST, it simply renders the profile template with the user's profile information.
-    Also retrieves the events organised by the user and includes them in the context to be displayed on the profile page,  
-    which allows users to see and manage their events directly from their profile. Rejected events are shown with a link to edit them.
-    In the edit event form, a message is shown to the user providing additional information about the reason for rejection
-    and what they can do to get their event approved.
+    This view is responsible for displaying the user's profile
+    and allowing them to update their organiser status.
+    It checks if the request method is POST, and if so,
+    it updates the user's profile with the new organiser status
+    and saves it to the database. If the request method is not POST,
+    it simply renders the profile template with the user's profile information.
+    This view also retrieves the events organised by the user
+    and includes them in the context to be displayed on the profile page.
+    This allows users to see and manage their events directly from their
+    profile. Rejected events are shown with a link to edit them.
+    In the edit event form, a message is shown to the user providing
+    additional information about the reason for rejection and what
+    they can do to get their event approved.
     """
     profile = request.user.profile
 
@@ -93,10 +100,12 @@ def profile_view(request):
 def create_event(request):
     """
     This view is responsible for allowing organisers to create new events.
-    It checks if the request method is POST, and if so, it processes the submitted form
-    to create a new event. If the form is valid, it saves the event to the database with
-    a status of "pending" and redirects the user to the event list page with a success message.
-    If the request method is not POST, it simply renders the create event template with an empty form.
+    It checks if the request method is POST, and if so, it processes the
+    submitted form to create a new event. If the form is valid, it saves
+    the event to the database with a status of "pending" and redirects
+    the user to the event list page with a success message. If the request
+    method is not POST, it simply renders the create event template with
+    an empty form.
     """
     if request.method == "POST":
         form = EventForm(request.POST, request.FILES)
@@ -119,12 +128,15 @@ def create_event(request):
 @organiser_required
 def edit_event(request, slug):
     """
-    This view is responsible for allowing organisers to edit their existing events.
-    It retrieves the event based on the provided slug and checks if the current user is the organiser of the event.
-    If the user is not the organiser, it raises a PermissionDenied exception.
-    If the request method is POST, it processes the submitted form to update the event.
-    If the form is valid, it saves the updated event to the database with a status of "pending" and redirects the user to the event list page with an info message.
-    If the request method is not POST, it simply renders the edit event template with the existing event information pre-filled in the form.
+    This view is responsible for allowing organisers to edit their
+    existing events. It retrieves the event based on the provided slug and
+    checks if the current user is the organiser of the event. If the user is
+    not the organiser, it raises a PermissionDenied exception. If the request
+    method is POST, it processes the submitted form to update the event. If the
+    form is valid, it saves the updated event to the database with a status of
+    "pending" and redirects the user to the event list page with an info
+    message. If the request method is not POST, it simply renders the edit
+    event template with the existing event information pre-filled in the form.
     """
     event = get_object_or_404(Event, slug=slug)
 
@@ -142,7 +154,8 @@ def edit_event(request, slug):
             updated_event.save()
 
             messages.info(request,
-                          "Your event has been updated and is awaiting re-approval."
+                          "Your event has been updated "
+                          "and is awaiting re-approval."
                           )
 
             return redirect("event_list")
@@ -160,10 +173,12 @@ def edit_event(request, slug):
 @require_POST
 def delete_event(request, slug):
     """
-    This view is responsible for allowing organisers to delete their existing events.
-    It retrieves the event based on the provided slug and checks if the current user is the organiser of the event.
+    This view is responsible for allowing organisers to delete
+    their existing events. It retrieves the event based on the provided slug
+    and checks if the current user is the organiser of the event.
     If the user is not the organiser, it raises a PermissionDenied exception.
-    If the user is the organiser, it deletes the event from the database and redirects the user to the event list page with a success message.
+    If the user is the organiser, it deletes the event from the database and
+    redirects the user to the event list page with a success message.
     """
     event = get_object_or_404(Event, slug=slug)
 
