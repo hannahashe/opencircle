@@ -51,6 +51,28 @@
     </section>
 
     <section>
+    <hr>
+    <h5 class="mt-3">Accessibility Information</h5>
+    <ul class="list-unstyled">
+    {% if event.step_free_access %}
+        <li>✔ Step-Free Access</li>
+    {% endif %}
+
+    {% if event.accessible_toilet %}
+        <li>✔ Accessible Toilet</li>
+    {% endif %}
+
+    {% if event.quiet_space %}
+        <li>✔ Quiet Space Available</li>
+    {% endif %}
+
+    {% if event.seating_available %}
+        <li>✔ Seating Available</li>
+    {% endif %}
+    </ul>
+    </section>
+
+    <section>
         <h3>About this event</h3>
         <p>{{ event.description }}</p>
     </section>
