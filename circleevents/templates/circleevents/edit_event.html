@@ -5,6 +5,13 @@
 {% block content %}
 <h2>Edit event</h2>
 
+{% if event.status == "rejected" and event.admin_comment %}
+    <div class="alert alert-warning">
+        <strong>This event was rejected.</strong><br>
+        {{ event.admin_comment }}
+    </div>
+{% endif %}
+
 <p>
     Editing this event will resubmit it for approval.
 </p>
