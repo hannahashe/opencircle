@@ -24,8 +24,52 @@ class EventAdmin(admin.ModelAdmin):
         "city",
         "postcode",
     )
-    ordering = ("-created_at",)
 
+    fieldsets = (
+        ("Event Details", {
+            "fields": (
+                "title",
+                "slug",
+                "description",
+                "organiser",
+                "start_datetime",
+                "end_datetime",
+                "venue_name",
+                "address",
+                "city",
+                "postcode",
+            )
+        }),
+        ("Accessibility", {
+            "fields": (
+                "step_free_access",
+                "accessible_toilet",
+                "seating_available",
+                "quiet_space",
+            )
+        }),
+        ("Notes", {
+            "fields": (
+                "access_notes",
+                "sensory_notes",
+                "safespace_notes",
+            )
+        }),
+        ("Images", {
+            "fields": (
+                "event_img",
+            )
+        }),
+        ("Status", {
+            "fields": (
+                "status",
+                "admin_comment"
+            )
+        }),
+    )
+
+
+    ordering = ("-created_at",)
     actions = ["approve_events"]
 
     def approve_events(self, request, queryset):
