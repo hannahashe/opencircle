@@ -68,7 +68,6 @@ class EventAdmin(admin.ModelAdmin):
         }),
     )
 
-
     ordering = ("-created_at",)
     actions = ["approve_events"]
 
