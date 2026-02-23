@@ -23,5 +23,4 @@ urlpatterns = [
     path("", HomeView.as_view(), name="home"),
     path("accounts/", include("allauth.urls")),
     path("events/", include("circleevents.urls")),
-
 ]

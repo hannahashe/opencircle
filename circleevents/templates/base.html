@@ -12,7 +12,7 @@
   </head>
   <body>
     <header>
-      <!-- Navbar -->
+    <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
           <a class="navbar-brand fw-bold" href="{% url 'home' %}">
@@ -37,7 +37,7 @@
                 {% endif %}
                 {% if user.is_staff %}
                   <li class="nav-item">
-                    <a class="nav-link" href="{% url 'admin' %}">Admin</a>
+                    <a class="nav-link" href="/admin/">Admin</a>
                   </li>
                 {% endif %}
                 <li class="nav-item">
@@ -69,6 +69,7 @@
     {% endif %}
     <!-- Main content - Home page, Event list, Event detail, Profile page, Event create/edit forms, Log in, Sign up, Log out -->
     <main>{% block content %} {% endblock %}</main>
+    <!-- Footer -->
     <footer class="bg-dark text-white text-center py-4 mt-5">
       <div class="container">
         <p class="mb-0">Open Circle - Accessible Events Directory</p>
