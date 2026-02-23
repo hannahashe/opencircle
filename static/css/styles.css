@@ -10,7 +10,11 @@
   --error: #e57373;
 }
 
-/* Google Fonts */
+/* Google Fonts 
+Headings & Titles: Space Grotesk
+Sub titles: DM Sans
+Body text: Atkinson Hyperlegible */
+
 @import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Space+Grotesk:wght@300..700&display=swap');
 
 /* Global Styles */
@@ -57,6 +61,12 @@ body .navbar-brand {
 }
 
 .nav-link {
-    font-weight: 500;
+    font-weight: 550;
     text-transform: lowercase;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+    color: var(--primary-accent);
 }
