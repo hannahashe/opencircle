@@ -10,6 +10,7 @@ Body text: Atkinson Hyperlegible */
   --text: #1f1f1f;
   --secondary-text: #4a4a4a;
   --accent-gradient: linear-gradient(45deg, #3a7f7a, #c08ab3, #9657e3);
+  --reverse-gradient: linear-gradient(45deg, #9657e3, #c08ab3, #3a7f7a);
   --primary-accent: #3a7f7a;
   --secondary-accent: #c08ab3;
   --cta-highlight: #e3a857;
@@ -84,6 +85,15 @@ body .navbar-brand {
 .nav-link a:hover {
     box-shadow: 0 0 5px var(--background) !important;
     transition: ease-in-out 0.3s;
+}
+
+/* Footer */
+
+footer {
+    background: var(--reverse-gradient);
+    padding: 1.5rem 0;
+    text-align: center;
+    font-family: "Atkinson Hyperlegible", sans-serif;
 }
 
 /* Home page */
