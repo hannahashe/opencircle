@@ -101,17 +101,30 @@ body .navbar-brand {
 
 /* Buttons, links */
 
-.custom-btn-filled {
-  color: var(--background);
-  background-color: var(--secondary-accent);
-  border-radius: 5px;
-}
-
 .custom-btn-outline {
   color: var(--primary-accent);
   background: transparent;
   border: 3px solid var(--primary-accent);
   border-radius: 5px;
+}
+
+.custom-btn-outline:hover,
+.custom-btn-outline:focus {
+    color: var(--background);
+    background-color: var(--primary-accent);
+    border: 3px solid transparent;
+}
+
+.custom-btn-filled {
+  color: var(--background);
+  background-color: var(--secondary-accent);
+  border: 3px solid transparent;
+}
+
+.custom-btn-filled:hover,
+.custom-btn-filled:focus {
+    background-color: transparent;
+    border: 3px solid var(--secondary-accent);
 }
 
 /* Footer */
