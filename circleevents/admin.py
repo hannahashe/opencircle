@@ -63,7 +63,9 @@ class EventAdmin(admin.ModelAdmin):
         ("Status", {
             "fields": (
                 "status",
-                "admin_comment"
+                "admin_comment",
+                "moderation_notified",
+
             )
         }),
     )
