@@ -1,4 +1,4 @@
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, TemplateView
 from django.views.decorators.http import require_POST
 from django.utils import timezone
 
@@ -10,6 +10,10 @@ from django.core.exceptions import PermissionDenied
 from .forms import EventForm, EditEventForm
 from .decorators import organiser_required
 from .models import Event
+
+
+class HomeView(TemplateView):
+    template_name = "circleevents/home.html"
 
 
 class EventListView(ListView):
