@@ -105,7 +105,7 @@ class Event(models.Model):
 
         if self.status == "approved" and self.published_at is None:
             self.published_at = timezone.now()
-        
+      
         # Reset moderation notification if status changed
         if self.pk:
             previous = Event.objects.get(pk=self.pk)
