@@ -79,6 +79,27 @@ def profile_view(request):
     """
     profile = request.user.profile
 
+    # Find events that have been moderated but not yet notified
+
+    newly_moderated = Event.objects.filter(
+        organiser=request.user,
+        moderation_notified=False,
+        status__in=["approved", "rejected"],
+    )
+    for event in newly_moderated:
+        if event.status == "approved":
+            messages.success(
+                request,
+                f"Your event '{event.title}' has been approved and is now live.",
+                )
+        elif event.status == "rejected":
+            messages.warning(
+                request,
+                f"Your event '{event.title}' has been rejected. Please review the feedback below.",
+                )
+        event.moderation_notified = True
+        event.save()
+
     if request.method == "POST":
         is_organiser = request.POST.get("is_organiser") == "on"
         profile.is_organiser = is_organiser
