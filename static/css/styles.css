@@ -21,8 +21,17 @@ Body text: Atkinson Hyperlegible */
 
 body {
   background-color: var(--background);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Space Grotesk', sans-serif;
   color: var(--text);
+}
+
+body p {
   font-family: 'Atkinson Hyperlegible', sans-serif;
+  color: var(--secondary-text);
+  line-height: 1.6;
 }
 
 /* Navigation & logo */
@@ -70,3 +79,6 @@ body .navbar-brand {
 .nav-link:focus {
     color: var(--primary-accent);
 }
+
+/* Home page */
+/* Hero & Call To Action */
