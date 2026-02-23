@@ -80,9 +80,8 @@ class Event(models.Model):
     status = models.CharField(
         max_length=10, choices=STATUS_CHOICES, default="pending"
     )
-
     admin_comment = models.TextField(blank=True)
-
+    moderation_notified = models.BooleanField(default=False)
     published_at = models.DateTimeField(blank=True, null=True)
 
     def __str__(self):
