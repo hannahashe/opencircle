@@ -29,7 +29,8 @@ body .navbar {
 
 .navbar-brand {
     font-size: 1.5rem;
-    font-family: 'Fraunces', serif;
+    font-family: 'Space Grotesk', sans-serif;
+    text-transform: capitalize;
 }
 
 .logo-circle {
