@@ -21,20 +21,27 @@ body {
   font-family: 'Atkinson Hyperlegible', sans-serif;
 }
 
+/* Navigation & logo */
+
 body .navbar {
  background: var(--accent-gradient);
 }
 
 .navbar-brand {
     font-size: 1.5rem;
+    font-family: 'Fraunces', serif;
 }
 
 .logo-circle {
-    width: 40px;
-    height: 40px;
-    border: 2px solid #fff;
+    width: 55px;
+    height: 55px;
+    border: 1.5px solid #fff;
     border-radius: 50%;
     display: inline-block;
-    margin-right: 0.5rem;
+}
+
+#nav-logo {
+    font-size: 2rem;
+    padding: 0.5rem;
 }
 
