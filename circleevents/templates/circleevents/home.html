@@ -4,7 +4,6 @@
 {% block content %}
 
 <div class="container py-5">
-
     <!-- HERO SECTION -->
 <section class="hero">
     <div class="text-center mb-5">
@@ -26,14 +25,15 @@
         </div>
     </div>
 </section>
-
+</div>
+<div class="container">
     <!-- FEATURED EVENTS -->
     <section id="featured-events" class="mb-5">
         <h2 class="mb-4">Featured Events</h2>
         <div class="row g-4">
             {% for event in featured_events %}
                 <div class="col-md-4">
-                    <div class="card h-100 shadow-sm">
+                    <div class="card h-100 card-shadow shape-rounded border-2">
                         {% if event.event_img %}
                             <img src="{{ event.event_img.url }}" class="card-img-top" alt="{{ event.title }}">
                         {% else %}
@@ -60,12 +60,13 @@
             {% endfor %}
         </div>
 
+
         <div class="text-center mt-4">
             <a href="{% url 'event_list' %}" class="btn custom-btn-outline">
                 See More Events
             </a>
         </div>
-    </div>
+    </section>
 
     <!-- VALUES SECTION -->
     <div class="py-4">
