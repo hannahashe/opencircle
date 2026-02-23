@@ -119,6 +119,8 @@ class Event(models.Model):
 # Notification model to store notifications for users,
 # when their events are approved or rejected,
 # and the message content of the notification.
+# CURRENTLY NOT IN USE -
+# PLANNED AS A FUTURE FEATURE FOR USER DASHBOARD NOTIFICATIONS.
 
 
 class Notification(models.Model):
