@@ -1,1 +1,22 @@
-<p>Hello, World!</p>
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container py-5">
+
+    <!-- Hero section -->
+     <div class="text-center mb-5">
+        <h1 class="display-5 fw-bold">Alternative Events<br><span class="text-muted">with accessibility in mind</span></h1>
+
+        <p class="lead mt-3">Discover queer, alternative and DIY events designed with accessibility in mind and vetted by our human moderators.
+            Connect, learn  & grow into new communities. 
+        </p>
+
+        <div class="d-grid gap-2 col-md-6 mx-auto mt-4">
+            <a href="{% url 'event_list' %}" class="btn btn-primary btn-lg">Browse All Events</a>
+        </div>
+        <a href="{% url 'create_event' %}" class="btn btn-outline-secondary btn-lg">Submit New Event</a>
+     </div>
+</div>
+
+<!-- Featured Events  -->
