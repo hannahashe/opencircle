@@ -13,6 +13,13 @@ from .models import Event
 
 
 class HomeView(TemplateView):
+    """
+    This view is responsible for rendering the homepage of the application.
+     It uses the TemplateView class from Django's generic views,
+     which allows us to render a template without needing to define a model or
+     queryset. The template used for the homepage is "circleevents/home.html".
+     """
+
     template_name = "circleevents/home.html"
 
     def get_context_data(self, **kwargs):
