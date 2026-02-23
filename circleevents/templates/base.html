@@ -35,6 +35,11 @@
                     <a class="nav-link" href="{% url 'create_event' %}">Create Event</a>
                   </li>
                 {% endif %}
+                {% if user.is_staff %}
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'admin' %}">Admin</a>
+                  </li>
+                {% endif %}
                 <li class="nav-item">
                   <a class="nav-link" href="/accounts/logout/">Logout</a>
                 </li>
