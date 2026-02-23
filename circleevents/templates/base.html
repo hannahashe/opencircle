@@ -78,13 +78,13 @@
     <!-- Main content - Home page, Event list, Event detail, Profile page, Event create/edit forms, Log in, Sign up, Log out -->
     <main>{% block content %} {% endblock %}</main>
     <!-- Footer -->
-    <footer class="bg-dark text-white text-center py-4 mt-5">
+    <footer class="text-center py-4 mt-5" id="footer">
       <div class="container">
        <h5>open.circle</h5>
-       <p>2026 Open Circle. Building better events for everyone.</p>
        <ul>
         <li class="list-inline-item"><a href="instagram.com/opencircle" class="text-white"><i class="fa-brands fa-instagram fa-lg" aria-label="Instagram"></i></a></li>
         <li class="list-inline-item"><a href="facebook.com/opencircle" class="text-white"><i class="fa-brands fa-facebook fa-lg" aria-label="Facebook"></i></a></li>
+        <li class="list-inline-item"><a href="bluesky.com/opencircle" class="text-white"><i class="fa-brands fa-bluesky fa-lg" aria-label="Bluesky"></i></a></li>
        </ul>
        <ul class="list-inline">
         <li class="list-inline-item"><a href="{% url 'home' %}" class="text-white">Home</a></li>
@@ -93,6 +93,7 @@
         <li class="list-inline-item"><a href="{% url 'event_list' %}" class="text-white">Events</a></li>
         <li class="list-inline-item"><a href="{% url 'create_event' %}" class="text-white">Create Event</a></li>
        </ul>
+       <p>2026 Open Circle. Building better events for everyone.</p>
       </div>
     </footer>
     <!-- Bootstrap JS -->
