@@ -99,6 +99,21 @@ body .navbar-brand {
     transition: ease-in-out 0.3s;
 }
 
+/* Buttons, links */
+
+.custom-btn-filled {
+  color: var(--background);
+  background-color: var(--secondary-accent);
+  border-radius: 5px;
+}
+
+.custom-btn-outline {
+  color: var(--primary-accent);
+  background: transparent;
+  border: 3px solid var(--primary-accent);
+  border-radius: 5px;
+}
+
 /* Footer */
 
 footer {
