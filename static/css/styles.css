@@ -36,6 +36,18 @@ p {
   font-family: "Atkinson Hyperlegible", sans-serif;
 }
 
+/* Container, Row, Col guideliens for debugging DELETE BEFORE FINAL DEPLOYMENT */
+/* .container {
+    border: 1px dotted red;
+}
+.row {
+    border: 2px dashed blue;
+}
+.col, .col-6, .col-12 {
+    border: 3px solid green;
+} */
+
+
 /* Navigation & logo */
 
 body .navbar {
