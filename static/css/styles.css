@@ -140,6 +140,8 @@ footer {
 /* Hero & Call To Action */
 
 /* Featured Events Section */
-#featured-events .card-shadow {
-    box-shadow: 0 4px 8px rgba(90, 166, 183, 0.5);
+#featured-events .card-shadow:hover,
+#featured-events .card-shadow:focus {
+    box-shadow: 5px 5px 5px rgba(90, 166, 183, 0.9);
+    transition: ease-in-out 0.3s;
 }
