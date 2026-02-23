@@ -23,16 +23,16 @@ body {
   font-family: "Atkinson Hyperlegible", sans-serif;
 }
 
-h1 {
+h1, h2, h3, h4, h5, h6 {
   font-family: "Space Grotesk", sans-serif;
   color: var(--text);
-  font-size: 2.5rem;
-  text-decoration: overline;
+  font-size: 2.2rem;
 }
 
 p {
   color: var(--secondary-text);
   line-height: 1.6;
+  font-family: "Atkinson Hyperlegible", sans-serif;
 }
 
 /* Navigation & logo */
