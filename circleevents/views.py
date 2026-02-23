@@ -79,7 +79,18 @@ def profile_view(request):
     """
     profile = request.user.profile
 
+    if request.method == "POST":
+        is_organiser = request.POST.get("is_organiser") == "on"
+        profile.is_organiser = is_organiser
+        profile.save()
+        return redirect("profile")
+
+    from .models import Event
+
+    user_events = Event.objects.filter(organiser=request.user).order_by("-created_at")
+
     # Find events that have been moderated but not yet notified
+    # to the organiser and add notifications for them
 
     newly_moderated = Event.objects.filter(
         organiser=request.user,
@@ -99,16 +110,6 @@ def profile_view(request):
                 )
         event.moderation_notified = True
         event.save()
-
-    if request.method == "POST":
-        is_organiser = request.POST.get("is_organiser") == "on"
-        profile.is_organiser = is_organiser
-        profile.save()
-        return redirect("profile")
-
-    from .models import Event
-
-    user_events = Event.objects.filter(organiser=request.user).order_by("-created_at")
 
     context = {
         "profile": profile,
