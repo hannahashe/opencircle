@@ -180,13 +180,13 @@ body .navbar-brand {
 }
 
 .bg-success-custom {
-    background-color: var(--secondary-accent);
+    background-color: var(--primary-accent);
     color: var(--background);
     border: 3px solid transparent;
 }
 
 .bg-pending {
-    background-color: var(--error);
+    background-color: var(--cta-highlight);
     color: var(--background);
     border: 3px solid transparent;
 }
