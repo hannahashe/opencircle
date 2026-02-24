@@ -150,6 +150,8 @@ footer {
 
 .rounded-circle {
     background: var(--accent-gradient);
+    width: 90px; 
+    height: 90px;
 }
 
 .values-icon {
