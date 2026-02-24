@@ -49,13 +49,13 @@ class EventListView(ListView):
     Only events with a status of "approved" and
     a published date that is less than or
     equal to the current time will be included in the queryset.
-    The events will be ordered by their published date in descending order.
+    The events will be ordered by their start datetime in ascending order.
     """
     def get_queryset(self):
         return Event.objects.filter(
             status="approved",
             published_at__lte=timezone.now()
-        ).order_by("-published_at")
+        ).order_by("start_datetime")
 
 
 class EventDetailView(DetailView):
