@@ -42,15 +42,7 @@
                             {% else %}
                             <div class="col-12 {% if field.name == 'title' or field.name == 'description' or field.name == 'access_notes' or field.name == 'sensory_notes' or field.name == 'safespace_notes' or field.name == 'ticket_url' or field.name == 'event_img' %}col-md-12{% elif field.name == 'postcode' %}col-md-4{% elif field.name == 'city' %}col-md-8{% else %}col-md-6{% endif %}">
                                 <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
-                                {% if field.field.widget.input_type == "file" %}
-                                {{ field.as_widget(attrs={"class": "form-control event-form-control"}) }}
-                                {% elif field.field.widget.input_type == "datetime-local" %}
-                                {{ field.as_widget(attrs={"class": "form-control event-form-control"}) }}
-                                {% elif field.field.widget.input_type == "textarea" %}
-                                {{ field.as_widget(attrs={"class": "form-control event-form-control", "rows": "4"}) }}
-                                {% else %}
-                                {{ field.as_widget(attrs={"class": "form-control event-form-control"}) }}
-                                {% endif %}
+                                {{ field }}
 
                                 {% if field.help_text %}
                                 <div class="form-text">{{ field.help_text }}</div>
