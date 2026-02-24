@@ -7,6 +7,7 @@ Body text: Atkinson Hyperlegible */
 /* Pallet */
 :root {
   --background: #f7f7f5;
+  --heading: #431c34;
   --text: #1f1f1f;
   --secondary-text: #4a4a4a;
   --accent-gradient: linear-gradient(45deg, #3a7f7a, #c08ab3, #9657e3);
@@ -26,7 +27,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Space Grotesk", sans-serif;
-  color: var(--text);
+  color: var(--heading);
   font-size: 2.2rem;
 }
 
