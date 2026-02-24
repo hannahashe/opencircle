@@ -113,11 +113,6 @@ body .navbar-brand {
     box-shadow: 0 10px 30px rgba(31, 31, 31, 0.08);
 }
 
-.event-card {
-    border-radius: 14px;
-    overflow: hidden;
-}
-
 .event-img {
     height: 220px;
     object-fit: cover;
@@ -175,6 +170,7 @@ footer {
     box-shadow: 5px 5px 5px rgba(90, 166, 183, 0.9);
     transition: ease-in-out 0.3s;
 }
+
 .event-card {
     border-radius: 5px;
     overflow: hidden;
