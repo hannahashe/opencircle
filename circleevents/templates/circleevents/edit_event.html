@@ -8,7 +8,13 @@
         <div class="col-12 col-lg-10">
             <div class="page-header mb-4">
                 <h2 class="mb-1">Edit event</h2>
-                <p class="text-muted mb-0">Editing this event will resubmit it for approval.</p>
+                <p class="text-muted mb-0">Editing this event will resubmit it for approval.
+                {% if event.status == "approved" %}
+                Your changes will not be visible to the public until the event is re-approved by our moderators.
+                {% endif %}
+                 Please provide clear, specific information to improve the chances of your event being approved quickly.
+                See below for further guidance.
+            </p>
             </div>
 
             <div class="accordion create-guidance-accordion mb-4" id="editEventGuidanceAccordion">
@@ -22,7 +28,7 @@
                             aria-expanded="false"
                             aria-controls="editApprovalGuidanceCollapse"
                         >
-                            How can I make my submission more likely to be approved?
+                            How can I make my event submission more likely to be approved?
                         </button>
                     </h3>
                     <div
