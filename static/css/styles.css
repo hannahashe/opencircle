@@ -512,3 +512,39 @@ footer {
 .pagination-meta {
   color: var(--secondary-text);
 }
+
+/* Create event guidance accordion */
+
+.create-guidance-accordion .accordion-item {
+  border: 2px solid rgba(58, 127, 122, 0.25);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+}
+
+.create-guidance-accordion .accordion-button {
+  background-color: rgba(58, 127, 122, 0.12);
+  color: var(--heading);
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+}
+
+.create-guidance-accordion .accordion-button:not(.collapsed) {
+  background-color: var(--secondary-accent);
+  color: var(--background);
+}
+
+.create-guidance-accordion .accordion-button:focus {
+  box-shadow: 0 0 0 0.2rem rgba(192, 138, 179, 0.25);
+  border-color: var(--secondary-accent);
+}
+
+.create-guidance-accordion .accordion-body {
+  background-color: #ffffff;
+  color: var(--text);
+}
+
+.create-guidance-accordion .accordion-body p,
+.create-guidance-accordion .accordion-body li {
+  color: var(--secondary-text);
+}

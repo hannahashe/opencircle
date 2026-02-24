@@ -11,6 +11,72 @@
                 <p class="text-muted mb-0">Editing this event will resubmit it for approval.</p>
             </div>
 
+            <div class="accordion create-guidance-accordion mb-4" id="editEventGuidanceAccordion">
+                <div class="accordion-item">
+                    <h3 class="accordion-header" id="editApprovalGuidanceHeading">
+                        <button
+                            class="accordion-button collapsed"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#editApprovalGuidanceCollapse"
+                            aria-expanded="false"
+                            aria-controls="editApprovalGuidanceCollapse"
+                        >
+                            How can I make my submission more likely to be approved?
+                        </button>
+                    </h3>
+                    <div
+                        id="editApprovalGuidanceCollapse"
+                        class="accordion-collapse collapse"
+                        aria-labelledby="editApprovalGuidanceHeading"
+                        data-bs-parent="#editEventGuidanceAccordion"
+                    >
+                        <div class="accordion-body">
+                            <p class="mb-2">To improve approval chances, make your listing clear, specific, and inclusive:</p>
+                            <ul class="mb-2">
+                                <li>Provide complete accessibility details, including step-free access, toilets, seating, and quiet spaces.</li>
+                                <li>Use fair, respectful language and avoid discriminatory wording in event descriptions.</li>
+                                <li>Add practical details people can trust: exact venue, timings, contact email, and ticket information.</li>
+                                <li>Use the access and sensory note fields to help people decide if the event is suitable for their needs.</li>
+                            </ul>
+                            <p class="mb-0">Events that are transparent, accessible, and community-focused are more likely to be approved quickly.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h3 class="accordion-header" id="editSafeSpaceHeading">
+                        <button
+                            class="accordion-button collapsed"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#editSafeSpaceCollapse"
+                            aria-expanded="false"
+                            aria-controls="editSafeSpaceCollapse"
+                        >
+                            Safe space policy guidance
+                        </button>
+                    </h3>
+                    <div
+                        id="editSafeSpaceCollapse"
+                        class="accordion-collapse collapse"
+                        aria-labelledby="editSafeSpaceHeading"
+                        data-bs-parent="#editEventGuidanceAccordion"
+                    >
+                        <div class="accordion-body">
+                            <p class="mb-2">Open Circle expects events to be safe, welcoming, and respectful for everyone.</p>
+                            <ul class="mb-2">
+                                <li>Do not tolerate harassment, hate speech, bullying, or discrimination.</li>
+                                <li>State any behaviour expectations and boundaries clearly in your event information.</li>
+                                <li>Explain how attendees can report concerns and who to contact during the event.</li>
+                                <li>Consider accessibility, consent, and safeguarding when planning activities and spaces.</li>
+                            </ul>
+                            <p class="mb-0">If your event includes clear safe-space expectations, it helps moderators and attendees trust your listing.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             {% if event.status == "rejected" and event.admin_comment %}
             <div class="alert profile-feedback-alert mb-4" role="status" aria-live="polite">
                 <strong>This event was rejected.</strong><br>
