@@ -5,6 +5,25 @@ from .models import Event
 
 
 class EventForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        for field in self.fields.values():
+            widget = field.widget
+            existing_classes = widget.attrs.get("class", "")
+
+            if isinstance(widget, forms.CheckboxInput):
+                widget.attrs["class"] = (
+                    f"{existing_classes} form-check-input"
+                ).strip()
+            else:
+                widget.attrs["class"] = (
+                    f"{existing_classes} form-control event-form-control"
+                ).strip()
+
+            if isinstance(widget, forms.Textarea):
+                widget.attrs.setdefault("rows", 4)
+
     class Meta:
         model = Event
         fields = [
