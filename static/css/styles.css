@@ -107,14 +107,14 @@ body .navbar-brand {
 /* Shared layout styles */
 
 .page-header {
-  border-bottom: 1px solid rgba(31, 31, 31, 0.1);
+  border-bottom: 1px solid rgba(0, 154, 148, 0.1);
   padding-bottom: 0.75rem;
 }
 
 .section-card {
   background: #ffffff;
   border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(31, 31, 31, 0.08);
+  box-shadow: 0 10px 30px rgba(2, 124, 146, 0.08);
 }
 
 .event-img {
