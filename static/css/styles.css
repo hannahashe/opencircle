@@ -272,3 +272,50 @@ footer {
 .event-link:focus {
   color: var(--secondary-accent);
 }
+
+.profile-events-table {
+  border: 2px solid var(--primary-accent);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.profile-events-table thead th {
+  background-color: var(--primary-accent);
+  color: var(--background);
+  border-bottom: 2px solid var(--secondary-accent);
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 600;
+}
+
+.profile-events-table tbody th,
+.profile-events-table tbody td {
+  background-color: #ffffff;
+  color: var(--text);
+  border-color: rgba(58, 127, 122, 0.2);
+}
+
+.profile-events-table tbody tr:nth-of-type(even) th,
+.profile-events-table tbody tr:nth-of-type(even) td {
+  background-color: rgba(192, 138, 179, 0.08);
+}
+
+.profile-events-table .event-link {
+  color: var(--heading);
+  text-decoration: underline;
+  text-underline-offset: 0.14em;
+}
+
+.profile-events-table .event-link:hover,
+.profile-events-table .event-link:focus {
+  color: var(--secondary-accent);
+}
+
+.profile-feedback-alert {
+  background-color: var(--secondary-accent);
+  border: 2px solid var(--primary-accent);
+  color: var(--background);
+}
+
+.profile-feedback-alert strong {
+  color: var(--background);
+}
