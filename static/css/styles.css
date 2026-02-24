@@ -377,3 +377,34 @@ footer {
 .event-submit-btn {
   min-width: 220px;
 }
+
+/* Django messages */
+
+.alert-success {
+  background-color: var(--primary-accent);
+  border: 2px solid rgba(28, 61, 67, 0.2);
+  color: var(--background);
+}
+
+.alert-info {
+  background-color: var(--secondary-accent);
+  border: 2px solid rgba(28, 61, 67, 0.2);
+  color: var(--background);
+}
+
+.alert-warning {
+  background-color: var(--cta-highlight);
+  border: 2px solid rgba(28, 61, 67, 0.2);
+  color: var(--background);
+}
+
+.alert-danger,
+.alert-error {
+  background-color: var(--error);
+  border: 2px solid rgba(28, 61, 67, 0.2);
+  color: var(--background);
+}
+
+.alert .btn-close {
+  filter: invert(1) grayscale(100%) brightness(200%);
+}
