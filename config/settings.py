@@ -1,11 +1,12 @@
-from pathlib import Path
 import os
+from pathlib import Path
+import dj_database_url
+import cloudinary
+
 
 if os.path.isfile("env.py"):
     import env
 
-import dj_database_url
-import cloudinary
 
 SITE_ID = 1
 
@@ -20,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = os.environ.get("DEBUG", "False") == "True"
 
 ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "").split(",")
 
@@ -91,7 +92,9 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 
 DATABASES = {
-    "default": dj_database_url.parse(os.getenv("DATABASE_URL"))
+    "default": dj_database_url.parse(
+        os.getenv("DATABASE_URL")
+        )
 }
 
 
