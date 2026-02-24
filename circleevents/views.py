@@ -42,7 +42,7 @@ class EventListView(ListView):
     model = Event
     template_name = "circleevents/event_list.html"
     context_object_name = "events"
-    paginate_by = 4
+    paginate_by = 6
     """
     Override the get_queryset method to filter events
     based on their status and published date.
