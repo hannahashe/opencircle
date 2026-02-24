@@ -147,14 +147,15 @@ body .navbar-brand {
   color: var(--background);
   background-color: var(--secondary-accent);
   border: 3px solid transparent;
+  border-radius: 5px;
 }
+
 
 .custom-btn-filled:hover,
 .custom-btn-filled:focus {
     background-color: transparent;
     border: 3px solid var(--secondary-accent);
 }
-
 
 /* Footer */
 
@@ -173,6 +174,17 @@ footer {
 #featured-events .card-shadow:focus {
     box-shadow: 5px 5px 5px rgba(90, 166, 183, 0.9);
     transition: ease-in-out 0.3s;
+}
+.event-card {
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.event-title {
+    color: var(--heading);
+    font-family: "Space Grotesk", sans-serif;
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
 }
 
 /* Values Section */
