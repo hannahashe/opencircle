@@ -125,12 +125,12 @@ def profile_view(request):
         if event.status == "approved":
             messages.success(
                 request,
-                f"Your event '{event.title}' has been approved and is now live.",
+                f"Event approved: \"{event.title}\" is now live.",
                 )
         elif event.status == "rejected":
             messages.warning(
                 request,
-                f"Your event '{event.title}' has been rejected. Please review the feedback below.",
+                f"Event not approved: \"{event.title}\" was rejected. Please review the moderator feedback below.",
                 )
         event.moderation_notified = True
         event.save()
@@ -163,7 +163,7 @@ def create_event(request):
 
             messages.success(
                 request,
-                "Your event has been submitted and is awaiting approval."
+                f"Event submitted: \"{event.title}\" is now pending moderator review."
             )
             return redirect("event_list")
     else:
@@ -199,10 +199,10 @@ def edit_event(request, slug):
             event.admin_comment = ""
             updated_event.save()
 
-            messages.info(request,
-                          "Your event has been updated "
-                          "and is awaiting re-approval."
-                          )
+            messages.info(
+                request,
+                f"Event updated: \"{updated_event.title}\" has been resubmitted for moderator review.",
+            )
 
             return redirect("event_list")
     else:
@@ -236,6 +236,6 @@ def delete_event(request, slug):
 
     messages.success(
         request,
-        "Your event has been deleted."
+        f"Event deleted: \"{event.title}\" has been removed."
     )
     return redirect("event_list")
