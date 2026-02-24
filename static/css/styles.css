@@ -43,6 +43,7 @@ p {
 }
 
 /* Container, Row, Col guideliens for debugging DELETE BEFORE FINAL DEPLOYMENT */
+
 .container, .container-fluid {
   border: 3px dotted red;
 }
@@ -52,7 +53,7 @@ p {
   border: 4px dashed blue;
 }
 
-.col, .col-6, .col-12,
+.col, .col-3, .col-4, .col-6, .col-12,
 .col-md-6, .col-md-12,
 .col-lg-6, .col-lg-12,
 .col-xl-6, .col-xl-12 {
