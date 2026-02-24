@@ -155,6 +155,30 @@ body .navbar-brand {
   border: 3px solid var(--secondary-accent);
 }
 
+.bg-step {
+  background-color: var(--heading);
+  color: var(--background);
+  border: 3px solid transparent;
+}
+
+.bg-quiet {
+  background-color: var(--cta-highlight);
+  color: var(--background);
+  border: 3px solid transparent;
+}
+
+.bg-toilet {
+  background-color: var(--secondary-accent);
+  color: var(--background);
+  border: 3px solid transparent;
+}
+
+.bg-seating {
+  background-color: var(--primary-accent);
+  color: var(--background);
+  border: 3px solid transparent;
+}
+
 /* Footer */
 
 footer {
