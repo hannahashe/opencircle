@@ -18,6 +18,12 @@ class HomeView(TemplateView):
      It uses the TemplateView class from Django's generic views,
      which allows us to render a template without needing to define a model or
      queryset. The template used for the homepage is "circleevents/home.html".
+     In the get_context_data method, we override the default context data to
+     include a list of featured events. We filter the Event model to include
+     only events with a status of "approved" and a startdate_time that is in
+     the future, ordering them by their start datetime. We then slice the
+     queryset to include only the first 3 events, which will be displayed as
+     featured events on the homepage.
      """
 
     template_name = "circleevents/home.html"
@@ -26,7 +32,7 @@ class HomeView(TemplateView):
         context = super().get_context_data(**kwargs)
         context["featured_events"] = Event.objects.filter(
             status="approved"
-        ).order_by("start_datetime")[:3]
+        ).filter(start_datetime__gte=timezone.now()).order_by("start_datetime")[:3]
         return context
 
 
