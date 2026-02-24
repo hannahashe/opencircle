@@ -44,17 +44,19 @@ p {
 
 /* Container, Row, Col guideliens for debugging DELETE BEFORE FINAL DEPLOYMENT */
 .container, .container-fluid {
-    border: 3px dotted red;
+  border: 3px dotted red;
 }
+
 .row, .row-cols-1, .row-cols-md-2, .row-cols-lg-3
 .row-cols-xl-4 {
-    border: 4px dashed blue;
+  border: 4px dashed blue;
 }
+
 .col, .col-6, .col-12,
 .col-md-6, .col-md-12,
 .col-lg-6, .col-lg-12,
 .col-xl-6, .col-xl-12 {
-    border: 6px solid green;
+  border: 6px solid green;
 }
 
 /* Navigation & logo */
