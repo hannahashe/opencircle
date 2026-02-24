@@ -1,14 +1,61 @@
 {% extends "base.html" %}
 
+{% block title %}Sign Up | Open Circle{% endblock %}
+
 {% block content %}
-<h2>Sign Up</h2>
-<form method="post" action="{% url 'account_signup' %}">
-    {% csrf_token %}
-    {{ form.as_p }}
-    {% if redirect_field_value %}
-    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}">
-    {% endif %}
-    <button type="submit">Sign Up</button>
-</form>
-<p>Already have an account? <a href="{% url 'account_login' %}">Login</a></p>
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-7">
+            <div class="page-header mb-4">
+                <h2 class="mb-1">Create your account</h2>
+                <p class="text-muted mb-0">Join Open Circle to submit and manage events.</p>
+            </div>
+
+            <div class="section-card p-4 p-md-5">
+                <form method="post" action="{% url 'account_signup' %}" class="auth-form" novalidate>
+                    {% csrf_token %}
+
+                    {% if form.non_field_errors %}
+                    <div class="alert event-form-alert" role="alert" aria-live="assertive">
+                        {{ form.non_field_errors }}
+                    </div>
+                    {% endif %}
+
+                    {% for field in form %}
+                    <div class="mb-3">
+                        {% if field.field.widget.input_type == "checkbox" %}
+                        <div class="form-check auth-form-check">
+                            {{ field }}
+                            <label for="{{ field.id_for_label }}" class="form-check-label">{{ field.label }}</label>
+                        </div>
+                        {% else %}
+                        <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
+                        {{ field }}
+                        {% endif %}
+
+                        {% if field.help_text %}
+                        <div class="form-text">{{ field.help_text }}</div>
+                        {% endif %}
+
+                        {% for error in field.errors %}
+                        <div class="invalid-feedback d-block">{{ error }}</div>
+                        {% endfor %}
+                    </div>
+                    {% endfor %}
+
+                    {% if redirect_field_value %}
+                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}">
+                    {% endif %}
+
+                    <div class="d-grid d-sm-flex gap-2 mt-4">
+                        <button type="submit" class="btn custom-btn-filled auth-submit-btn">Create account</button>
+                        <a href="{% url 'home' %}" class="btn custom-btn-outline">Cancel</a>
+                    </div>
+                </form>
+
+                <p class="mt-3 mb-0 auth-form-copy">Already have an account? <a href="{% url 'account_login' %}">Login</a></p>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

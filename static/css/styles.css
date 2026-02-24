@@ -378,6 +378,73 @@ footer {
   min-width: 220px;
 }
 
+/* Authentication pages */
+
+.auth-form .form-label {
+  color: var(--heading);
+  font-weight: 700;
+}
+
+.auth-form input:not([type="checkbox"]),
+.auth-form select,
+.auth-form textarea {
+  width: 100%;
+  border: 2px solid rgba(58, 127, 122, 0.35);
+  border-radius: 8px;
+  color: var(--text);
+  background-color: #ffffff;
+  padding: 0.55rem 0.75rem;
+}
+
+.auth-form input:focus,
+.auth-form select:focus,
+.auth-form textarea:focus {
+  border-color: var(--secondary-accent);
+  box-shadow: 0 0 0 0.2rem rgba(192, 138, 179, 0.25);
+  outline: 0;
+}
+
+.auth-form .form-text {
+  color: var(--secondary-text);
+}
+
+.auth-form .invalid-feedback {
+  color: var(--error);
+  font-weight: 600;
+}
+
+.auth-form-check {
+  background-color: rgba(58, 127, 122, 0.08);
+  border: 1px solid rgba(58, 127, 122, 0.2);
+  border-radius: 8px;
+  padding: 0.75rem 1rem 0.75rem 2rem;
+}
+
+.auth-form input[type="checkbox"] {
+  border-color: var(--primary-accent);
+}
+
+.auth-form input[type="checkbox"]:checked {
+  background-color: var(--primary-accent);
+  border-color: var(--primary-accent);
+}
+
+.auth-form input[type="checkbox"]:focus {
+  box-shadow: 0 0 0 0.2rem rgba(58, 127, 122, 0.3);
+}
+
+.auth-form .form-check-label {
+  color: var(--heading);
+}
+
+.auth-form-copy {
+  color: var(--secondary-text);
+}
+
+.auth-submit-btn {
+  min-width: 180px;
+}
+
 /* Django messages */
 
 .alert-success {
