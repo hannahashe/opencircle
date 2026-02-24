@@ -127,6 +127,33 @@ body .navbar-brand {
     border: 3px solid var(--secondary-accent);
 }
 
+/* Shared layout styles */
+
+.page-header {
+    border-bottom: 1px solid rgba(31, 31, 31, 0.1);
+    padding-bottom: 0.75rem;
+}
+
+.section-card {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(31, 31, 31, 0.08);
+}
+
+.event-card {
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.event-img {
+    height: 220px;
+    object-fit: cover;
+}
+
+.event-meta p {
+    color: var(--secondary-text);
+}
+
 /* Footer */
 
 footer {
