@@ -261,3 +261,14 @@ footer {
 .value-title {
   font-size: 1.75rem;
 }
+
+/* Profile page */
+.event-link {
+  color: var(--heading);
+  text-decoration: none;
+}
+
+.event-link:hover,
+.event-link:focus {
+  color: var(--secondary-accent);
+}

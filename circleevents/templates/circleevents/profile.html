@@ -89,13 +89,14 @@
               <tr>
                 <th scope="row">
                   {% if event.status == "approved" %}
-                  <a href="{% url 'event_detail' event.slug %}">{{ event.title }}</a>
+                  <a href="{% url 'event_detail' event.slug %}" 
+                  class="event-link">{{ event.title }}</a>
                   {% else %}
                   {{ event.title }}
                   {% endif %}
                 </th>
-                <td class="small text-nowrap">{{ event.start_datetime|date:"F j, Y, g:i a" }}</td>
-                <td class="small">{{ event.address }}, {{ event.city }}{% if event.postcode %}, {{ event.postcode }}{% endif %}</td>
+                <td>{{ event.start_datetime|date:"F j, Y, g:i a" }}</td>
+                <td>{{ event.address }}, {{ event.city }}{% if event.postcode %}, {{ event.postcode }}{% endif %}</td>
                 <td>
                   {% if event.status == "approved" %}
                   <span class="badge bg-success-custom">Approved</span>
