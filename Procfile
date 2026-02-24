@@ -1,1 +1,1 @@
-web: gunicorn opencircle.wsgi
+web: gunicorn config.wsgi
