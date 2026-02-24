@@ -7,18 +7,18 @@
     <div class="row justify-content-center">
         <div class="col-12 col-md-10 col-lg-7">
             <div class="page-header mb-4">
-                <h2 class="mb-1">Sign out</h2>
-                <p class="text-muted mb-0">Are you sure you want to sign out of your Open Circle account?</p>
+                <h2 class="mb-1">Log out</h2>
+                <p class="text-muted mb-0">Are you sure you want to log out of your Open Circle account?</p>
             </div>
 
             <div class="section-card p-4 p-md-5">
-                <form method="post" action="{% url 'account_logout' %}" class="auth-form" onsubmit="return confirm('Are you sure you want to sign out?');">
+                <form method="post" action="{% url 'account_logout' %}" class="auth-form" onsubmit="return confirm('Are you sure you want to log out?');">
                     {% csrf_token %}
                     {% if redirect_field_value %}
                     <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}">
                     {% endif %}
                     <div class="d-grid d-sm-flex gap-2">
-                        <button type="submit" class="btn custom-btn-filled auth-submit-btn">Yes, sign out</button>
+                        <button type="submit" class="btn custom-btn-filled auth-submit-btn">Yes, log out</button>
                         <a href="{% url 'event_list' %}" class="btn custom-btn-outline">Cancel</a>
                     </div>
                 </form>
