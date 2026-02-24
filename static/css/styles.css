@@ -168,6 +168,49 @@ body .navbar-brand {
   border: 3px solid var(--secondary-accent);
 }
 
+.custom-btn-filled-reverse {
+  color: var(--background);
+  background-color: var(--primary-accent);
+  border: 3px solid transparent;
+  border-radius: 5px;
+}
+
+.custom-btn-outline-reverse {
+  color: var(--primary-accent);
+  background: transparent;
+  border: 3px solid var(--primary-accent);
+  border-radius: 5px;
+}
+
+.custom-btn-filled-reverse:hover,
+.custom-btn-filled-reverse:focus {
+  color: var(--primary-accent);
+  background-color: transparent;
+  border: 3px solid var(--primary-accent);
+}
+
+.custom-btn-outline-reverse:hover,
+.custom-btn-outline-reverse:focus {
+  color: var(--background);
+  background-color: var(--primary-accent);
+  border: 3px solid transparent;
+}
+
+.custom-btn-cta {
+  color: var(--background);
+  background-color: var(--cta-highlight);
+  border: 3px solid transparent;
+  border-radius: 5px;
+  size: 1.5rem;
+}
+
+.custom-btn-cta:hover,
+.custom-btn-cta:focus {
+  color: var(--background);
+  background-color: transparent;
+  border: 3px solid var(--cta-highlight);
+}
+
 .bg-step {
   background-color: var(--heading);
   color: var(--background);
@@ -220,23 +263,38 @@ footer {
 }
 
 /* Home page */
+
 /* Hero & Call To Action */
+
+.hero-background {
+  background: var(--accent-gradient);
+  border-radius: 16px;
+  padding: 0.3rem;
+  box-shadow: 0 12px 28px rgba(58, 127, 122, 0.18);
+}
+
+.hero {
+  background-color: var(--background);
+  border-radius: 14px;
+  padding: clamp(1.25rem, 3vw, 2.5rem);
+}
+
+.cta-outline {
+  border: 2px solid rgba(58, 127, 122, 0.2);
+  background-color: rgba(247, 247, 245, 0.92);
+  border-radius: 12px;
+  padding: clamp(1.25rem, 3vw, 2rem);
+}
+
+.hero .text-center {
+  margin-bottom: 0 !important;
+}
 
 /* Featured Events Section */
 
 .section-bg {
   background-color: var(--secondary-accent);
   padding: 2rem 0;
-}
-
-#featured-events {
-  background-color: var(--secondary-accent);
-}
-
-#featured-events .card-shadow:hover,
-#featured-events .card-shadow:focus {
-  box-shadow: 5px 5px 5px rgba(90, 166, 183, 0.9);
-  transition: ease-in-out 0.3s;
 }
 
 .event-card {
@@ -269,6 +327,7 @@ footer {
 }
 
 /* Profile page */
+/* Profile Events Table */
 
 .profile-events-table {
   border: 2px solid var(--primary-accent);
@@ -316,7 +375,7 @@ footer {
   color: var(--background);
 }
 
-/* Create/Edit Event forms */
+/* Create event & Delete Event forms */
 
 .event-form .form-label {
   color: var(--heading);
@@ -378,7 +437,43 @@ footer {
   min-width: 220px;
 }
 
-/* Authentication pages */
+/* Create & event pages - guidance accordion */
+
+.create-guidance-accordion .accordion-item {
+  border: 2px solid rgba(58, 127, 122, 0.25);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+}
+
+.create-guidance-accordion .accordion-button {
+  background-color: rgba(58, 127, 122, 0.12);
+  color: var(--heading);
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+}
+
+.create-guidance-accordion .accordion-button:not(.collapsed) {
+  background-color: var(--secondary-accent);
+  color: var(--background);
+}
+
+.create-guidance-accordion .accordion-button:focus {
+  box-shadow: 0 0 0 0.2rem rgba(192, 138, 179, 0.25);
+  border-color: var(--secondary-accent);
+}
+
+.create-guidance-accordion .accordion-body {
+  background-color: #ffffff;
+  color: var(--text);
+}
+
+.create-guidance-accordion .accordion-body p,
+.create-guidance-accordion .accordion-body li {
+  color: var(--secondary-text);
+}
+
+/* Authentication (login, logout & signup) pages */
 
 .auth-form .form-label {
   color: var(--heading);
@@ -510,41 +605,5 @@ footer {
 }
 
 .pagination-meta {
-  color: var(--secondary-text);
-}
-
-/* Create event guidance accordion */
-
-.create-guidance-accordion .accordion-item {
-  border: 2px solid rgba(58, 127, 122, 0.25);
-  border-radius: 10px;
-  overflow: hidden;
-  margin-bottom: 0.75rem;
-}
-
-.create-guidance-accordion .accordion-button {
-  background-color: rgba(58, 127, 122, 0.12);
-  color: var(--heading);
-  font-family: "Space Grotesk", sans-serif;
-  font-weight: 700;
-}
-
-.create-guidance-accordion .accordion-button:not(.collapsed) {
-  background-color: var(--secondary-accent);
-  color: var(--background);
-}
-
-.create-guidance-accordion .accordion-button:focus {
-  box-shadow: 0 0 0 0.2rem rgba(192, 138, 179, 0.25);
-  border-color: var(--secondary-accent);
-}
-
-.create-guidance-accordion .accordion-body {
-  background-color: #ffffff;
-  color: var(--text);
-}
-
-.create-guidance-accordion .accordion-body p,
-.create-guidance-accordion .accordion-body li {
   color: var(--secondary-text);
 }
