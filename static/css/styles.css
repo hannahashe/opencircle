@@ -2,12 +2,12 @@
 Headings & Titles: Space Grotesk
 Body text: Atkinson Hyperlegible */
 
-@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Space+Grotesk:wght@300..700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Space+Grotesk:wght@300..700&display=swap");
 
 /* Pallet */
 :root {
   --background: #f7f7f5;
-  --heading: #431c34;
+  --heading: #1c3d43;
   --text: #1f1f1f;
   --secondary-text: #4a4a4a;
   --accent-gradient: linear-gradient(45deg, #3a7f7a, #c08ab3, #9657e3);
@@ -25,7 +25,12 @@ body {
   font-family: "Atkinson Hyperlegible", sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: "Space Grotesk", sans-serif;
   color: var(--heading);
   font-size: 2.2rem;
@@ -48,78 +53,77 @@ p {
     border: 3px solid green;
 } */
 
-
 /* Navigation & logo */
 
 body .navbar {
- background: var(--accent-gradient);
+  background: var(--accent-gradient);
 }
 
 body .navbar-brand {
-    font-size: 1.5rem;
-    font-family: "Space Grotesk", sans-serif;
-    text-transform: lowercase;
+  font-size: 1.5rem;
+  font-family: "Space Grotesk", sans-serif;
+  text-transform: lowercase;
 }
 
 .logo-circle {
-    width: 50px;
-    height: 50px;
-    border: 1.5px solid #fff;
-    border-radius: 50%;
-    display: inline-block;
+  width: 50px;
+  height: 50px;
+  border: 1.5px solid #fff;
+  border-radius: 50%;
+  display: inline-block;
 }
 
 #nav-logo {
-    font-size: 1.8rem;
-    padding: 0.5rem;
+  font-size: 1.8rem;
+  padding: 0.5rem;
 }
 
 #nav-logo:hover,
 #nav-logo:focus {
-    color: var(--secondary-accent);
+  color: var(--secondary-accent);
 }
 
 .logo-circle:hover,
 .logo-circle:focus {
-    background-color: var(--background);
+  background-color: var(--background);
 }
 
 .nav-link {
-    font-weight: 550;
-    text-transform: lowercase;
-    font-family: "Space Grotesk", sans-serif;
+  font-weight: 550;
+  text-transform: lowercase;
+  font-family: "Space Grotesk", sans-serif;
 }
 
 .nav-link:hover,
 .nav-link:focus {
-    color: var(--primary-accent);
+  color: var(--primary-accent);
 }
 
 .nav-link a:hover {
-    box-shadow: 0 0 5px var(--background) !important;
-    transition: ease-in-out 0.3s;
+  box-shadow: 0 0 5px var(--background) !important;
+  transition: ease-in-out 0.3s;
 }
 
 /* Shared layout styles */
 
 .page-header {
-    border-bottom: 1px solid rgba(31, 31, 31, 0.1);
-    padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(31, 31, 31, 0.1);
+  padding-bottom: 0.75rem;
 }
 
 .section-card {
-    background: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(31, 31, 31, 0.08);
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(31, 31, 31, 0.08);
 }
 
 .event-img {
-    height: 220px;
-    object-fit: cover;
+  height: 220px;
+  object-fit: cover;
 }
 
 .event-meta p {
-    color: var(--secondary-text);
+  color: var(--secondary-text);
 }
 
 /* Buttons, links, badges */
@@ -133,9 +137,9 @@ body .navbar-brand {
 
 .custom-btn-outline:hover,
 .custom-btn-outline:focus {
-    color: var(--background);
-    background-color: var(--primary-accent);
-    border: 3px solid transparent;
+  color: var(--background);
+  background-color: var(--primary-accent);
+  border: 3px solid transparent;
 }
 
 .custom-btn-filled {
@@ -145,20 +149,19 @@ body .navbar-brand {
   border-radius: 5px;
 }
 
-
 .custom-btn-filled:hover,
 .custom-btn-filled:focus {
-    background-color: transparent;
-    border: 3px solid var(--secondary-accent);
+  background-color: transparent;
+  border: 3px solid var(--secondary-accent);
 }
 
 /* Footer */
 
 footer {
-    background: var(--reverse-gradient);
-    padding: 1.5rem 0;
-    text-align: center;
-    font-family: "Atkinson Hyperlegible", sans-serif;
+  background: var(--reverse-gradient);
+  padding: 1.5rem 0;
+  text-align: center;
+  font-family: "Atkinson Hyperlegible", sans-serif;
 }
 
 /* Home page */
@@ -167,41 +170,41 @@ footer {
 /* Featured Events Section */
 
 .section-bg {
-    background-color: var(--secondary-accent);
-    padding: 2rem 0;
+  background-color: var(--secondary-accent);
+  padding: 2rem 0;
 }
 
 #featured-events {
-    background-color: var(--secondary-accent);
+  background-color: var(--secondary-accent);
 }
 
 #featured-events .card-shadow:hover,
 #featured-events .card-shadow:focus {
-    box-shadow: 5px 5px 5px rgba(90, 166, 183, 0.9);
-    transition: ease-in-out 0.3s;
+  box-shadow: 5px 5px 5px rgba(90, 166, 183, 0.9);
+  transition: ease-in-out 0.3s;
 }
 
 .event-card {
-    border-radius: 5px;
-    overflow: hidden;
+  border-radius: 5px;
+  overflow: hidden;
 }
 
 .event-title {
-    color: var(--heading);
-    font-family: "Space Grotesk", sans-serif;
-    margin-bottom: 0.5rem;
-    font-size: 1.5rem;
+  color: var(--heading);
+  font-family: "Space Grotesk", sans-serif;
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
 }
 
 /* Values Section */
 
 .rounded-circle {
-    background: var(--accent-gradient);
-    width: 90px; 
-    height: 90px;
+  background: var(--accent-gradient);
+  width: 90px;
+  height: 90px;
 }
 
 .values-icon {
-    font-size: 3rem;
-    color: var(--background);
+  font-size: 3rem;
+  color: var(--background);
 }
