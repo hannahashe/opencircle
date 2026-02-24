@@ -42,9 +42,15 @@ p {
   font-family: "Atkinson Hyperlegible", sans-serif;
 }
 
+a {
+  color: var(--primary-accent);
+  text-decoration: wavy underline;
+  text-underline-offset: 0.14em;
+}
+
 /* Container, Row, Col guideliens for debugging DELETE BEFORE FINAL DEPLOYMENT */
 
-.container, .container-fluid {
+/* .container, .container-fluid {
   border: 3px dotted red;
 }
 
@@ -58,7 +64,7 @@ p {
 .col-lg-6, .col-lg-12,
 .col-xl-6, .col-xl-12 {
   border: 6px solid green;
-}
+} */
 
 /* Navigation & logo */
 
@@ -263,15 +269,6 @@ footer {
 }
 
 /* Profile page */
-.event-link {
-  color: var(--heading);
-  text-decoration: none;
-}
-
-.event-link:hover,
-.event-link:focus {
-  color: var(--secondary-accent);
-}
 
 .profile-events-table {
   border: 2px solid var(--primary-accent);
@@ -301,8 +298,7 @@ footer {
 
 .profile-events-table .event-link {
   color: var(--heading);
-  text-decoration: underline;
-  text-underline-offset: 0.14em;
+  text-decoration: none;
 }
 
 .profile-events-table .event-link:hover,
