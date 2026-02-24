@@ -57,11 +57,11 @@
                                 <strong>{{ event.title }}</strong>
 
                                 {% if event.status == "approved" %}
-                                    <span class="badge bg-success">Approved</span>
+                                    <span class="badge bg-success-custom">Approved</span>
                                 {% elif event.status == "pending" %}
-                                    <span class="badge bg-warning text-dark">Pending</span>
+                                    <span class="badge bg-pending">Pending</span>
                                 {% elif event.status == "rejected" %}
-                                    <span class="badge bg-danger">Rejected</span>
+                                    <span class="badge bg-error">Rejected</span>
                                 {% endif %}
                             </div>
 

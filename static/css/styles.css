@@ -179,6 +179,24 @@ body .navbar-brand {
   border: 3px solid transparent;
 }
 
+.bg-success-custom {
+    background-color: var(--secondary-accent);
+    color: var(--background);
+    border: 3px solid transparent;
+}
+
+.bg-pending {
+    background-color: var(--error);
+    color: var(--background);
+    border: 3px solid transparent;
+}
+
+.bg-error {
+    background-color: var(--error);
+    color: var(--background);
+    border: 3px solid transparent;
+}
+
 /* Footer */
 
 footer {
