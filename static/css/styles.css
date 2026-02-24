@@ -165,6 +165,16 @@ footer {
 /* Hero & Call To Action */
 
 /* Featured Events Section */
+
+.section-bg {
+    background-color: var(--secondary-accent);
+    padding: 2rem 0;
+}
+
+#featured-events {
+    background-color: var(--secondary-accent);
+}
+
 #featured-events .card-shadow:hover,
 #featured-events .card-shadow:focus {
     box-shadow: 5px 5px 5px rgba(90, 166, 183, 0.9);
