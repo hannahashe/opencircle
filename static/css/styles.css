@@ -315,3 +315,65 @@ footer {
 .profile-feedback-alert strong {
   color: var(--background);
 }
+
+/* Create/Edit Event forms */
+
+.event-form .form-label {
+  color: var(--heading);
+  font-weight: 700;
+}
+
+.event-form-control {
+  border: 2px solid rgba(58, 127, 122, 0.35);
+  border-radius: 8px;
+  color: var(--text);
+  background-color: #ffffff;
+}
+
+.event-form-control:focus {
+  border-color: var(--secondary-accent);
+  box-shadow: 0 0 0 0.2rem rgba(192, 138, 179, 0.25);
+}
+
+.event-form .form-text {
+  color: var(--secondary-text);
+}
+
+.event-form .invalid-feedback {
+  color: var(--error);
+  font-weight: 600;
+}
+
+.event-form-check {
+  background-color: rgba(58, 127, 122, 0.08);
+  border: 1px solid rgba(58, 127, 122, 0.2);
+  border-radius: 8px;
+  padding: 0.75rem 1rem 0.75rem 2rem;
+}
+
+.event-form .form-check-input {
+  border-color: var(--primary-accent);
+}
+
+.event-form .form-check-input:checked {
+  background-color: var(--primary-accent);
+  border-color: var(--primary-accent);
+}
+
+.event-form .form-check-input:focus {
+  box-shadow: 0 0 0 0.2rem rgba(58, 127, 122, 0.3);
+}
+
+.event-form .form-check-label {
+  color: var(--heading);
+}
+
+.event-form-alert {
+  background-color: rgba(229, 115, 115, 0.15);
+  border: 2px solid var(--error);
+  color: var(--text);
+}
+
+.event-submit-btn {
+  min-width: 220px;
+}
