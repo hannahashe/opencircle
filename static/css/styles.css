@@ -153,7 +153,7 @@ body .navbar-brand {
 /* Shared layout styles */
 
 .page-header {
-  border-bottom: 1px solid rgba(0, 154, 148, 0.1);
+  border-bottom: 3px solid rgba(24, 122, 119, 0.502);
   padding-bottom: 0.75rem;
 }
 
@@ -161,6 +161,7 @@ body .navbar-brand {
   background: #ffffff;
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(2, 124, 146, 0.08);
+  min-height: 200px;
 }
 
 .event-img {
@@ -244,28 +245,55 @@ body .navbar-brand {
   border: 3px solid var(--cta-highlight);
 }
 
+.custom-btn-danger {
+  color: var(--background);
+  background-color: var(--error);
+  border: 3px solid transparent;
+  border-radius: 5px;
+}
+
+.custom-btn-danger:hover,
+.custom-btn-danger:focus {
+  color: var(--error);
+  background-color: transparent;
+  border: 3px solid var(--error);
+}
+
+ .event-badge {
+  background-color: var(--pink-heading);
+  color: var(--background);
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 5px;
+  font-weight: 600;
+}
+
 .bg-step {
   background-color: var(--heading);
   color: var(--background);
   border: 3px solid transparent;
+  font-size: 0.75rem;
 }
 
 .bg-quiet {
   background-color: var(--cta-highlight);
   color: var(--background);
   border: 3px solid transparent;
+  font-size: 0.75rem;
 }
 
 .bg-toilet {
   background-color: var(--secondary-accent);
   color: var(--background);
   border: 3px solid transparent;
+  font-size: 0.75rem;
 }
 
 .bg-seating {
   background-color: var(--primary-accent);
   color: var(--background);
   border: 3px solid transparent;
+  font-size: 0.75rem;
 }
 
 .bg-success-custom {
@@ -498,6 +526,7 @@ body .navbar-brand {
 }
 
 /* Event Detail page */
+
 .organiser-tag {
   background-color: var(--secondary-accent);
   color: var(--background);
@@ -508,24 +537,30 @@ body .navbar-brand {
 }
 
 .organiser-img {
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 70px;
   object-fit: cover;
   border-radius: 50%;
   display: inline-block;
+  margin: 0.25rem;
 }
-
 
 .contact-organiser-link {
   background-color: var(--primary-accent);
   color: var(--background);
   text-decoration: none;
   border-radius: 5px;
+  border: 3px solid var(--secondary-accent);
   font-size: 0.9rem;
   display: inline-block;
+  margin: 0.75rem 0.5rem 0.75rem 0;
   padding: 0.25rem 0.5rem;
-  margin-left: 0.75rem;
-  margin-top: 0.5rem;
+}
+
+.contact-organiser-link:hover,
+.contact-organiser-link:focus {
+  background-color: var(--secondary-accent);
+  transition: color 0.3s;
 }
 
 .event-img-detail {
