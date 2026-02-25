@@ -76,6 +76,18 @@ class EventListView(ListView):
         if parsed_end_date:
             queryset = queryset.filter(start_datetime__date__lte=parsed_end_date)
 
+        if self.request.GET.get("step_free_access") == "on":
+            queryset = queryset.filter(step_free_access=True)
+
+        if self.request.GET.get("accessible_toilet") == "on":
+            queryset = queryset.filter(accessible_toilet=True)
+
+        if self.request.GET.get("quiet_space") == "on":
+            queryset = queryset.filter(quiet_space=True)
+
+        if self.request.GET.get("seating_available") == "on":
+            queryset = queryset.filter(seating_available=True)
+
         return queryset
 
     def get_context_data(self, **kwargs):
@@ -83,6 +95,10 @@ class EventListView(ListView):
 
         context["current_start_date"] = self.request.GET.get("start_date", "")
         context["current_end_date"] = self.request.GET.get("end_date", "")
+        context["current_step_free_access"] = self.request.GET.get("step_free_access") == "on"
+        context["current_accessible_toilet"] = self.request.GET.get("accessible_toilet") == "on"
+        context["current_quiet_space"] = self.request.GET.get("quiet_space") == "on"
+        context["current_seating_available"] = self.request.GET.get("seating_available") == "on"
 
         query_params = self.request.GET.copy()
         query_params.pop("page", None)
