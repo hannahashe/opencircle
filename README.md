@@ -37,7 +37,6 @@
     - [Deployment Bugs](#deployment-bugs)
   - [✅ Final Deployment State](#-final-deployment-state)
   - [Testing](#testing)
-- [🧪 Testing](#-testing)
   - [Manual Testing (MVP)](#manual-testing-mvp)
   - [Deployment Testing](#deployment-testing)
   - [Deployment](#deployment)
@@ -300,8 +299,6 @@ After resolving the above issues:
 - Lighthouse testing 
 - DevTools testing 
 - Manual testing against User Stories 
-
-# 🧪 Testing
 
 Manual testing was conducted throughout development to ensure all core functionality, role-based permissions, and moderation workflows operate correctly.
 
