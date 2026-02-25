@@ -1,6 +1,7 @@
 from django.views.generic import ListView, DetailView, TemplateView
 from django.views.decorators.http import require_POST
 from django.utils import timezone
+from django.utils.dateparse import parse_date
 
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -58,10 +59,37 @@ class EventListView(ListView):
     The events will be ordered by their start datetime in ascending order.
     """
     def get_queryset(self):
-        return Event.objects.filter(
+        queryset = Event.objects.filter(
             status="approved",
             published_at__lte=timezone.now()
         ).order_by("start_datetime")
+
+        start_date = self.request.GET.get("start_date", "")
+        end_date = self.request.GET.get("end_date", "")
+
+        parsed_start_date = parse_date(start_date) if start_date else None
+        parsed_end_date = parse_date(end_date) if end_date else None
+
+        if parsed_start_date:
+            queryset = queryset.filter(start_datetime__date__gte=parsed_start_date)
+
+        if parsed_end_date:
+            queryset = queryset.filter(start_datetime__date__lte=parsed_end_date)
+
+        return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        context["current_start_date"] = self.request.GET.get("start_date", "")
+        context["current_end_date"] = self.request.GET.get("end_date", "")
+
+        query_params = self.request.GET.copy()
+        query_params.pop("page", None)
+        encoded_query = query_params.urlencode()
+        context["pagination_query"] = f"&{encoded_query}" if encoded_query else ""
+
+        return context
 
 
 class EventDetailView(DetailView):

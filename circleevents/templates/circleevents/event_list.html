@@ -8,6 +8,35 @@ Circle{% endblock %} {% block content %}
     </p>
   </div>
 
+  <form method="get" class="section-card p-3 mb-4">
+    <div class="row g-3 align-items-end">
+      <div class="col-12 col-md-4">
+        <label for="start_date" class="form-label mb-1">From date</label>
+        <input
+          type="date"
+          id="start_date"
+          name="start_date"
+          value="{{ current_start_date }}"
+          class="form-control"
+        >
+      </div>
+      <div class="col-12 col-md-4">
+        <label for="end_date" class="form-label mb-1">To date</label>
+        <input
+          type="date"
+          id="end_date"
+          name="end_date"
+          value="{{ current_end_date }}"
+          class="form-control"
+        >
+      </div>
+      <div class="col-12 col-md-4 d-grid d-sm-flex gap-2">
+        <button type="submit" class="btn custom-btn-filled">Apply filter</button>
+        <a href="{% url 'event_list' %}" class="btn custom-btn-outline">Clear</a>
+      </div>
+    </div>
+  </form>
+
   {% if events %}
   <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
     {% for event in events %}
@@ -81,7 +110,7 @@ Circle{% endblock %} {% block content %}
     <ul class="pagination custom-pagination justify-content-center flex-wrap gap-2 mb-2">
       {% if page_obj.has_previous %}
       <li class="page-item">
-        <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Go to previous page">
+        <a class="page-link" href="?page={{ page_obj.previous_page_number }}{{ pagination_query }}" aria-label="Go to previous page">
           Previous
         </a>
       </li>
@@ -98,14 +127,14 @@ Circle{% endblock %} {% block content %}
         </li>
         {% elif page_number >= page_obj.number|add:'-2' and page_number <= page_obj.number|add:'2' %}
         <li class="page-item">
-          <a class="page-link" href="?page={{ page_number }}" aria-label="Go to page {{ page_number }}">{{ page_number }}</a>
+          <a class="page-link" href="?page={{ page_number }}{{ pagination_query }}" aria-label="Go to page {{ page_number }}">{{ page_number }}</a>
         </li>
         {% endif %}
       {% endfor %}
 
       {% if page_obj.has_next %}
       <li class="page-item">
-        <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Go to next page">
+        <a class="page-link" href="?page={{ page_obj.next_page_number }}{{ pagination_query }}" aria-label="Go to next page">
           Next
         </a>
       </li>
