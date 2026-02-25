@@ -36,8 +36,6 @@ class Profile(models.Model):
 # which are used to manage the event approval process.
 
 
-
-
 class Event(models.Model):
     DEFAULT_REJECTION_COMMENT = (
         "Thanks for your submission. This event was not approved in its "
