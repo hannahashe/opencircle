@@ -73,6 +73,16 @@ class EventAdmin(admin.ModelAdmin):
     ordering = ("-created_at",)
     actions = ["approve_events", "reject_events"]
 
+    def get_form(self, request, obj=None, **kwargs):
+        form = super().get_form(request, obj, **kwargs)
+        admin_comment_field = form.base_fields.get("admin_comment")
+        if admin_comment_field:
+            admin_comment_field.help_text = (
+                "Optional. If this is left blank when status is set to "
+                "Rejected, a default feedback message is sent to the organiser."
+            )
+        return form
+
     def approve_events(self, request, queryset):
         updated = 0
         for event in queryset:
