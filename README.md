@@ -37,8 +37,8 @@
     - [Deployment Bugs](#deployment-bugs)
   - [✅ Final Deployment State](#-final-deployment-state)
   - [Testing](#testing)
-  - [Manual Testing (MVP)](#manual-testing-mvp)
-  - [Deployment Testing](#deployment-testing)
+    - [Manual Testing (MVP)](#manual-testing-mvp)
+    - [Deployment Testing](#deployment-testing)
   - [Deployment](#deployment)
     - [Deployment Steps](#deployment-steps)
       - [Prepare the Project for Deployment](#prepare-the-project-for-deployment)
@@ -302,7 +302,7 @@ After resolving the above issues:
 
 Manual testing was conducted throughout development to ensure all core functionality, role-based permissions, and moderation workflows operate correctly.
 
-## Manual Testing (MVP)
+### Manual Testing (MVP)
 
 | Feature | Test Performed | Expected Result | Actual Result | Status |
 |----------|---------------|----------------|---------------|--------|
@@ -330,7 +330,7 @@ Manual testing was conducted throughout development to ensure all core functiona
 
 ---
 
-## Deployment Testing
+### Deployment Testing
 
 | Test | Expected Outcome | Result |
 |------|------------------|--------|
