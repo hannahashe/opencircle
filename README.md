@@ -3,11 +3,7 @@
 ## Contents 
 
 
-## Project Overview 
-Open Circle is an accessible events directory designed for queer, alternative, and disabled communities.  
-The platform allows organisers to submit events for moderation and enables visitors to browse events without needing an account.
-
-## Project Ideation, Roles & User Stories3
+## Project Overview | Ideation, Roles & User Stories3
 ### Project Purpose
 Open Circle is a moderated events directory designed for queer and alternative communities, with an accessibility-first approach.
 
@@ -21,13 +17,19 @@ Open Circle addresses this by:
 
 The platform enables attendees to make informed decisions without relying on fragmented or informal sources.
 
+The platform allows organisers to submit events for moderation and enables visitors to browse events without needing an account.
+
 ## Site Owner Goals
 - Maintain a trustworthy directory
 - Moderate event submissions
 - Prevent unauthorised access to restricted actions
 
+## Site User Goals
+
+
 ## User Roles (MVP)
 A role-based permission model ensures clarity, security, and trust.
+
 ### Visitor (Logged out)
 **Purpose**: Public event discovery
 - View event list and detail pages
@@ -155,7 +157,7 @@ The project uses a relational database with the following core models:
 - User (Django built-in)
 - Profile
 - Event
-- Notification (Currently unused in MVP, built-in for ease in future implementation(s))
+- Notification (Currently unused in MVP, included for ease in future implementation(s))
 
 **include ERD diagrams here**
 
@@ -172,8 +174,10 @@ The project uses a relational database with the following core models:
 - Event detail pages
 - User registration and authentication
 - Organiser event submission
+- User-uploaded images in Cloud storage
 - Admin moderation
 - Notifications on approval/rejection
+- Optional rejection message from Admin
 - Pagination
 
 ### Future Features
@@ -183,9 +187,9 @@ The project uses a relational database with the following core models:
 - Embedded maps
 - Event reviews
 
-## Bugs & Fixes
-### Production
-# Bugs Encountered & Resolutions
+## Bugs Encountered & Resolutions
+
+### Production Bugs
 
 | Bug | Issue | Cause | Resolution |
 |-----|-------|--------|------------|
@@ -208,7 +212,8 @@ The project uses a relational database with the following core models:
 | **Profile `RelatedObjectDoesNotExist` Error** | Visiting profile page caused `User has no profile.` error. | Profile auto-creation signal had not created profile for existing superuser. | Manually created profile for existing user and confirmed signal setup for new users. |
 | **NOT NULL Constraint on `profile_img`** | Admin failed when creating Profile due to NOT NULL constraint. | `profile_img` field was required but no default provided. | Updated field to allow `blank=True, null=True` to prevent constraint error. |
 
-### Deployment
+### Deployment Bugs
+
 The following issues were encountered during deployment to Heroku and resolved through debugging and configuration updates.
 
 | Issue | Error Message / Symptom | Cause | Resolution |
