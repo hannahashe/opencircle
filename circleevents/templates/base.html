@@ -12,7 +12,7 @@
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/7bf12df681.js" crossorigin="anonymous"></script>
   </head>
-  <body>
+  <body id="top">
     <header>
 
     <!-- Navbar -->
@@ -77,6 +77,10 @@
     {% endif %}
     <!-- Main content - Home page, Event list, Event detail, Profile page, Event create/edit forms, Log in, Sign up, Log out -->
     <main>{% block content %} {% endblock %}</main>
+
+    <a href="#top" class="back-to-top-btn" aria-label="Back to top">
+      <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+    </a>
 
     <!-- Footer -->
     <footer class="text-center py-4 mt-5" id="footer">

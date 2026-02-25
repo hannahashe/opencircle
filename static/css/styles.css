@@ -25,6 +25,42 @@ body {
   font-family: "Atkinson Hyperlegible", sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+.back-to-top-btn {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-accent);
+  color: var(--background);
+  border: 2px solid transparent;
+  text-decoration: none;
+  z-index: 1030;
+  box-shadow: 0 6px 16px rgba(28, 61, 67, 0.25);
+}
+
+.back-to-top-btn:hover,
+.back-to-top-btn:focus {
+  background-color: var(--secondary-accent);
+  color: var(--background);
+  border-color: var(--background);
+  text-decoration: none;
+}
+
 h1,
 h2,
 h3,
