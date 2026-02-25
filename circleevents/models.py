@@ -30,10 +30,20 @@ class Profile(models.Model):
 # including title, description, date/time, venue information,
 # accessibility features, and status.
 # The save method automatically generates
-# a unique slug based on the event title.
+# a unique slug based on the event title and
+# sets the published date when an event is approved.
+# The model also includes fields for moderation status and admin comments,
+# which are used to manage the event approval process.
+
+
 
 
 class Event(models.Model):
+    DEFAULT_REJECTION_COMMENT = (
+        "Thanks for your submission. This event was not approved in its "
+        "current form. Please review your event details carefully before resubmiting."
+    )
+
     STATUS_CHOICES = [
         ("pending", "Pending"),
         ("approved", "Approved"),
@@ -105,7 +115,10 @@ class Event(models.Model):
 
         if self.status == "approved" and self.published_at is None:
             self.published_at = timezone.now()
-      
+
+        if self.status == "rejected" and not self.admin_comment.strip():
+            self.admin_comment = self.DEFAULT_REJECTION_COMMENT
+
         # Reset moderation notification if status changed
         if self.pk:
             previous = Event.objects.get(pk=self.pk)
