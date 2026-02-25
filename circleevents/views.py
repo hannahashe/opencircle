@@ -111,7 +111,8 @@ def profile_view(request):
 
     from .models import Event
 
-    user_events = Event.objects.filter(organiser=request.user).order_by("-created_at")
+    user_events = Event.objects.filter(organiser=request.user).order_by(
+        "-created_at")
 
     # Find events that have been moderated but not yet notified
     # to the organiser and add notifications for them

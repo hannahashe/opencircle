@@ -71,7 +71,7 @@ class EventAdmin(admin.ModelAdmin):
     )
 
     ordering = ("-created_at",)
-    actions = ["approve_events"]
+    actions = ["approve_events", "reject_events"]
 
     def approve_events(self, request, queryset):
         updated = 0
@@ -83,6 +83,20 @@ class EventAdmin(admin.ModelAdmin):
         self.message_user(
             request,
             f"{updated} event(s) have been successfully approved."
-        )
+        )    
 
     approve_events.short_description = "Approve selected events."
+
+    def reject_events(self, request, queryset):
+        updated = 0
+        for event in queryset:
+            if event.status != "rejected":
+                event.status = "rejected"
+                event.save()
+                updated += 1
+        self.message_user(
+            request,
+            f"{updated} event(s) have been successfully rejected."
+        )
+
+    reject_events.short_description = "Reject selected events."
