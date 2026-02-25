@@ -14,6 +14,15 @@ from .decorators import organiser_required
 from .models import Event
 
 
+ALLOWED_PROFILE_IMAGE_TYPES = {
+    "image/jpeg",
+    "image/png",
+    "image/webp",
+    "image/gif",
+}
+MAX_PROFILE_IMAGE_SIZE_BYTES = 5 * 1024 * 1024
+
+
 class HomeView(TemplateView):
     """
     This view is responsible for rendering the homepage of the application.
@@ -165,9 +174,34 @@ def profile_view(request):
     profile = request.user.profile
 
     if request.method == "POST":
+        if "save_profile_image" in request.POST:
+            uploaded_image = request.FILES.get("profile_img")
+            if uploaded_image:
+                if uploaded_image.content_type not in ALLOWED_PROFILE_IMAGE_TYPES:
+                    messages.warning(
+                        request,
+                        "Please upload a valid image file (JPG, PNG, WEBP, or GIF).",
+                    )
+                    return redirect("profile")
+
+                if uploaded_image.size > MAX_PROFILE_IMAGE_SIZE_BYTES:
+                    messages.warning(
+                        request,
+                        "Please upload an image smaller than 5MB.",
+                    )
+                    return redirect("profile")
+
+                profile.profile_img = uploaded_image
+                profile.save()
+                messages.success(request, "Profile image updated.")
+            else:
+                messages.warning(request, "Please choose an image before saving.")
+            return redirect("profile")
+
         is_organiser = request.POST.get("is_organiser") == "on"
         profile.is_organiser = is_organiser
         profile.save()
+        messages.success(request, "Profile updated.")
         return redirect("profile")
 
     from .models import Event

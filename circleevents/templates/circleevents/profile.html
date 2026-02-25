@@ -16,6 +16,32 @@
   <div class="row g-4">
     <div class="col-md-7">
       <div class="section-card p-4 h-100">
+
+        <!-- Else if conditional statement displaying the profile-img for the user if one has been uploaded -->
+
+        {% if profile.profile_img %}
+        <img src="{{ profile.profile_img.url }}" class="img-fluid rounded-circle mb-3" alt="Profile image for {{ request.user.username }}">
+        {% else %}
+        <div class="profile-img-placeholder rounded-circle mb-3" aria-label="No profile image uploaded for {{ request.user.username }}"></div>
+        {% endif %}
+
+        <!-- form included to allow user to upload profile-img via cloudinary -->
+        <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="mb-3">
+            <label for="profile_img" class="form-label">Upload profile image</label>
+            <input class="form-control" type="file" id="profile_img" name="profile_img" accept="image/*">
+            <button
+              type="submit"
+              name="save_profile_image"
+              class="btn custom-btn-filled mt-2"
+            >
+              Save profile image
+            </button>
+          </div>
+        </form>
+
+
         <p class="mb-2"><strong>Username:</strong> {{ request.user.username }}</p>
         <p class="mb-0"><strong>Email:</strong> {{ request.user.email }}</p>
 
