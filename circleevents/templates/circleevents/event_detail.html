@@ -54,17 +54,19 @@
 
     <div class="col-12 col-md-2 text-center">
       {% if event.ticket_url %}
-      <a href="{{ event.ticket_url }}" target="_blank" rel="noopener" class="btn btn-sm custom-btn-cta w-100">Tickets</a>
+      <a href="{{ event.ticket_url }}" target="_blank" rel="noopener" class="btn btn-sm custom-btn-cta w-100">
+        Tickets</a>
       {% endif %}
     </div>
-
     <div class="col-12 col-md-2 text-center text-md-start">
-    {% if user.is_authenticated and user != event.organiser %}
-      <a href="mailto:{{ event.contact_email }}" class="contact-organiser-link">Contact organiser</a>
-    {% endif %}
-    {% if user.is_authenticated and user == event.organiser %}
+        {% if user.is_authenticated and user != event.organiser %}
+        <a href="mailto:{{ event.contact_email }}" class="btn contact-organiser-link">
+            Contact organiser</a>
+        {% endif %}
+        
+        {% if user.is_authenticated and user == event.organiser %}
         <div class="d-flex flex-wrap gap-2 mb-3">
-          <a href="{% url 'edit_event' event.slug %}" class="btn custom-btn-filled-reverse">Edit event</a>
+            <a href="{% url 'edit_event' event.slug %}" class="btn custom-btn-filled-reverse">Edit event</a>
 
           <form
             action="{% url 'delete_event' event.slug %}"
@@ -159,7 +161,7 @@
 
     <div class="col-12">
       <div class="section-card p-4 mt-4">
-        <h3 class="mb-3">Contact & tickets</h3>
+        <h3 class="mb-3">Contact & Ticket Information</h3>
         <p>
           <strong>Contact:</strong>
           <a href="mailto:{{ event.contact_email }}">{{ event.contact_email }}</a>

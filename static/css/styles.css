@@ -175,88 +175,139 @@ body .navbar-brand {
 
 /* Buttons, links, badges */
 
+.custom-btn-outline,
+.custom-btn-filled,
+.custom-btn-filled-reverse,
+.custom-btn-outline-reverse,
+.custom-btn-cta,
+.custom-btn-danger,
+.contact-organiser-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  font-weight: 700;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 8px;
+  text-decoration: none;
+  line-height: 1.2;
+  padding: 0.45rem 0.85rem;
+  transition: background-color 0.2s ease, color 0.2s ease,
+    border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.custom-btn-outline:hover,
+.custom-btn-filled:hover,
+.custom-btn-filled-reverse:hover,
+.custom-btn-outline-reverse:hover,
+.custom-btn-cta:hover,
+.custom-btn-danger:hover,
+.contact-organiser-link:hover {
+  transform: translateY(-1px);
+}
+
+.custom-btn-outline:focus-visible,
+.custom-btn-filled:focus-visible,
+.custom-btn-filled-reverse:focus-visible,
+.custom-btn-outline-reverse:focus-visible,
+.custom-btn-cta:focus-visible,
+.custom-btn-danger:focus-visible,
+.contact-organiser-link:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(192, 138, 179, 0.3);
+}
+
 .custom-btn-outline {
   color: var(--primary-accent);
   background: transparent;
-  border: 3px solid var(--primary-accent);
-  border-radius: 5px;
+  border-color: var(--primary-accent);
 }
 
 .custom-btn-outline:hover,
 .custom-btn-outline:focus {
   color: var(--background);
   background-color: var(--primary-accent);
-  border: 3px solid transparent;
+  border-color: var(--primary-accent);
 }
 
 .custom-btn-filled {
   color: var(--background);
   background-color: var(--secondary-accent);
-  border: 3px solid transparent;
-  border-radius: 5px;
+  border-color: var(--secondary-accent);
 }
 
 .custom-btn-filled:hover,
 .custom-btn-filled:focus {
-  background-color: transparent;
-  border: 3px solid var(--secondary-accent);
+  color: var(--background);
+  background-color: var(--pink-heading);
+  border-color: var(--pink-heading);
 }
 
-.custom-btn-filled-reverse {
+.custom-btn-filled-reverse,
+.contact-organiser-link {
   color: var(--background);
   background-color: var(--primary-accent);
-  border: 3px solid transparent;
-  border-radius: 5px;
-}
-
-.custom-btn-outline-reverse {
-  color: var(--primary-accent);
-  background: transparent;
-  border: 3px solid var(--primary-accent);
-  border-radius: 5px;
+  border-color: var(--primary-accent);
 }
 
 .custom-btn-filled-reverse:hover,
-.custom-btn-filled-reverse:focus {
-  color: var(--primary-accent);
-  background-color: transparent;
-  border: 3px solid var(--primary-accent);
+.custom-btn-filled-reverse:focus,
+.contact-organiser-link:hover,
+.contact-organiser-link:focus {
+  color: var(--background);
+  background-color: var(--heading);
+  border-color: var(--heading);
+}
+
+.custom-btn-outline-reverse {
+  color: var(--secondary-accent);
+  background: transparent;
+  border-color: var(--secondary-accent);
 }
 
 .custom-btn-outline-reverse:hover,
 .custom-btn-outline-reverse:focus {
   color: var(--background);
-  background-color: var(--primary-accent);
-  border: 3px solid transparent;
+  background-color: var(--secondary-accent);
+  border-color: var(--secondary-accent);
 }
 
 .custom-btn-cta {
   color: var(--background);
   background-color: var(--cta-highlight);
-  border: 3px solid transparent;
-  border-radius: 5px;
-  size: 1.5rem;
+  border-color: var(--cta-highlight);
 }
 
 .custom-btn-cta:hover,
 .custom-btn-cta:focus {
   color: var(--background);
-  background-color: transparent;
-  border: 3px solid var(--cta-highlight);
+  background-color: #cf913c;
+  border-color: #cf913c;
 }
 
 .custom-btn-danger {
   color: var(--background);
   background-color: var(--error);
-  border: 3px solid transparent;
-  border-radius: 5px;
+  border-color: var(--error);
 }
 
 .custom-btn-danger:hover,
 .custom-btn-danger:focus {
-  color: var(--error);
-  background-color: transparent;
-  border: 3px solid var(--error);
+  color: var(--background);
+  background-color: #cb5e5e;
+  border-color: #cb5e5e;
+}
+
+.custom-btn-outline:disabled,
+.custom-btn-filled:disabled,
+.custom-btn-filled-reverse:disabled,
+.custom-btn-outline-reverse:disabled,
+.custom-btn-cta:disabled,
+.custom-btn-danger:disabled {
+  opacity: 0.65;
+  transform: none;
+  cursor: not-allowed;
 }
 
  .event-badge {
@@ -312,6 +363,11 @@ body .navbar-brand {
     background-color: var(--error);
     color: var(--background);
     border: 3px solid transparent;
+}
+
+.contact-organiser-link {
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
 }
 
 /* Home page */
@@ -545,23 +601,6 @@ body .navbar-brand {
   margin: 0.25rem;
 }
 
-.contact-organiser-link {
-  background-color: var(--primary-accent);
-  color: var(--background);
-  text-decoration: none;
-  border-radius: 5px;
-  border: 3px solid var(--secondary-accent);
-  font-size: 0.9rem;
-  display: inline-block;
-  margin: 0.75rem 0.5rem 0.75rem 0;
-  padding: 0.25rem 0.5rem;
-}
-
-.contact-organiser-link:hover,
-.contact-organiser-link:focus {
-  background-color: var(--secondary-accent);
-  transition: color 0.3s;
-}
 
 .event-img-detail {
   width: 100%;
