@@ -2,6 +2,7 @@ from django.views.generic import ListView, DetailView, TemplateView
 from django.views.decorators.http import require_POST
 from django.utils import timezone
 from django.utils.dateparse import parse_date
+from django.db.models import Q
 
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -64,6 +65,21 @@ class EventListView(ListView):
             published_at__lte=timezone.now()
         ).order_by("start_datetime")
 
+        keyword_query = self.request.GET.get("q", "").strip()
+
+        if keyword_query:
+            queryset = queryset.filter(
+                Q(title__icontains=keyword_query)
+                | Q(description__icontains=keyword_query)
+                | Q(venue_name__icontains=keyword_query)
+                | Q(address__icontains=keyword_query)
+                | Q(city__icontains=keyword_query)
+                | Q(postcode__icontains=keyword_query)
+                | Q(access_notes__icontains=keyword_query)
+                | Q(sensory_notes__icontains=keyword_query)
+                | Q(safespace_notes__icontains=keyword_query)
+            )
+
         start_date = self.request.GET.get("start_date", "")
         end_date = self.request.GET.get("end_date", "")
 
@@ -93,6 +109,7 @@ class EventListView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
+        context["current_search_query"] = self.request.GET.get("q", "")
         context["current_start_date"] = self.request.GET.get("start_date", "")
         context["current_end_date"] = self.request.GET.get("end_date", "")
         context["current_step_free_access"] = self.request.GET.get("step_free_access") == "on"
