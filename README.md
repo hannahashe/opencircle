@@ -293,7 +293,6 @@ After resolving the above issues:
 - `DEBUG` set to `False`  
 - Role-based permissions functioning as expected  
 
-
 ## Testing
 - HTML & CSS validators, Python CI linter
 - Lighthouse testing 
