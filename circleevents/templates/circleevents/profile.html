@@ -30,7 +30,17 @@
           {% csrf_token %}
           <div class="mb-3">
             <label for="profile_img" class="form-label">Upload profile image</label>
-            <input class="form-control" type="file" id="profile_img" name="profile_img" accept="image/*">
+            <input
+              class="form-control"
+              type="file"
+              id="profile_img"
+              name="profile_img"
+              accept="image/jpeg,image/png,image/webp,image/gif"
+              aria-describedby="profile-img-help"
+            >
+            <div id="profile-img-help" class="form-text">
+              Accepted formats: JPG, PNG, WEBP, GIF. Maximum file size: 5MB.
+            </div>
             <button
               type="submit"
               name="save_profile_image"
