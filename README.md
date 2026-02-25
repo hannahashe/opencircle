@@ -37,6 +37,9 @@
     - [Deployment Bugs](#deployment-bugs)
   - [✅ Final Deployment State](#-final-deployment-state)
   - [Testing](#testing)
+- [🧪 Testing](#-testing)
+  - [Manual Testing (MVP)](#manual-testing-mvp)
+  - [Deployment Testing](#deployment-testing)
   - [Deployment](#deployment)
     - [Deployment Steps](#deployment-steps)
       - [Prepare the Project for Deployment](#prepare-the-project-for-deployment)
@@ -297,6 +300,48 @@ After resolving the above issues:
 - Lighthouse testing 
 - DevTools testing 
 - Manual testing against User Stories 
+
+# 🧪 Testing
+
+Manual testing was conducted throughout development to ensure all core functionality, role-based permissions, and moderation workflows operate correctly.
+
+## Manual Testing (MVP)
+
+| Feature | Test Performed | Expected Result | Actual Result | Status |
+|----------|---------------|----------------|---------------|--------|
+| User Registration | Registered new user with valid details | Account created, redirected to login | Account successfully created | ✅ Pass |
+| Registration Validation | Submitted empty/invalid fields | Clear validation errors displayed | Validation errors displayed correctly | ✅ Pass |
+| Login | Logged in with valid credentials | User logged in and redirected | Login successful | ✅ Pass |
+| Invalid Login | Used incorrect password | Error message displayed | Correct error message shown | ✅ Pass |
+| Logout | Logged out from authenticated session | User redirected and session ended | Logout successful | ✅ Pass |
+| View Events (Visitor) | Accessed event list while logged out | Approved events visible | Events displayed correctly | ✅ Pass |
+| Event Detail Page | Clicked event card | Full event details visible | Details displayed correctly | ✅ Pass |
+| Accessibility Filters | Applied accessibility filters | Only matching events displayed | Filters worked correctly | ✅ Pass |
+| Pagination | Navigated between event pages | Events split correctly across pages | Pagination functioning | ✅ Pass |
+| Create Event (Organiser) | Submitted new event | Event saved as Pending | Event created successfully | ✅ Pass |
+| Edit Own Event | Edited organiser’s own event | Event updated and returned to Pending | Worked as expected | ✅ Pass |
+| Prevent Editing Others’ Events | Attempted editing another organiser’s event | Access denied or redirect | Access correctly blocked | ✅ Pass |
+| Delete Event | Deleted own event | Confirmation shown and event removed | Event deleted successfully | ✅ Pass |
+| Moderation Access | Accessed moderation queue as non-admin | Access denied | Correctly restricted | ✅ Pass |
+| Approve Event (Admin) | Approved pending event | Event becomes publicly visible | Event visible in listings | ✅ Pass |
+| Reject Event (Admin) | Rejected event | Event remains hidden | Event correctly hidden | ✅ Pass |
+| Notification on Moderation | Approved/rejected event | Organiser receives notification | Notification displayed after login | ✅ Pass |
+| Role-Based UI | Logged in as different roles | Only appropriate UI options visible | UI matched role permissions | ✅ Pass |
+| Static Files (Production) | Loaded deployed site | CSS and styling load correctly | Static files served via WhiteNoise | ✅ Pass |
+| Media Upload (Cloudinary) | Uploaded event image | Image stored and displayed | Media displayed correctly | ✅ Pass |
+| Database Separation | Checked local vs production events | Databases operate independently | Confirmed separate SQLite & Postgres DBs | ✅ Pass |
+
+---
+
+## Deployment Testing
+
+| Test | Expected Outcome | Result |
+|------|------------------|--------|
+| Heroku Build | Successful build without errors | ✅ Successful |
+| Gunicorn Startup | App boots without H10 crash | ✅ Successful |
+| `DEBUG=False` | Site loads without debug information | ✅ Successful |
+| Environment Variables | SECRET_KEY, DATABASE_URL, ALLOWED_HOSTS configured | ✅ Confirmed |
+| collectstatic | Static files copied during deployment | ✅ 149 files copied |
 
 ## Deployment
 This project is deployed using Heroku, with:
