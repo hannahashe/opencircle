@@ -198,6 +198,20 @@ def profile_view(request):
                 messages.warning(request, "Please choose an image before saving.")
             return redirect("profile")
 
+        if "save_organiser_status" in request.POST:
+            if request.POST.get("confirm_organiser_change") != "on":
+                messages.warning(
+                    request,
+                    "Please confirm organiser status changes before saving.",
+                )
+                return redirect("profile")
+
+            is_organiser = request.POST.get("is_organiser") == "on"
+            profile.is_organiser = is_organiser
+            profile.save()
+            messages.success(request, "Organiser status updated.")
+            return redirect("profile")
+
         is_organiser = request.POST.get("is_organiser") == "on"
         profile.is_organiser = is_organiser
         profile.save()

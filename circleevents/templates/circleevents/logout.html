@@ -12,7 +12,7 @@
             </div>
 
             <div class="section-card p-4 p-md-5">
-                <form method="post" action="{% url 'account_logout' %}" class="auth-form" onsubmit="return confirm('Are you sure you want to log out?');">
+                <form method="post" action="{% url 'account_logout' %}" class="auth-form">
                     {% csrf_token %}
                     {% if redirect_field_value %}
                     <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}">

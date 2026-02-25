@@ -88,10 +88,24 @@
           </p>
           {% endif %}
         </div>
+
+          <div class="form-check mt-3 mb-3">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              name="confirm_organiser_change"
+              id="confirm_organiser_change"
+              required
+            />
+            <label class="form-check-label" for="confirm_organiser_change">
+              I confirm I want to change my organiser status.
+            </label>
+          </div>
+
           <button
             type="submit"
+            name="save_organiser_status"
             class="btn custom-btn-filled float-end"
-            onclick="return confirm('Are you sure you want to change your organiser status?');"
           >
             Save organiser status
           </button>
