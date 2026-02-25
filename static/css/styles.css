@@ -50,7 +50,7 @@ a {
 
 /* Container, Row, Col guideliens for debugging DELETE BEFORE FINAL DEPLOYMENT */
 
-/* .container, .container-fluid {
+.container, .container-fluid {
   border: 3px dotted red;
 }
 
@@ -60,11 +60,12 @@ a {
 }
 
 .col, .col-3, .col-4, .col-6, .col-12,
-.col-md-6, .col-md-12,
+.col-md-5, .col-md-4, .col-md-3,
+.col-md-6, .col-md-7, .col-md-12,
 .col-lg-6, .col-lg-12,
 .col-xl-6, .col-xl-12 {
   border: 6px solid green;
-} */
+}
 
 /* Navigation & logo */
 
@@ -437,7 +438,7 @@ footer {
   min-width: 220px;
 }
 
-/* Create & event pages - guidance accordion */
+/* Create an Event & Edit Event pages - guidance accordion */
 
 .create-guidance-accordion .accordion-item {
   border: 2px solid rgba(58, 127, 122, 0.25);
@@ -471,6 +472,16 @@ footer {
 .create-guidance-accordion .accordion-body p,
 .create-guidance-accordion .accordion-body li {
   color: var(--secondary-text);
+}
+
+/* Event Detail page */
+.organiser-tag {
+  background-color: var(--primary-accent);
+  color: var(--background);
+  border-radius: 5px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.9rem;
+  display: inline-block;
 }
 
 /* Authentication (login, logout & signup) pages */

@@ -5,9 +5,13 @@
 
 {% block content %}
 <div class="container my-5">
+    <div class="row">
+        <div class="col-12">
     <div class="page-header mb-4">
         <h2 class="mb-1">{{ event.title }}</h2>
-        <p class="text-muted mb-0">Organised by {{ event.organiser.username }} 
+        </div>
+        <div class="col">
+        <p class="organiser-tag mb-0">Organised by {{ event.organiser.username }} 
                 {% if user.is_authenticated and user == event.organiser %}
             <span class="badge bg-secondary">Your event</span>
         {% endif %}
@@ -18,21 +22,25 @@
         {% else %}
         <div class="profile-img-placeholder rounded-circle mt-2" aria-label="No profile image uploaded for {{ event.organiser.username }}"></div>
         {% endif %}
+        </div>
+        <div class="col">
 
         {% if event.status == 'Pending' %}
         <div class="mt-2">
             <span class="badge bg-warning">Event awaiting approval</span>
         </div>
         {% endif %}
-
         {% if event.status == 'Rejected' and event.admin_comment %}
         <div class="alert alert-danger mt-3" role="alert">
             <h4 class="alert-heading">Your event was rejected;</h4>
             <p>{{ event.admin_comment }}</p>
         </div>
         {% endif %}
+        </div>
     </div>
-
+    </div>
+    <div class="row">
+        <div class="col-12">
     <div class="section-card p-4">
         {% if user.is_authenticated and user == event.organiser %}
         <div class="d-flex flex-wrap gap-2 mb-3">
@@ -50,6 +58,9 @@
                     Delete event
                 </button>
             </form>
+        </div>
+        </div>
+        </div>
         </div>
         {% endif %}
 
@@ -94,12 +105,14 @@
                 </div>
             </div>
         </div>
-    </div>
-
+        <div class="row">
+            <div class="col-12">
     <div class="section-card p-4 mt-4">
         <h3 class="mb-3">More information</h3>
         <p class="mb-0">{{ event.description }}</p>
     </div>
+    </div>
+    <div class="col-12">
 
     <div class="section-card p-4 mt-4">
         <h3 class="mb-3">Extra information</h3>
@@ -115,6 +128,9 @@
             <p class="mb-0"><strong>Safer space information:</strong> {{ event.safespace_notes }}</p>
         {% endif %}
     </div>
+    </div>
+
+    <div class="col-12">
 
     <div class="section-card p-4 mt-4">
         <h3 class="mb-3">Contact & tickets</h3>
@@ -133,6 +149,8 @@
                 </a>
             </p>
         {% endif %}
+    </div>
+    </div>
     </div>
 </div>
 {% endblock %}
