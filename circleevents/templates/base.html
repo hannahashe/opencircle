@@ -20,7 +20,7 @@
         <div class="container-fluid">
           <!-- Navigation Logo & Name -->
           <a class="navbar-brand fw-bold" href="{% url 'home' %}"> <span class="logo-circle"><i class="fa-solid fa-leaf" id="nav-logo" aria-label="Open Circle logo"></i></span>
-           Open Circle
+           open&bull;circle
           </a>
           <!-- Navbar Toggle for responsive design -->
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -82,25 +82,34 @@
     <footer class="text-center py-4 mt-5" id="footer">
       <div class="container">
         <div class="row">
-        <div class="col-6">
-       <h5>open.circle</h5>
-       <ul class="list-inline">
-        <li class="list-inline-item"><a href="instagram.com/opencircle" class="text-white"><i class="fa-brands fa-instagram fa-lg" aria-label="Instagram"></i></a></li>
-        <li class="list-inline-item"><a href="facebook.com/opencircle" class="text-white"><i class="fa-brands fa-facebook fa-lg" aria-label="Facebook"></i></a></li>
-        <li class="list-inline-item"><a href="bluesky.com/opencircle" class="text-white"><i class="fa-brands fa-bluesky fa-lg" aria-label="Bluesky"></i></a></li>
-       </ul>
-       <p>2026 Open Circle. Building better events for everyone.</p>
-       </div>
-       <div class="col-6">
-       <ul class="list-unstyled">
-        <li class="list-item"><a href="{% url 'home' %}" class="text-white">Home</a></li>
-        <li class="list-item"><a href="/accounts/login/" class="text-white">Login</a></li>
-        <li class="list-item"><a href="/accounts/signup/" class="text-white">Register</a></li>
-        <li class="list-item"><a href="{% url 'event_list' %}" class="text-white">Events</a></li>
-        <li class="list-item"><a href="{% url 'create_event' %}" class="text-white">Create Event</a></li>
-       </ul>
-       </div>
-      </div>
+          <div class="col-12 col-md-6 mb-4 mb-md-0 order-2 order-md-1">
+            <h5>open&bull;circle</h5>
+            <ul class="list-inline">
+              <li class="list-inline-item"><a href="instagram.com/opencircle" class="social-icon"><i class="fa-brands fa-instagram fa-lg" aria-label="Instagram"></i></a></li>
+              <li class="list-inline-item"><a href="facebook.com/opencircle" class="social-icon"><i class="fa-brands fa-facebook fa-lg" aria-label="Facebook"></i></a></li>
+              <li class="list-inline-item"><a href="bluesky.com/opencircle" class="social-icon"><i class="fa-brands fa-bluesky fa-lg" aria-label="Bluesky"></i></a></li>
+            </ul>
+            <p class="copyright">&copy; 2026 Open Circle. Building better events for everyone.</p>
+          </div>
+
+          <div class="col-12 col-md-6 mb-4 mb-md-0 order-1 order-md-2">
+            <h5 class="contact-heading">Contact us</h5>
+            <p class="text-white mb-1">Have questions or want to get involved?</p>
+            <p class="text-white mb-0">Email us at <a href="mailto:opencircledev@gmail.com" class="email-link">opencircledev@gmail.com</a></p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12 mt-3 text-center">
+            <p class="dev-credits mb-0">
+              <em>
+                Designed & Developed by <a href="https://github.com/hannahashe" class="text-white dev-link">Hannah Ashe</a>
+                as part of Code Institute's Software Development Bootcamp. View the source code on <a href="https://github.com/hannahashe/open-circle" class="text-white dev-link">GitHub</a>.
+              </em>
+            </p>
+          </div>
+        </div>
+        </div>
        </div>
     </footer>
 

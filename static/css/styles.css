@@ -8,6 +8,7 @@ Body text: Atkinson Hyperlegible */
 :root {
   --background: #f7f7f5;
   --heading: #1c3d43;
+  --pink-heading: #7c4c7b;
   --text: #1f1f1f;
   --secondary-text: #4a4a4a;
   --accent-gradient: linear-gradient(45deg, #3a7f7a, #c08ab3, #9657e3);
@@ -19,7 +20,6 @@ Body text: Atkinson Hyperlegible */
 }
 
 /* Global Styles */
-
 body {
   background-color: var(--background);
   font-family: "Atkinson Hyperlegible", sans-serif;
@@ -49,7 +49,7 @@ a {
 }
 
 /* Container, Row, Col guideliens for debugging DELETE BEFORE FINAL DEPLOYMENT */
-
+/* 
 .container, .container-fluid {
   border: 3px dotted red;
 }
@@ -65,7 +65,7 @@ a {
 .col-lg-6, .col-lg-12,
 .col-xl-6, .col-xl-12 {
   border: 6px solid green;
-}
+} */
 
 /* Navigation & logo */
 
@@ -252,15 +252,6 @@ body .navbar-brand {
     background-color: var(--error);
     color: var(--background);
     border: 3px solid transparent;
-}
-
-/* Footer */
-
-footer {
-  background: var(--reverse-gradient);
-  padding: 1.5rem 0;
-  text-align: center;
-  font-family: "Atkinson Hyperlegible", sans-serif;
 }
 
 /* Home page */
@@ -549,6 +540,62 @@ footer {
 
 .auth-submit-btn {
   min-width: 180px;
+}
+
+/* Footer */
+
+footer {
+  background: var(--reverse-gradient);
+  padding: 1.5rem 0;
+  text-align: center;
+  font-family: "Atkinson Hyperlegible", sans-serif;
+}
+
+footer a {
+  color: var(--background);
+  text-decoration: none;
+}
+
+footer .social-icon {
+  color: var(--heading);
+  transition: color 0.3s ease;
+}
+
+.social-icon i {
+  font-size: 1.8rem;
+}
+
+footer .social-icon:hover,
+footer .social-icon:focus {
+  color: var(--background);
+}
+
+.copyright {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.contact-heading {
+  color: var(--pink-heading);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.email-link {
+  color: var(--heading);
+  font-weight: bold;
+}
+
+.dev-credits {
+  margin-top: 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+
+.dev-credits a {
+  color: var(--heading);
+  font-weight: 600;
 }
 
 /* Django messages */
