@@ -142,7 +142,7 @@ body .navbar-brand {
 
 .nav-link:hover,
 .nav-link:focus {
-  color: var(--primary-accent);
+  color: var(--heading);
 }
 
 .nav-link a:hover {
