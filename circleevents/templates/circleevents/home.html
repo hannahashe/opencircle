@@ -16,7 +16,7 @@
         community.
       </p>
       <div class="d-grid gap-2 col-md-6 mx-auto mt-4">
-        <a href="{% url 'event_list' %}" class="btn custom-btn-outline btn-lg">
+        <a href="{% url 'event_list' %}" class="btn custom-btn-filled btn-lg">
           Browse All Events
         </a>
         <a href="{% url 'create_event' %}" class="btn custom-btn-cta btn-lg">
@@ -65,7 +65,7 @@
 
               <a
                 href="{% url 'event_detail' event.slug %}"
-                class="btn btn-md custom-btn-filled-reverse mt-2"
+                class="btn btn-md custom-btn-outline  mt-2"
               >
                 View Event
               </a>
@@ -79,7 +79,7 @@
       </div>
 
       <div class="d-grid gap-2 col-md-6 mx-auto mt-4">
-        <a href="{% url 'event_list' %}" class="btn custom-btn-filled btn-lg">
+        <a href="{% url 'event_list' %}" class="btn custom-btn-filled-reverse btn-lg">
           See All Events
         </a>
       </div>
