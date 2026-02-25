@@ -102,7 +102,7 @@ A role-based permission model ensures clarity, security, and trust.
 - Cannot approve events
 - Cannot edit others’ events
 - Ownership rule is enforced server-side:
->event.organiser == request.user
+`event.organiser == request.user`
 
 ### Admin / Moderator (is_staff=True)
 **Purpose**: Maintain trust and quality
@@ -355,7 +355,7 @@ The following production packages were installed:
 - psycopg2 & pscopg2-binary
 
 requirements.txt was updated:
->pip freeze > requirements.tx
+`pip freeze > requirements.tx`
 #### Configure Settings for Production
 In settings.py:
 - DEBUG is controlled by environmental variables
@@ -366,60 +366,64 @@ In settings.py:
 - Cloudinary is used for media storage 
 
 #### Example production configuration:
->DEBUG = os.environ.get("DEBUG", "False") == "True"
->
->ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "").split(",")
->
->STATIC_URL = "/static/"
->STATIC_ROOT = BASE_DIR / "staticfiles"
->
->STATICFILES_DIRS = [
->    >BASE_DIR / "static",
->]
->
->STORAGES = {
->    >"default": {
->        >"BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
->    >},
->    >"staticfiles": {
->       >"BACKEND": "whitenoise.storage.>CompressedManifestStaticFilesStorage",
->    },
->}
+```
+DEBUG = os.environ.get("DEBUG", "False") == "True"
+
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "").split(",")
+
+STATIC_URL = "/static/"
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
+
+STORAGES = {
+    "default": {
+        "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
+    },
+    "staticfiles": {
+       "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
+```
 
 #### Create Procfile & Specify Python Version for Deployment
 A Procfile was created in the root directory:
->web: gunicorn config.wsgi
+`web: gunicorn config.wsgi`
 
 A .python-version file was added:
->3.12.7
+`3.12.7`
 
 #### Create Heroku App
 The Heroku CI was used for deployment. 
-> heroku login
-> heroku create hannahashe-opencircle
+`heroku login` 
+`heroku create hannahashe-opencircle`
 
 #### Add Database
 The Code Institue Postgres Database maker was used. 
-> heroku addons:create heroku-postgresql:essential-0
+`heroku addons:create heroku-postgresql:essential-0`
 
 #### Set Environmental Variables
 The following config vars were set in Heroku:
-> heroku config:set SECRET_KEY="my-secret-key"
-> heroku config:set DEBUG=False
-> heroku config:set ALLOWED_HOSTS="hannahashe-opencircle-cd40453b0631.herokuapp.com, hannahashe-opencircle.herokuapp.com/"
+```
+heroku config:set SECRET_KEY="my-secret-key"
+heroku config:set DEBUG=False
+heroku config:set ALLOWED_HOSTS="hannahashe-opencircle-cd40453b0631.herokuapp.com, hannahashe-opencircle.herokuapp.com/"
+```
 
 #### Deploy to Heroku 
 Using the Heroku CI in the VS Code terminal, the project was pushed to Heroku for deployment. 
->git push heroku main
+`git push heroku main`
 
 Heroku runs collectstatic during deployment to gather static files for WhietNoise.
 
 #### Run Migrations
 After deployment, migrations were run in the terminal:
-> heroku run python manage.py migrate
+`heroku run python manage.py migrate`
 
 Also, a superuser (admin) was created with:
-> heroku run python manage.py createsuperuser
+`heroku run python manage.py createsuperuser`
 
 #### Datebase Notes
 - Local development uses SQLite.
