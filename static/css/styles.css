@@ -29,12 +29,6 @@ html {
   scroll-behavior: smooth;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-}
-
 .back-to-top-btn {
   position: fixed;
   right: 1rem;
@@ -85,22 +79,24 @@ a {
 }
 
 /* Container, Row, Col guideliens for debugging DELETE BEFORE FINAL DEPLOYMENT */
-/* 
-.container, .container-fluid {
+
+/* .container, .container-fluid {
   border: 3px dotted red;
 }
 
-.row, .row-cols-1, .row-cols-md-2, .row-cols-lg-3
-.row-cols-xl-4 {
-  border: 4px dashed blue;
+.row {
+  border: 2px dashed blue;
 }
 
 .col, .col-3, .col-4, .col-6, .col-12,
+.col-sm-1, .col-sm-2, .col-sm-3, 
+.col-sm-4, .col-sm-6, .col-sm-8,
+.col-sm-12,
 .col-md-5, .col-md-4, .col-md-3,
-.col-md-6, .col-md-7, .col-md-12,
-.col-lg-6, .col-lg-12,
+.col-md-6, .col-md-7, .col-md-8,
+.col-md-12, .col-lg-6, .col-lg-12,
 .col-xl-6, .col-xl-12 {
-  border: 6px solid green;
+  border: 3px solid green;
 } */
 
 /* Navigation & logo */
@@ -503,12 +499,40 @@ body .navbar-brand {
 
 /* Event Detail page */
 .organiser-tag {
-  background-color: var(--primary-accent);
+  background-color: var(--secondary-accent);
   color: var(--background);
   border-radius: 5px;
-  padding: 0.25rem 0.75rem;
   font-size: 0.9rem;
   display: inline-block;
+  padding: 0.25rem 0.5rem;
+}
+
+.organiser-img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+
+.contact-organiser-link {
+  background-color: var(--primary-accent);
+  color: var(--background);
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  margin-left: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.event-img-detail {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 /* Authentication (login, logout & signup) pages */
@@ -700,4 +724,12 @@ footer .social-icon:focus {
 
 .pagination-meta {
   color: var(--secondary-text);
+}
+
+/* Media Queries */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
