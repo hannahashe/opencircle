@@ -47,8 +47,8 @@ Circle{% endblock %} {% block content %}
         <a href="{% url 'event_list' %}" class="btn custom-btn-outline">Clear</a>
       </div>
 
-      <div class="col-12">
-        <p class="small fw-bold mb-2">Accessibility filters</p>
+      <fieldset class="col-12">
+        <legend class="small fw-bold mb-2">Accessibility filters</legend>
         <div class="d-flex flex-wrap gap-3">
           <div class="form-check event-form-check">
             <input class="form-check-input" type="checkbox" id="step_free_access" name="step_free_access" {% if current_step_free_access %}checked{% endif %}>
@@ -67,7 +67,7 @@ Circle{% endblock %} {% block content %}
             <label class="form-check-label" for="seating_available">Seating available</label>
           </div>
         </div>
-      </div>
+      </fieldset>
     </div>
   </form>
 
