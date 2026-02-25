@@ -1,13 +1,13 @@
 ﻿# OpenCircle – Accessible Events Directory
 
-## Contents 
+## Table of Contents
 
 
-## Project Overview | Ideation, Roles & User Stories3
+## Project Overview | Ideation, Roles & User Stories (#overview)
 ### Project Purpose
 Open Circle is a moderated events directory designed for queer and alternative communities, with an accessibility-first approach.
 
-Marginalised attendees — particularly disabled queer users — often struggle to find reliable accessibility and safer-space information. Event details are frequently inconsistent, vague, or scattered across social media. This creates uncertainty and forces users into “DM the organiser” culture to clarify essential access needs.
+Marginalised attendees — particularly disabled and/or queer users — often struggle to find reliable accessibility and safer-space information. Event details are frequently inconsistent, vague, or scattered across social media. This creates uncertainty and forces users into “DM the organiser” culture to clarify essential access needs.
 
 Open Circle addresses this by:
 - Standardising accessibility and safer-space information
@@ -18,7 +18,7 @@ Open Circle addresses this by:
 The platform enables attendees to make informed decisions without relying on fragmented or informal sources.
 
 The platform allows organisers to submit events for moderation and enables visitors to browse events without needing an account.
-
+
 ## Site Owner Goals
 - Maintain a trustworthy directory
 - Moderate event submissions
@@ -50,8 +50,7 @@ A role-based permission model ensures clarity, security, and trust.
 - View event status
 - Cannot approve events
 - Cannot edit others’ events
-
-Ownership rule is enforced server-side:
+- Ownership rule is enforced server-side:
 >event.organiser == request.user
 
 ### Admin / Moderator (is_staff=True)
@@ -263,6 +262,7 @@ The following production packages were installed:
 - whitenoise
 - dj-database-url
 - psycopg2 & pscopg2-binary
+
 requirements.txt was updated:
 >pip freeze > requirements.tx
 #### Configure Settings for Production
@@ -298,6 +298,7 @@ In settings.py:
 #### Create Procfile & Specify Python Version for Deployment
 A Procfile was created in the root directory:
 >web: gunicorn config.wsgi
+
 A .python-version file was added:
 >3.12.7
 
@@ -312,9 +313,9 @@ The Code Institue Postgres Database maker was used.
 
 #### Set Environmental Variables
 The following config vars were set in Heroku:
-> heroku config:set SECRET_KEY="your-secret-key"
+> heroku config:set SECRET_KEY="my-secret-key"
 > heroku config:set DEBUG=False
-> heroku config:set ALLOWED_HOSTS="your-app-url.herokuapp.com"
+> heroku config:set ALLOWED_HOSTS="hannahashe-opencircle-cd40453b0631.herokuapp.com, hannahashe-opencircle.herokuapp.com/"
 
 #### Deploy to Heroku 
 Using the Heroku CI in the VS Code terminal, the project was pushed to Heroku for deployment. 
@@ -325,6 +326,7 @@ Heroku runs collectstatic during deployment to gather static files for WhietNois
 #### Run Migrations
 After deployment, migrations were run in the terminal:
 > heroku run python manage.py migrate
+
 Also, a superuser (admin) was created with:
 > heroku run python manage.py createsuperuser
 
