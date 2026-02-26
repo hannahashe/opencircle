@@ -90,14 +90,14 @@ Circle{% endblock %} {% block content %}
         />
         {% endif %}
         <div class="card-body d-flex flex-column">
-          <h5 class="card-title">
+          <h3 class="card-title">
             <a
               href="{% url 'event_detail' event.slug %}"
               class="text-decoration-none text-dark"
             >
               {{ event.title }}
             </a>
-          </h5>
+          </h3>
           <p class="card-text small text-muted mb-2">
             <strong>Date:</strong>
             {{ event.start_datetime|date:"D d M Y H:i" }} - {{ event.end_datetime|date:"H:i" }}
