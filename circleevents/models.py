@@ -6,10 +6,12 @@ from django.utils.text import slugify
 from cloudinary.models import CloudinaryField
 
 
-# Custom user profile to extend the built-in User model,
-# allowing for additional fields like is_organiser, bio, and profile_img.
-
 class Profile(models.Model):
+    """
+    Profile model to extend the built-in User model with additional fields
+    such as is_organiser, bio, and profile_img.
+    The __str__ method returns the username of the associated User.
+    """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     is_organiser = models.BooleanField(default=False)
     bio = models.TextField(blank=True)
@@ -20,23 +22,18 @@ class Profile(models.Model):
     )
 
     def __str__(self):
-        """
-        Return the username of the associated User
-        as the string representation of the Profile.
-        """
         return self.user.username
-
-# Custom Event model to store event details,
-# including title, description, date/time, venue information,
-# accessibility features, and status.
-# The save method automatically generates
-# a unique slug based on the event title and
-# sets the published date when an event is approved.
-# The model also includes fields for moderation status and admin comments,
-# which are used to manage the event approval process.
 
 
 class Event(models.Model):
+    """
+    Event model to store event details, including title, description, date/time,
+    venue information, accessibility features, and status.
+    The save method automatically generates a unique slug based on the event title
+    and sets the published date when an event is approved.
+    The model also includes fields for moderation status and admin comments,
+    which are used to manage the event approval process.
+    """
     DEFAULT_REJECTION_COMMENT = (
         "Thanks for your submission. This event was not approved in its "
         "current form. Please review your event details carefully before resubmiting."
