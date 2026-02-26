@@ -5,6 +5,7 @@ from .models import Event, Profile, Notification
 admin.site.register(Profile)
 admin.site.register(Notification)
 
+
 @admin.register(Event)
 class EventAdmin(admin.ModelAdmin):
     list_display = (
@@ -95,7 +96,7 @@ class EventAdmin(admin.ModelAdmin):
         self.message_user(
             request,
             f"{updated} event(s) have been successfully approved."
-        )    
+        )
 
     approve_events.short_description = "Approve selected events."
 
