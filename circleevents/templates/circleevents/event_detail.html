@@ -8,9 +8,9 @@
   <div class="row g-4 align-items-start">
     <div class="col-12">
       {% if event.event_img %}
-      <img src="{{ event.event_img.url }}" alt="Image for {{ event.title }}" class="img-fluid rounded event-img-detail">
+      <img src="{{ event.event_img.url }}" alt="Image for {{ event.title }}" class="img-fluid rounded event-img-detail" role="img">
       {% else %}
-      <img src="{% static 'images/default-img.jpg' %}" alt="Default event image" class="img-fluid rounded event-img-detail">
+      <img src="{% static 'images/default-img.jpg' %}" alt="Default event image" class="img-fluid rounded event-img-detail" role="img">
       {% endif %}
     </div>
   </div>
@@ -44,7 +44,7 @@
       {% if event.organiser.profile.profile_img %}
       <img src="{{ event.organiser.profile.profile_img.url }}" alt="Profile picture of {{ event.organiser.username }}" class="img-fluid rounded-circle organiser-img">
       {% else %}
-      <div class="profile-img-placeholder rounded-circle organiser-img"></div>
+      <div class="profile-img-placeholder rounded-circle organiser-img" role="img" aria-label="No profile image uploaded for {{event.organiser.username}}"></div>
       {% endif %}
       <p class="mb-0">
       <span class="organiser-tag">{{ event.organiser.username }}</span>

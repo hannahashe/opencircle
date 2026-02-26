@@ -22,7 +22,7 @@
         {% if profile.profile_img %}
         <img src="{{ profile.profile_img.url }}" class="img-fluid rounded-circle mb-3" alt="Profile image for {{ request.user.username }}">
         {% else %}
-        <div class="profile-img-placeholder rounded-circle mb-3" aria-label="No profile image uploaded for {{ request.user.username }}"></div>
+        <div class="profile-img-placeholder rounded-circle mb-3" role="img" aria-label="No profile image uploaded for {{ request.user.username }}"></div>
         {% endif %}
 
         <!-- form included to allow user to upload profile-img via cloudinary -->
