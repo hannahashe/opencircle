@@ -7,7 +7,7 @@ Circle{% endblock %} {% block content %}
       Browse community-led gatherings with accessibility in mind.
     </p>
   </div>
-
+<!-- Search events by start date/time, end date/time, keyword and accessibiltiy features -->
   <form method="get" class="section-card p-3 mb-4 event-form">
     <div class="row g-3 align-items-end">
       <div class="col-12">
@@ -42,11 +42,7 @@ Circle{% endblock %} {% block content %}
           class="form-control event-form-control"
         >
       </div>
-      <div class="col-12 col-md-4 d-grid d-sm-flex gap-2">
-        <button type="submit" class="btn custom-btn-filled">Apply filter</button>
-        <a href="{% url 'event_list' %}" class="btn custom-btn-outline">Clear</a>
-      </div>
-
+      <!-- Accessibility filters -->
       <fieldset class="col-12">
         <legend class="small fw-bold mb-2">Accessibility filters</legend>
         <div class="d-flex flex-wrap gap-3">
@@ -68,6 +64,10 @@ Circle{% endblock %} {% block content %}
           </div>
         </div>
       </fieldset>
+        <div class="col-12 col-md-4 d-grid d-sm-flex gap-2">
+        <button type="submit" class="btn custom-btn-filled">Apply filter</button>
+        <a href="{% url 'event_list' %}" class="btn custom-btn-outline">Clear</a>
+      </div>
     </div>
   </form>
 
