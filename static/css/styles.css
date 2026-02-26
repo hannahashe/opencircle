@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 /* Google Fonts 
 Headings & Titles: Space Grotesk
 Body text: Atkinson Hyperlegible */
@@ -36,15 +43,22 @@ html {
   width: 2.75rem;
   height: 2.75rem;
   border-radius: 50%;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
   display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   background-color: var(--primary-accent);
   color: var(--background);
   border: 2px solid transparent;
   text-decoration: none;
   z-index: 1030;
-  box-shadow: 0 6px 16px rgba(28, 61, 67, 0.25);
+  -webkit-box-shadow: 0 6px 16px rgba(28, 61, 67, 0.25);
+          box-shadow: 0 6px 16px rgba(28, 61, 67, 0.25);
 }
 
 .back-to-top-btn:hover,
@@ -74,7 +88,8 @@ p {
 
 a {
   color: var(--primary-accent);
-  text-decoration: wavy underline;
+  -webkit-text-decoration: wavy underline;
+          text-decoration: wavy underline;
   text-underline-offset: 0.14em;
 }
 
@@ -146,7 +161,10 @@ body .navbar-brand {
 }
 
 .nav-link a:hover {
-  box-shadow: 0 0 5px var(--background) !important;
+  -webkit-box-shadow: 0 0 5px var(--background) !important;
+          box-shadow: 0 0 5px var(--background) !important;
+  -webkit-transition: ease-in-out 0.3s;
+  -o-transition: ease-in-out 0.3s;
   transition: ease-in-out 0.3s;
 }
 
@@ -160,13 +178,15 @@ body .navbar-brand {
 .section-card {
   background: #ffffff;
   border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(2, 124, 146, 0.08);
+  -webkit-box-shadow: 0 10px 30px rgba(2, 124, 146, 0.08);
+          box-shadow: 0 10px 30px rgba(2, 124, 146, 0.08);
   min-height: 200px;
 }
 
 .event-img {
   height: 220px;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .event-meta p {
@@ -182,9 +202,15 @@ body .navbar-brand {
 .custom-btn-cta,
 .custom-btn-danger,
 .contact-organiser-link {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
   display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   gap: 0.35rem;
   font-weight: 700;
   border-width: 2px;
@@ -193,8 +219,16 @@ body .navbar-brand {
   text-decoration: none;
   line-height: 1.2;
   padding: 0.45rem 0.85rem;
+  -webkit-transition: background-color 0.2s ease, color 0.2s ease,
+    border-color 0.2s ease, -webkit-box-shadow 0.2s ease, -webkit-transform 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease,
+    border-color 0.2s ease, -webkit-box-shadow 0.2s ease, -webkit-transform 0.2s ease;
+  -o-transition: background-color 0.2s ease, color 0.2s ease,
+    border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
   transition: background-color 0.2s ease, color 0.2s ease,
     border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease,
+    border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease, -webkit-box-shadow 0.2s ease, -webkit-transform 0.2s ease;
 }
 
 .custom-btn-outline:hover,
@@ -204,7 +238,9 @@ body .navbar-brand {
 .custom-btn-cta:hover,
 .custom-btn-danger:hover,
 .contact-organiser-link:hover {
-  transform: translateY(-1px);
+  -webkit-transform: translateY(-1px);
+      -ms-transform: translateY(-1px);
+          transform: translateY(-1px);
 }
 
 .custom-btn-outline:focus-visible,
@@ -215,7 +251,8 @@ body .navbar-brand {
 .custom-btn-danger:focus-visible,
 .contact-organiser-link:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 0.2rem rgba(192, 138, 179, 0.3);
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(192, 138, 179, 0.3);
+          box-shadow: 0 0 0 0.2rem rgba(192, 138, 179, 0.3);
 }
 
 .custom-btn-outline {
@@ -306,7 +343,9 @@ body .navbar-brand {
 .custom-btn-cta:disabled,
 .custom-btn-danger:disabled {
   opacity: 0.65;
-  transform: none;
+  -webkit-transform: none;
+      -ms-transform: none;
+          transform: none;
   cursor: not-allowed;
 }
 
@@ -378,7 +417,8 @@ body .navbar-brand {
   background: var(--accent-gradient);
   border-radius: 16px;
   padding: 0.3rem;
-  box-shadow: 0 12px 28px rgba(58, 127, 122, 0.18);
+  -webkit-box-shadow: 0 12px 28px rgba(58, 127, 122, 0.18);
+          box-shadow: 0 12px 28px rgba(58, 127, 122, 0.18);
 }
 
 .hero {
@@ -499,7 +539,8 @@ body .navbar-brand {
 
 .event-form-control:focus {
   border-color: var(--secondary-accent);
-  box-shadow: 0 0 0 0.2rem rgba(192, 138, 179, 0.25);
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(192, 138, 179, 0.25);
+          box-shadow: 0 0 0 0.2rem rgba(192, 138, 179, 0.25);
 }
 
 .event-form .form-text {
@@ -528,7 +569,8 @@ body .navbar-brand {
 }
 
 .event-form .form-check-input:focus {
-  box-shadow: 0 0 0 0.2rem rgba(58, 127, 122, 0.3);
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(58, 127, 122, 0.3);
+          box-shadow: 0 0 0 0.2rem rgba(58, 127, 122, 0.3);
 }
 
 .event-form .form-check-label {
@@ -567,7 +609,8 @@ body .navbar-brand {
 }
 
 .create-guidance-accordion .accordion-button:focus {
-  box-shadow: 0 0 0 0.2rem rgba(192, 138, 179, 0.25);
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(192, 138, 179, 0.25);
+          box-shadow: 0 0 0 0.2rem rgba(192, 138, 179, 0.25);
   border-color: var(--secondary-accent);
 }
 
@@ -595,7 +638,8 @@ body .navbar-brand {
 .organiser-img {
   width: 70px;
   height: 70px;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 50%;
   display: inline-block;
   margin: 0.25rem;
@@ -605,7 +649,8 @@ body .navbar-brand {
 .event-img-detail {
   width: 100%;
   max-height: 400px;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 8px;
 }
 
@@ -631,7 +676,8 @@ body .navbar-brand {
 .auth-form select:focus,
 .auth-form textarea:focus {
   border-color: var(--secondary-accent);
-  box-shadow: 0 0 0 0.2rem rgba(192, 138, 179, 0.25);
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(192, 138, 179, 0.25);
+          box-shadow: 0 0 0 0.2rem rgba(192, 138, 179, 0.25);
   outline: 0;
 }
 
@@ -661,7 +707,8 @@ body .navbar-brand {
 }
 
 .auth-form input[type="checkbox"]:focus {
-  box-shadow: 0 0 0 0.2rem rgba(58, 127, 122, 0.3);
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(58, 127, 122, 0.3);
+          box-shadow: 0 0 0 0.2rem rgba(58, 127, 122, 0.3);
 }
 
 .auth-form .form-check-label {
@@ -692,6 +739,8 @@ footer a {
 
 footer .social-icon {
   color: var(--heading);
+  -webkit-transition: color 0.3s ease;
+  -o-transition: color 0.3s ease;
   transition: color 0.3s ease;
 }
 
@@ -767,7 +816,8 @@ footer .social-icon:focus {
 }
 
 .alert .btn-close {
-  filter: invert(1) grayscale(100%) brightness(200%);
+  -webkit-filter: invert(1) grayscale(100%) brightness(200%);
+          filter: invert(1) grayscale(100%) brightness(200%);
 }
 
 /* Pagination */
@@ -788,7 +838,8 @@ footer .social-icon:focus {
   background-color: rgba(58, 127, 122, 0.1);
   color: var(--heading);
   border-color: var(--heading);
-  box-shadow: 0 0 0 0.2rem rgba(192, 138, 179, 0.25);
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(192, 138, 179, 0.25);
+          box-shadow: 0 0 0 0.2rem rgba(192, 138, 179, 0.25);
 }
 
 .custom-pagination .page-item.active .page-link {
