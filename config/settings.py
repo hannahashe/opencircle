@@ -167,6 +167,12 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
+# Cloudinary configuration for media storage
+
+cloudinary.config(
+    secure=True
+)
+
 if os.environ.get("CLOUDINARY_URL"):
     # Production (Heroku)
     STORAGES = {
