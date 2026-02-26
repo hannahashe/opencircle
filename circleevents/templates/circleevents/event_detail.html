@@ -42,12 +42,12 @@
     </div>
     <div class="col-8 col-md-2">
       {% if event.organiser.profile.profile_img %}
-      <img src="{{ event.organiser.profile.profile_img.url }}" class="img-fluid rounded-circle organiser-img" alt="Profile image for {{ event.organiser.username }}">
+      <img src="{{ event.organiser.profile.profile_img.url }}" alt="Profile picture of {{ event.organiser.username }}" class="img-fluid rounded-circle organiser-img">
       {% else %}
-      <div class="profile-img-placeholder rounded-circle organiser-img" aria-label="No profile image uploaded for {{ event.organiser.username }}"></div>
+      <div class="profile-img-placeholder rounded-circle organiser-img"></div>
       {% endif %}
       <p class="mb-0">
-        <span class="organiser-tag">{{ event.organiser.username }}</span>
+      <span class="organiser-tag">{{ event.organiser.username }}</span>
       </p>
     </div>
 
