@@ -714,6 +714,13 @@ footer .social-icon:focus {
   color: var(--pink-heading);
   font-weight: 700;
   margin-bottom: 0.5rem;
+  font-size: 1.6rem;
+}
+
+.brand-heading {
+  color: var(--heading);
+  font-weight: 800;
+  font-size: 1.8rem;
 }
 
 .email-link {
