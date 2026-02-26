@@ -27,16 +27,19 @@ class Profile(models.Model):
 
 class Event(models.Model):
     """
-    Event model to store event details, including title, description, date/time,
-    venue information, accessibility features, and status.
-    The save method automatically generates a unique slug based on the event title
-    and sets the published date when an event is approved.
+    Event model to store event details, including title, description,
+    date/time, venue information, accessibility features, and status.
+    The save method automatically generates a unique slug based on the event
+    title and sets the published date when an event is approved.
     The model also includes fields for moderation status and admin comments,
     which are used to manage the event approval process.
     """
     DEFAULT_REJECTION_COMMENT = (
-        "Thanks for your submission. This event was not approved in its "
-        "current form. Please review your event details carefully before resubmiting."
+        "Thanks for your submission. Unfortunately, this event was not "
+        "approved in its current form. Please review your event details "
+        "carefully and take a look at our event submission guidelines to "
+        "ensure your event meets our standards for accessibility, safety and"
+        " clarity."
     )
 
     STATUS_CHOICES = [
@@ -81,7 +84,7 @@ class Event(models.Model):
     )
 
     created_at = models.DateTimeField(auto_now_add=True)
-
+    
     status = models.CharField(
         max_length=10, choices=STATUS_CHOICES, default="pending"
     )
@@ -124,14 +127,16 @@ class Event(models.Model):
         super(Event, self).save(*args, **kwargs)
 
 
-# Notification model to store notifications for users,
-# when their events are approved or rejected,
-# and the message content of the notification.
-# CURRENTLY NOT IN USE -
-# PLANNED AS A FUTURE FEATURE FOR USER DASHBOARD NOTIFICATIONS.
-
-
 class Notification(models.Model):
+    """
+    Notification model to store notifications for users when their events are
+    approved or rejected, and the message content of the notification.
+    The model includes a foreign key to the User and Event models, a
+    notification type (approved or rejected), a message field, a boolean
+    to track if the notification has been read, and a timestamp for when the
+    notification was created. This model is currently not in use but is
+    planned as a future feature for user dashboard notifications.
+    """
     TYPE_CHOICES = [
         ("approved", "Approved"),
         ("rejected", "Rejected"),
