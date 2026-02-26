@@ -84,7 +84,7 @@ class Event(models.Model):
     )
 
     created_at = models.DateTimeField(auto_now_add=True)
-    
+
     status = models.CharField(
         max_length=10, choices=STATUS_CHOICES, default="pending"
     )
