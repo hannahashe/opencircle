@@ -156,7 +156,10 @@ class Notification(models.Model):
 
     def save(self, *args, **kwargs):
         if self.notification_type == "approved":
-            self.message = f"Your event '{self.event.title}' has been approved and is now live on Open Circle."
+            self.message = f"Your event '{self.event.title}' has been" + \
+                           " approved and is now live on Open Circle."
         elif self.notification_type == "rejected":
-            self.message = f"Your event '{self.event.title}' has been rejected. Please see the message below for more details."
+            self.message = f"Your event '{self.event.title}' has been" + \
+                           " rejected. Please see the message below details."
+
         super().save(*args, **kwargs)
