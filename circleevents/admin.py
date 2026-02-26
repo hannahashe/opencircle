@@ -12,11 +12,13 @@ class EventAdmin(admin.ModelAdmin):
         "status",
         "organiser",
         "start_datetime",
+        "created_at",
         "published_at",
     )
     list_filter = (
         "status",
         "start_datetime",
+        "created_at",
     )
     search_fields = (
         "title",
@@ -79,7 +81,7 @@ class EventAdmin(admin.ModelAdmin):
         if admin_comment_field:
             admin_comment_field.help_text = (
                 "Optional. If this is left blank when status is set to "
-                "Rejected, a default feedback message is sent to the organiser."
+                "Rejected, a default message is sent to the organiser."
             )
         return form
 
