@@ -199,11 +199,17 @@ The colour combination prioritises readability and reduces sensory overwhelm for
  # Testing
  ## Validation
  - HTML validated via W3C Validator 
- - SCREENSHOTS HERE
+  <img src="static/images/readme-images/html-css-validation/validator-home-page.png">
+  <img src="static/images/readme-images/html-css-validation/validator-event-detail.png">
  - CSS validated via WSC Validator 
+  <img src="static/images/readme-images/html-css-validation/validator-css.png">
  - Python validated using CI Python Linter
- - No critical errors present
- - SCREENSHOTS HERE
+  <img src="static/images/readme-images/ci-python-linter/linter-models.png">
+
+ No critical errors present
+
+ Screenshots of all Validators can be found in static/images/readme-images/html-css-validation
+
  ## Lighthouse Testing
  Tested on:
  - Homepage
@@ -212,13 +218,20 @@ The colour combination prioritises readability and reduces sensory overwhelm for
  - Event create/edit
  - Profile
  - sign up, log in, log out
- Both Mobile & Desktop tested.
+ - Both Mobile & Desktop tested.
+
+ <img src="static/images/readme-images/lighthouse-reports/lighthouse-homepage-desk.png">
+ <img src="static/images/readme-images/lighthouse-reports/lighthouse-event-detail-desk.png">
+ <img src="static/images/readme-images/lighthouse-reports/lighthouse-create-event-desk.png">
+
+ Screenshots of all Lighthouse reports can be found in static/images/readme-images/lighthouse-reports
 
 ## Responsiveness
  Tested using:
  - Chrome DevTools and different physical devices.
  - Multiple viewport sizes
  - Desktop, tablet, mobile breakpoints
+  
  INSERT SCREENSHOTS HERE
 ## Browser Compatibility
  Tested on:
