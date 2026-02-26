@@ -103,7 +103,7 @@
     <div class="col-sm-12 col-md-6">
       <div class="section-card p-4">
         <div class="event-meta">
-        <h5 class="mb-2">Details</h5>
+        <h3 class="mb-2">Details</h3>
           <p class="mb-2"><strong>Date:</strong> {{ event.start_datetime|date:"D d M Y H:i" }} – {{ event.end_datetime|date:"H:i" }}</p>
           <p class="mb-2"><strong>Location:</strong> {{ event.venue_name }}, {{ event.city }}</p>
           <p class="mb-2"><strong>Address:</strong> {{ event.address }}{% if event.postcode %}, {{ event.postcode }}{% endif %}</p>
@@ -112,7 +112,7 @@
     </div>
     <div class="col-sm-12 col-md-6">
       <div class="section-card p-4">
-          <h5 class="mb-2">Accessibility</h5>
+          <h3 class="mb-2">Accessibility</h3>
           {% if event.step_free_access or event.accessible_toilet or event.quiet_space or event.seating_available %}
           <ul class="list-unstyled mb-0">
             {% if event.step_free_access %}
