@@ -269,7 +269,7 @@ body .navbar-brand {
 }
 
 .custom-btn-filled {
-  color: var(--background);
+  color: var(--text);
   background-color: var(--secondary-accent);
   border-color: var(--secondary-accent);
 }
@@ -311,7 +311,7 @@ body .navbar-brand {
 }
 
 .custom-btn-cta {
-  color: var(--background);
+  color: var(--heading);
   background-color: var(--cta-highlight);
   border-color: var(--cta-highlight);
 }
