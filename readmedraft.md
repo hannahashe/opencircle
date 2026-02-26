@@ -213,7 +213,7 @@ The colour combination prioritises readability and reduces sensory overwhelm for
  - Profile
  - sign up, log in, log out
  Both Mobile & Desktop tested.
- INSERT SCREENSHOTS HERE
+
 ## Responsiveness
  Tested using:
  - Chrome DevTools and different physical devices.
