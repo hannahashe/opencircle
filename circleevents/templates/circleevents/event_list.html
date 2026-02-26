@@ -81,13 +81,13 @@ Circle{% endblock %} {% block content %}
           src="{{ event.event_img.url }}"
           class="card-img-top event-img"
           alt="{{ event.title }}"
-        />
+        >
         {% else %}
         <img
           src="{% static 'images/default-img.jpg' %}"
           class="card-img-top event-img"
           alt="{{ event.title }}"
-        />
+        >
         {% endif %}
         <div class="card-body d-flex flex-column">
           <h3 class="card-title">
