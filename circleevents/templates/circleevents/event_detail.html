@@ -8,9 +8,9 @@
   <div class="row g-4 align-items-start">
     <div class="col-12">
       {% if event.event_img %}
-      <img src="{{ event.event_img.url }}" alt="Image for {{ event.title }}" class="img-fluid rounded event-img-detail" role="img">
+      <img src="{{ event.event_img.url }}" alt="Image for {{ event.title }}" class="img-fluid rounded event-img-detail">
       {% else %}
-      <img src="{% static 'images/default-img.jpg' %}" alt="Default event image" class="img-fluid rounded event-img-detail" role="img">
+      <img src="{% static 'images/default-img.jpg' %}" alt="Default event image" class="img-fluid rounded event-img-detail">
       {% endif %}
     </div>
   </div>
