@@ -520,7 +520,7 @@ All must-have and should-have user stories were manually tested against their ac
 | ID | User Story | Acceptance Criteria | Test Steps | Expected Result | Pass/Fail | Evidence |
 |----|------------|--------------------|------------|----------------|-----------|----------|
 | #4 | Create events | Authenticated organiser can submit event. Event status set to pending. | 1. Login <br> 2. Submit event form | Event saved to database with pending status. | PASS | create-event-mob.png create-event-desk.png |
-| #5 | Edit & Delete events | Organiser can edit/delete only their own events. | 1. Login as event owner <br> 2. Edit event <br> 3. Delete event <br> 4. Attempt edit as different user | Owner can edit/delete successfully. Other users denied access. | PASS | |
+| #5 | Edit & Delete events | Organiser can edit/delete only their own events. | 1. Login as event owner <br> 2. Edit event <br> 3. Delete event <br> 4. Attempt edit as different user | Owner can edit/delete successfully. Other users denied access. | PASS | edit-delete-own-event.png |
 
 ---
 
@@ -635,7 +635,7 @@ After resolving the above issues:
 | Gunicorn Startup | App boots without H10 crash | ✅ Successful |
 | `DEBUG=False` | Site loads without debug information | ✅ Successful |
 | Environment Variables | SECRET_KEY, DATABASE_URL, ALLOWED_HOSTS configured | ✅ Confirmed |
-| collectstatic | Static files copied during deployment | ✅ 149 files copied |
+| collectstatic | Static files copied during deployment | ✅ Successful |
 
 ## Deployment
 This project is deployed using Heroku, with:
@@ -746,6 +746,7 @@ All code was reviewed, understood and adapted before implementation.
 
  # Credits 
  - Django Documentation
+ - Resources created and provided by my Code Institue Facilitator, Marko Tot.
  - Code Institute course materials
  - Bootstrap documentation
  - Heroku documentation
