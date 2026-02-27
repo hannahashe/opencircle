@@ -1,43 +1,77 @@
-﻿# OpenCircle – Accessible Events Directory
+﻿ # Open Circle | Accessible Events Directory
+ A moderated, accessibility-first events directory designed for queer and alternative communities.
 
-## Table of Contents
+ Marginalised attendees — particularly disabled and/or queer users — often struggle to find reliable accessibility and safer-space information. Event details are frequently inconsistent, vague, or scattered across social media. This creates uncertainty and forces users into “DM the organiser” culture to clarify essential access needs.
 
-- [OpenCircle – Accessible Events Directory](#opencircle--accessible-events-directory)
-  - [Table of Contents](#table-of-contents)
-  - [Project Overview | Ideation, Roles \& User Stories (#overview)](#project-overview--ideation-roles--user-stories-overview)
-    - [Project Purpose](#project-purpose)
-  - [Site Owner Goals](#site-owner-goals)
-  - [Site User Goals](#site-user-goals)
-  - [User Roles (MVP)](#user-roles-mvp)
-    - [Visitor (Logged out)](#visitor-logged-out)
-    - [User / Attendee (Logged in)](#user--attendee-logged-in)
-    - [Organiser (is\_organiser=True)](#organiser-is_organisertrue)
-    - [Admin / Moderator (is\_staff=True)](#admin--moderator-is_stafftrue)
-    - [Permission Summary](#permission-summary)
-  - [User Stories (MVP)](#user-stories-mvp)
+ Open Circle addresses this by:
+- Standardising accessibility and safer-space information
+- Providing structured, comparable event listings
+- Implementing moderation to improve trust
+- Reducing cognitive load through clear information hierarchy
+
+ The platform enables attendees to make informed decisions without relying on fragmented or informal sources.
+
+ Live site: https://hannahashe-opencircle-cd40453b0631.herokuapp.com/
+ 
+ # Table of Contents
+- [Open Circle | Accessible Events Directory](#open-circle--accessible-events-directory)
+- [Table of Contents](#table-of-contents)
+- [Design \& Planning](#design--planning)
+  - [Agile Methodology](#agile-methodology)
+  - [User Stories](#user-stories)
     - [Epic 1: Public Event Discovery](#epic-1-public-event-discovery)
     - [Epic 2: Authentication \& Access Control](#epic-2-authentication--access-control)
     - [Epic 3: Organiser Event Management](#epic-3-organiser-event-management)
     - [Epic 4: Moderation \& Trust](#epic-4-moderation--trust)
-    - [Epic 5: Notifications (In-App)](#epic-5-notifications-in-app)
-  - [Agile Methodology](#agile-methodology)
-  - [Scope \& Prioritisation (MoSCoW)](#scope--prioritisation-moscow)
-    - [Must Have](#must-have)
-    - [Should Have](#should-have)
-    - [Could Have](#could-have)
-    - [Won't Have (future features)](#wont-have-future-features)
-  - [UX / Design Decisions](#ux--design-decisions)
-  - [Data Model](#data-model)
+    - [Epic 5: Notifications](#epic-5-notifications)
+    - [Additional User Stories](#additional-user-stories)
+  - [User Story Summary](#user-story-summary)
   - [Wireframes](#wireframes)
-  - [Features](#features)
-    - [Implemented](#implemented)
-    - [Future Features](#future-features)
+  - [Typography](#typography)
+  - [Colour Scheme](#colour-scheme)
+  - [Database Diagram](#database-diagram)
+    - [Core Models](#core-models)
+    - [Relationships](#relationships)
+- [Features](#features)
+  - [Navigation](#navigation)
+  - [Footer](#footer)
+  - [Home page](#home-page)
+    - [Hero section](#hero-section)
+    - [Featured events \& Our Values](#featured-events--our-values)
+  - [Profile page](#profile-page)
+    - [User/Profile information](#userprofile-information)
+    - [My events section](#my-events-section)
+  - [Create \& Edit Event pages](#create--edit-event-pages)
+  - [Event list \& Event detail pages](#event-list--event-detail-pages)
+  - [CRUD](#crud)
+  - [Authentication \& Authorisation](#authentication--authorisation)
+    - [User Roles](#user-roles)
+    - [Visitor (Logged out)](#visitor-logged-out)
+    - [User / Attendee (Logged in)](#user--attendee-logged-in)
+    - [Organiser (is\_organiser=True)](#organiser-is_organisertrue)
+    - [Admin / Moderator (is\_staff=True)](#admin--moderator-is_stafftrue)
+- [Technologies Used](#technologies-used)
+- [Libraries](#libraries)
+- [Testing](#testing)
+  - [Validation](#validation)
+  - [Lighthouse Testing](#lighthouse-testing)
+  - [Responsiveness](#responsiveness)
+  - [Browser Compatibility](#browser-compatibility)
+  - [Feature testing](#feature-testing)
+    - [Manual Testing (MVP)](#manual-testing-mvp)
+  - [User Story Testing](#user-story-testing)
+    - [Epic 1: Public Event Discovery](#epic-1-public-event-discovery-1)
+    - [Epic 2: Authentication \& Access Control](#epic-2-authentication--access-control-1)
+    - [Epic 3: Organiser Event Management](#epic-3-organiser-event-management-1)
+    - [Epic 4: Moderation \& Trust](#epic-4-moderation--trust-1)
+    - [Epic 5: Notifications](#epic-5-notifications-1)
+    - [Additional User Stories (Completed in MVP)](#additional-user-stories-completed-in-mvp)
+    - [Future Releases (Not Implemented)](#future-releases-not-implemented)
   - [Bugs Encountered \& Resolutions](#bugs-encountered--resolutions)
-    - [Production Bugs](#production-bugs)
+    - [Production Bugs (non-exhaustive list)](#production-bugs-non-exhaustive-list)
     - [Deployment Bugs](#deployment-bugs)
   - [✅ Final Deployment State](#-final-deployment-state)
-  - [Testing](#testing)
-    - [Manual Testing (MVP)](#manual-testing-mvp)
+  - [Testing](#testing-1)
     - [Deployment Testing](#deployment-testing)
   - [Deployment](#deployment)
     - [Deployment Steps](#deployment-steps)
@@ -52,194 +86,486 @@
       - [Run Migrations](#run-migrations)
       - [Datebase Notes](#datebase-notes)
     - [Live Deployed Application:](#live-deployed-application)
-  - [Credits](#credits)
+- [Ai](#ai)
+- [Credits](#credits)
 
-## Project Overview | Ideation, Roles & User Stories (#overview)
-### Project Purpose
-Open Circle is a moderated events directory designed for queer and alternative communities, with an accessibility-first approach.
+# Design & Planning
 
-Marginalised attendees — particularly disabled and/or queer users — often struggle to find reliable accessibility and safer-space information. Event details are frequently inconsistent, vague, or scattered across social media. This creates uncertainty and forces users into “DM the organiser” culture to clarify essential access needs.
+ ## Agile Methodology
+ - This project followed Agile principles using:
+ - - GitHub Projects board
+ - - User stories with acceptance criteria
+ - - Iterative development
+ - - MoSCoW prioritisation
+ - - Project board includes:
+ - - - Epics
+ - - - User stories
+ - - - Tasks
+ - - - Labels
+- Link to project board: https://github.com/users/hannahashe/projects/6
 
-Open Circle addresses this by:
-- Standardising accessibility and safer-space information
-- Providing structured, comparable event listings
-- Implementing moderation to improve trust
-- Reducing cognitive load through clear information hierarchy
+## User Stories
+The project follows five MVP epics with additional should-have and could-have user stories. Complete details with acceptance criteria, tasks, and labels are available on the [GitHub Open Circle Project board](https://github.com/users/hannahashe/projects/6). Labels organise epics, prioritization (MoSCoW), frontend/backend distinctions, and future releases.
 
-The platform enables attendees to make informed decisions without relying on fragmented or informal sources.
-
-The platform allows organisers to submit events for moderation and enables visitors to browse events without needing an account.
-
-## Site Owner Goals
-- Maintain a trustworthy directory
-- Moderate event submissions
-- Prevent unauthorised access to restricted actions
-
-## Site User Goals
-
-
-## User Roles (MVP)
-A role-based permission model ensures clarity, security, and trust.
-
-### Visitor (Logged out)
-**Purpose**: Public event discovery
-- View event list and detail pages
-- Use filters and pagination
-- Cannot create, edit, or moderate events
-
-### User / Attendee (Logged in)
-**Purpose**: Future-facing account role 
-- Same permissions as Visitor
-- Can log in and log out
-- Cannot create events
-- Can assign themselves Organiser status
-
-### Organiser (is_organiser=True)
-**Purpose**: Submit and manage own events
-- Create events
-- Edit/delete own events
-- View event status
-- Cannot approve events
-- Cannot edit others’ events
-- Ownership rule is enforced server-side:
-`event.organiser == request.user`
-
-### Admin / Moderator (is_staff=True)
-**Purpose**: Maintain trust and quality
-- Review moderation queue
-- Approve/reject events (with rejection message)
-- Edit/delete any event
-- Override ownership rules
-
-### Permission Summary 
-| Role      | Create Events | Edit Own Events | Edit Others Events   | Approve/Reject |
-| :---        |    :----:   |          ---: |          ---: |          ---: |
-| Visitor      | No       | No   | No      | No         |
-| User   | No        | No      | No      | No         |
-| Organiser      | Yes       | Yes   | No      | No         |
-| Moderator (Admin)   | Yes        | Yes      | Yes      | Yes         |
-
-## User Stories (MVP)
 ### Epic 1: Public Event Discovery
-- As a visitor, I can view a list of approved upcoming events.
-- As a visitor, I can view detailed event information (description, date/time, location, accessibility, safer-space notes, image).
-- As a visitor, I can filter events by structured accessibility criteria.
-- As a visitor, I can navigate results using accessible pagination.
-
-Events are ordered logically and only approved events are publicly visible.
+- **User Story #1** (must-have): View approved upcoming events
+  - As a visitor, I can browse and view events so that I can access essential information without needing to create an account.
+- **User Story #10** (must-have): Pagination
+  - As a visitor, I can navigate long lists of events using pages so that the events list remains easy to navigate through to find specific events and/or dates.
+- **User Story #11** (must-have): View detailed event information
+  - As a visitor, I can view full event details so that I can decide if an event meets my needs and interests.
 
 ### Epic 2: Authentication & Access Control
-- As a visitor, I can register an account.
-- As a registered user, I can log in and log out securely.
-- As a site owner, I can prevent unauthorised users from accessing restricted actions.
-- As a user, I only see interface elements appropriate to my role.
-
-New users default to the User / Attendee role.
-Registration does not grant organiser or admin privileges.
+- **User Story #2** (must-have): Register
+  - As a visitor, I can register for an account so that I can access features that require authentication and permissions.
+- **User Story #3** (must-have): Log in & Log out
+  - As a registered user, I can log in and log out so that I can securely access authenticated features.
+- **User Story #6** (must-have): Prevent Unauthorised Access
+  - As a site owner, I can prevent unauthorised users from accessing restricted actions so that the platform remains secure.
 
 ### Epic 3: Organiser Event Management
-- As an organiser, I can create an event.
-- As an organiser, I can edit or delete my own events.
-- Edited events return to **Pending** status.
-- Changes are not publicly visible until approved.
-
-All forms validate required fields, including accessibility information.
+- **User Story #4** (must-have): Create events
+  - As an organiser, I can create an event so that I can securely submit it for approval.
+- **User Story #5** (must-have): Edit & Delete events
+  - As an organiser, I can edit or delete my own events so that I can keep my event information accurate.
 
 ### Epic 4: Moderation & Trust
-- As an admin, I can review pending event submissions.
-- As an admin, I can approve or reject events.
-- Approved events become publicly visible.
-- Rejected events remain hidden.
-- Organisers are notified of moderation decisions.
+- **User Story #7** (must-have): Moderate events
+  - As an admin, I can review and moderate event submissions so that the directory remains trustworthy.
+- **User Story #8** (must-have): Review pending events
+  - As an admin, I can review submitted events clearly and easily so that events are organised and approved or rejected promptly.
 
-Moderation is required to reduce misinformation and maintain trust in accessibility claims.
+### Epic 5: Notifications
+- **User Story #12** (must-have): Notify organisers of moderation decisions
+  - As an organiser, I can be notified when my event is reviewed so that I know whether it has been approved or rejected.
+- **User Story #13** (should-have): Admin feedback on rejected events
+  - As an organiser, I can see a brief reason when an event is rejected so that I can improve future submissions.
 
-### Epic 5: Notifications (In-App)
-- As an organiser, I receive notification when my event is approved or rejected.
-- Notifications are visible after login.
-- In-app messaging was chosen to keep MVP scope focused.
+### Additional User Stories
+- **User Story #9** (should-have): Filter by structured accessibility criteria
+  - As a visitor, I can filter events by accessibility and/or date so that I find events suitable for me.
+- **User Story #14** (should-have): Display category/access badges
+  - As a visitor, I can clearly see access and/or category badges on event cards so that I can quickly identify events suited to my needs.
+- **User Story #15** (could-have): Save or bookmark events
+  - As a user, I can save events so that I can return to them later.
+- **User Story #16** (could-have): Keyword search events
+  - As a visitor, I can search events by keyword so that I can quickly find relevant events.
+- **User Story #17** (could-have): Embedded Google Maps iframe
+  - As a visitor, I can see the rough location of an event on Google Maps so that I can determine if it's accessible to me.
+- **User Story #18** (won't-have): Ticket sales/payments
+  - As a user, I can book tickets for events on the website so that I don't have to use a third-party site.
+- **User Story #19** (won't-have): Rate & review events
+  - As an attendee, I can rate and review events so that others can make informed decisions.
+- **User Story #20** (won't-have): Full Maps API
+  - As a visitor, I can search by addresses and radius so that I can more easily see accessible events.
+ ## User Story Summary
 
-## Agile Methodology
+ All must-have and should-have user stories were tested and validated against acceptance criteria (see Testing section).
 
-This project was developed using Agile principles and MoSCoW prioritisation.
-User stories and tasks were managed using a GitHub Project board.
+ To prevent scope creep, user stories #15, #17, #18, #19, and #20 were designated as future releases. User stories #9, #12, #13, #14, and #16 were completed as part of the MVP to deliver a well-rounded, accessibility-focused product.
 
-## Scope & Prioritisation (MoSCoW)
-### Must Have
-- Public event browsing
-- Structured accessibility filtering
-- Authentication & role-based permissions
-- Organiser event submission
-- Admin moderation workflow
-- In-app moderation notifications
-### Should Have
-- View my submitted events
-- Admin feedback on rejection
-- Date range filtering
-### Could Have
-- Bookmark events
-- Email notifications
-- Keyword search
-- Embedded Google Maps (iframe)
-### Won't Have (future features)
-- Ticket sales/payments
-- Ratings and reviews
-- User-to-organiser messaging
-- Full Maps API radius search
+ ## Wireframes
+ Wireframes were made using Figma, using mobile-first design, UX design and User Centered design principles. 
 
-These were excluded to prevent scope creep and maintain focus on the core problem: **trusted, accessible event discovery.**
+ <img src="static/images/readme-images/wireframes/home-page.png" width="20%">
+ <img src="static/images/readme-images/wireframes/events-page.png" width="20%">
+ <img src="static/images/readme-images/wireframes/event-detail-page.png" width="20%">
 
-## UX / Design Decisions
+ ## Typography
+Typography was selected with accessibility as a priority:
 
-- Accessibility-first layout
-- Clear labelling of access information
-- Minimal cognitive load
-- Mobile-responsive templates
-- Typography 
-- Colour Pallet 
-- Layout
-- Responsive design
+| Element | Font | Purpose |
+|:---|:---|:---|
+| Headings | Space Grotesk | Clear visual hierarchy and brand identity |
+| Body text | Atkinson Hyperlegible | Enhanced readability for neurodivergent users |
 
-## Data Model
+**Design principles:**
+- Clean, readable sans-serif typefaces
+- Accessibility-first sizing and spacing
+- High contrast for comfortable reading
+ ## Colour Scheme
+ The colour palette was carefully selected to balance visual appeal with accessibility requirements:
 
-The project uses a relational database with the following core models:
+ | Colour Type | Hex Codes | Purpose |
+ |:---|:---|:---|
+ | Primary | #3a7f7a, #c08ab3, #9657e3 | Core brand identity and key interface elements |
+ | Secondary | #1c3d43, #7c4c7b, #e3a857 | Supporting accents and complementary design |
+ | Neutral | #f7f7f5 | Backgrounds and subtle surfaces |
+ | Text | #1f1f1f, #4a4a4a | Primary and secondary text for readability |
 
-- User (Django built-in)
-- Profile
-- Event
-- Notification (Currently unused in MVP, included for ease in future implementation(s))
+ The colour combination prioritises readability and reduces sensory overwhelm for neurodivergent users while maintaining a modern, professional appearance.
 
-**include ERD diagrams here**
+ - Calm, low cognitive-load palette
+ - Accessibility-first contrast consideration
+ - Soft background tones with high-contrast text
 
-## Wireframes 
-- Built using Lucidchart 
+ <img src="static/images/readme-images/open-circle-colour-pattern.png" alt="Brand colours in pattern" width="40%"/>
+ <img src="static/images/readme-images/open-circle-pallet.png" alt="Brand colour pallet" width="50%">
 
-**include wireframes here**
+ ## Database Diagram
+ The Database mdoels included three custom models; Event, Notification and Profile. 
 
-## Features
+ The Notification model is currently **not in use** in the MVP. In the interest of developing a robust and error-free MVP, notifications in the MVP are handled by Django's built-in messages system with custom styling for brand cohesion. 
 
-### Implemented
+ The Notification model was added as part of the original database setup to make the future implentation of the notification dashboard easier and more straight forward. 
 
-- Public event browsing
-- Event detail pages
-- User registration and authentication
-- Organiser event submission
-- User-uploaded images in Cloud storage
-- Admin moderation
-- Notifications on approval/rejection
-- Optional rejection message from Admin
-- Pagination
+ ### Core Models
+ - User (Django built-in)
+ - Profile
+ - Event
+ - Notification (future feature - NOT IN USE)
+  
+ ### Relationships
+ - User ↔ Profile (OneToOne)
+ - User ↔ Event (ForeignKey as organiser)
+ - Event ↔ Notification (ForeignKey)
+  
+  A signals.py file was set up to connect the Profile model with the User model, using a signal receiver function to trigger the creation of a corresponding profile instance when a new instance of a User is saved. 
+  This allows the newly signed up User to access and alter the information in the instance of the Profile model; Namely their 'organiser status' and profile image. 
+  Altering and saving the value of the 'organiser status' in the Profile model authorises the user into the 'organiser' role which allows the user to create, edit and delete their own events. See more details in the 'Authentication & Authorisation' section below.
 
-### Future Features
+  Entity Relationship Diagram, created with LucidChart:
+  
+  <img src="static/images/readme-images/open-circle-erd.png">  
 
-- Saved events
-- Keyword search
-- Embedded maps
-- Event reviews
+ # Features
+ 
+ ## Navigation
+ - Navigation uses a responsive collapsing Bootstrap Navbar, with:
+   - Role-based link visibility:
+     - 'My profile' only visible to logged in users
+     - 'Create Event' only visible to organisers
+     - 'Admin' panel link only visible to staff/moderators (is_staff=True)
+   - Login/Logout conditional rendering
+   - Accessible pagination
+   
+  Visitor (not logged in):
 
-## Bugs Encountered & Resolutions
+ <img src="static/images/readme-images/screenshots/links-visible-1.png">
 
-### Production Bugs
+  Organiser logged in:
+
+ <img src="static/images/readme-images/screenshots/links-visible-2.png">
+
+  Admin/moderator logged in:
+  
+ <img src="static/images/readme-images/screenshots/links-visible-3.png">
+
+ ## Footer
+ - Consistent site-wide footer
+ - Minimal, non-distracting design
+ - Social links, copyright and contact information
+  
+ <img src="static/images/readme-images/screenshots/footer-desk.png">
+
+ ## Home page
+ ### Hero section
+
+ - Hero section & CTA buttons for Browse events & Create an event (call-to-action to attendees & organisers)
+ - Descriptive title and tagline, repsonsive gradient frame with low-contrast background to lessen sensory overload.
+ - Hero section on mobile:
+
+  <img src="static/images/readme-images/screenshots/hero-cta-mob.png">
+ 
+ ### Featured events & Our Values
+
+ - Featured events section which uses get_context_data() in the HomeView to override the default context and filter events by "approved" status and start datetime, ensuring only approved events in the future are featured.
+ - "Our values" section, giving more insight into the event moderation process and the ethics of the platform.
+ - Featured events section & Values section on desktop:
+  
+  <img src="static/images/readme-images/screenshots/featured-events-values-desk.png" width="70%">
+
+  
+ ## Profile page 
+ ### User/Profile information
+ - Displays user details (email, username, organiser status)
+ - Displays profile image and input for user uploaded images, including guidelines on file size.
+<img src="static/images/readme-images/screenshots/profile-desk.png">
+<img src="static/images/readme-images/screenshots/profile-mob.png">
+
+ ### My events section
+ - "My events" section is hidden in the UI unless user changes their organiser status to 'organiser'
+ - "My events" section shows edit/delete buttons, moderation status (Approved, Pending, Rejected), conditional link to the Event detail page *only if* the event has been approved.
+ - 'Delete event' button triggers a confirmation modal to confirm deletion of event. 
+ - 'Edit event' directs to the Edit event page.
+  
+ - Rejection message (either default or custom added by Admin) is displayed in the table *only if* the event has been rejected.
+<img src="static/images/readme-images/screenshots/my-events-desk.png">
+<img src="static/images/readme-images/screenshots/my-events-mob.png">
+ - On login, when clicking on the profile page, an organiser recieves messages regarding the rejection or approval of their event. 
+<img src="static/images/readme-images/screenshots/profile-approval-msg.png">
+<img src="static/images/readme-images/screenshots/profile-rejection-msg.png">
+ 
+ ## Create & Edit Event pages 
+ - Structured form validation
+ - Important detail fields required 
+
+<img src="static/images/readme-images/screenshots/create-event-required.png">
+
+ - Edited events return to pending and organiser is notified of successful event submission
+
+<img src="static/images/readme-images/resubmission-msg.png">
+
+ - Server-side ownership enforcement
+ - Accordions displaying guidelines for successful submissions
+
+<img src="static/images/readme-images/screenshots/create-event-desk.png">
+<img src="static/images/readme-images/screenshots/create-event-mob.png">
+
+ - Title of event automatically fills in slug in the Event model, which produces the Event detail page URL for the submitted event. Because of this, editing the title of the Event after the creation of the Event model instance was causing issues with the slug, redirection and URL paths.
+ - To solve this issue, I created a seperate 'Edit event' page which excludes the Event title, so the event title cannot be edited after creation, meaning the slug can also not be changed once the event is first submitted, and the Event Model instance created. See more details in 'Development Bugs' section, below.
+
+<img src="static/images/readme-images/screenshots/edit-event-mob.png">
+<img src="static/images/readme-images/screenshots/delete-event-confirmation.png">
+
+ ## Event list & Event detail pages
+ - Public browsing of approved events, accessible to visitors, users, organsers & admin.
+ - Structured accessibility display
+ - Paginated results
+ - Search function covering keywords, accessibility filters, start datetime & end datetime filters.
+
+<img src="static/images/readme-images/screenshots/event-list-desk.png">
+<img src="static/images/readme-images/screenshots/event-list-mob.png">
+<img src="static/images/readme-images/screenshots/pagination-event-list-mob.png">
+<img src="static/images/readme-images/screenshots/event-detail-desk.png">
+<img src="static/images/readme-images/screenshots/event-detail-mob.png">
+ ## CRUD
+
+ | Action      | Visitor | User | Organiser | Admin |
+ | :---        |    :----:   |          ---: |   ---: |          ---: |
+ | Create An Event        | No | No | Yes | Yes |
+ | Read (Browse all Events)          | Yes | Yes | Yes | Yes |
+ | Update Own Event    | No | No | Yes | Yes |
+ | Update Any Event    | No | No | No | Yes |
+ | Delete Own Event    | No | No | Yes | Yes|
+ | Approve/Reject Events | No | No | No | Yes
+
+ ## Authentication & Authorisation
+
+ - Django AllAuth authentication was used for sign up, log in and log out, redirecting to custom templates for brand cohesion.
+ - A role-based permission model was used, to ensure clarity, security, and trust.
+ - Server-side ownership checks are included for robust ownership/permisison checks, and UI elements are hidden throughout for unauthorised users, using Python conditional statements.
+
+ ### User Roles
+ 
+ ### Visitor (Logged out)
+ **Purpose**: Public event discovery
+ - View event list and detail pages
+ - Use filters and pagination
+ - Cannot create, edit, or moderate events
+ 
+ ### User / Attendee (Logged in)
+ **Purpose**: Future-facing account role 
+ - Same permissions as Visitor
+ - Can log in and log out
+ - Cannot create events
+ - Can assign themselves Organiser status
+
+ ### Organiser (is_organiser=True)
+ **Purpose**: Submit and manage own events
+ - Create events
+ - Edit/delete own events
+ - View event status
+ - Cannot approve events
+ - Cannot edit others’ events
+ - Ownership rule is enforced server-side:
+ `event.organiser == request.user`
+ 
+ ### Admin / Moderator (is_staff=True)
+ **Purpose**: Maintain trust and quality
+ - Review moderation queue
+ - Approve/reject events (with rejection message)
+ - Edit/delete any event
+ - Override ownership rules
+
+  Flowcharts to illustrate the User roles & permissions in practice: 
+
+  Visitor/user/organiser:
+  <img src="static/images/readme-images/mermaid-user.png" width="%30">
+
+  Admin/moderator workflow:
+  <img src="static/images/readme-images/mermaid-admin.png" wdith="%30">
+
+ # Technologies Used 
+ - Python 3.12
+ - Django 
+ - PostgreSQL (Production)
+ - SQLite (Development)
+ - HTML5
+ - CSS3
+ - Bootstrap 6
+ - Heroku
+ - Cloudinary
+ - WhiteNoise
+ - Gunicorn
+ - Git & Github
+  
+ # Libraries
+ - dj-database-url
+ - psycopg2 / psycopg2-binary
+ - django-allauth
+ - cloudinary
+ - pillow
+ - whitenoise
+ - gunicorn
+
+ # Testing
+ ## Validation
+ - HTML validated via W3C Validator 
+  <img src="static/images/readme-images/html-css-validation/validator-home-page.png">
+  <img src="static/images/readme-images/html-css-validation/validator-event-detail.png">
+ - CSS validated via WSC Validator 
+  <img src="static/images/readme-images/html-css-validation/validator-css.png">
+ - Python validated using CI Python Linter
+  <img src="static/images/readme-images/ci-python-linter/linter-models.png">
+
+ No critical errors present
+
+ Screenshots of all Validators can be found in static/images/readme-images/html-css-validation
+
+ ## Lighthouse Testing
+ Tested on:
+ - Homepage
+ - Event List
+ - Event Detail
+ - Event create/edit
+ - Profile
+ - sign up, log in, log out
+ - Both Mobile & Desktop tested.
+
+ <img src="static/images/readme-images/lighthouse-reports/lighthouse-homepage-desk.png">
+ <img src="static/images/readme-images/lighthouse-reports/lighthouse-event-detail-desk.png">
+ <img src="static/images/readme-images/lighthouse-reports/lighthouse-create-event-desk.png">
+
+ Screenshots of all Lighthouse reports can be found in static/images/readme-images/lighthouse-reports
+
+ ## Responsiveness
+ Tested using:
+ - Chrome DevTools and different physical devices.
+ - Multiple viewport sizes
+ - HD TV, Desktop, tablet, mobile breakpoints
+
+Mobile screen:
+  <img src="static/images/readme-images/responsive-sm.png" width="60%">
+Tablet screen:
+  <img src="static/images/readme-images/responsive-med.png" width="40%">#
+Large Desktop/TV:
+  <img src="static/images/readme-images/responsive-xl.png">
+
+ ## Browser Compatibility
+ Tested on:
+ - Chrome
+ - Firefox
+ - Edge
+ All core features functon as expected.
+
+## Feature testing
+ All implemented features tested manually table here. 
+
+ ### Manual Testing (MVP)
+
+| Feature | Test Performed | Expected Result | Actual Result | Status |
+|----------|---------------|----------------|---------------|--------|
+| User Registration | Registered new user with valid details | Account created, redirected to login | Account successfully created | ✅ Pass |
+| Registration Validation | Submitted empty/invalid fields | Clear validation errors displayed | Validation errors displayed correctly | ✅ Pass |
+| Login | Logged in with valid credentials | User logged in and redirected | Login successful | ✅ Pass |
+| Invalid Login | Used incorrect password | Error message displayed | Correct error message shown | ✅ Pass |
+| Logout | Logged out from authenticated session | User redirected and session ended | Logout successful | ✅ Pass |
+| View Events (Visitor) | Accessed event list while logged out | Approved events visible | Events displayed correctly | ✅ Pass |
+| Event Detail Page | Clicked event card | Full event details visible | Details displayed correctly | ✅ Pass |
+| Accessibility Filters | Applied accessibility filters | Only matching events displayed | Filters worked correctly | ✅ Pass |
+| Pagination | Navigated between event pages | Events split correctly across pages | Pagination functioning | ✅ Pass |
+| Create Event (Organiser) | Submitted new event | Event saved as Pending | Event created successfully | ✅ Pass |
+| Edit Own Event | Edited organiser’s own event | Event updated and returned to Pending | Worked as expected | ✅ Pass |
+| Prevent Editing Others’ Events | Attempted editing another organiser’s event | Access denied or redirect | Access correctly blocked | ✅ Pass |
+| Delete Event | Deleted own event | Confirmation shown and event removed | Event deleted successfully | ✅ Pass |
+| Moderation Access | Accessed moderation queue as non-admin | Access denied | Correctly restricted | ✅ Pass |
+| Approve Event (Admin) | Approved pending event | Event becomes publicly visible | Event visible in listings | ✅ Pass |
+| Reject Event (Admin) | Rejected event | Event remains hidden | Event correctly hidden | ✅ Pass |
+| Notification on Moderation | Approved/rejected event | Organiser receives notification | Notification displayed after login | ✅ Pass |
+| Role-Based UI | Logged in as different roles | Only appropriate UI options visible | UI matched role permissions | ✅ Pass |
+| Static Files (Production) | Loaded deployed site | CSS and styling load correctly | Static files served via WhiteNoise | ✅ Pass |
+| Media Upload (Cloudinary) | Uploaded event image | Image stored and displayed | Media displayed correctly | ✅ Pass |
+| Database Separation | Checked local vs production events | Databases operate independently | Confirmed separate SQLite & Postgres DBs | ✅ Pass |
+
+
+ ## User Story Testing
+
+All must-have and should-have user stories were manually tested against their acceptance criteria. Evidence screenshots are stored in `/static/images/readme-images/screenshots/` and `/static/images/readme-images/responsive-design/`
+
+---
+
+### Epic 1: Public Event Discovery
+
+| ID | User Story | Acceptance Criteria summary | Test Steps | Expected Result | Pass/Fail | Evidence |
+|----|------------|--------------------|------------|----------------|-----------|----------|
+| #1 | View approved upcoming events | Only approved upcoming events display to visitors without login. | 1. Open homepage while logged out <br> 2. Inspect event list | Only approved events visible. No pending/rejected events displayed. | PASS | event-list-mob.png event-list-desk.png |
+| #10 | Pagination | Event list paginates after defined number per page. Navigation controls function correctly. | 1. Add > set pagination limit of events <br> 2. Navigate using next/previous links | Event list splits correctly across pages. Navigation loads correct results. | PASS / FAIL | pagination-event-list-mob.png |
+| #11 | View detailed event information | Event detail page displays full event information including accessibility data. | 1. Click event card <br> 2. Review event detail page | Full event data renders correctly including structured access info. | PASS | event-detail-desk.png event-detail-mob.png |
+
+---
+
+### Epic 2: Authentication & Access Control
+
+| ID | User Story | Acceptance Criteria | Test Steps | Expected Result | Pass/Fail | Evidence |
+|----|------------|--------------------|------------|----------------|-----------|----------|
+| #2 | Register | Visitors can create account using valid credentials. Validation prevents invalid input. | 1. Navigate to Sign Up <br> 2. Submit valid form <br> 3. Attempt invalid submission | Valid account created. Invalid inputs rejected with errors. | PASS | register.png |
+| #3 | Log in & Log out | Registered users can securely login and logout. | 1. Login with valid credentials <br> 2. Logout | Session created and destroyed appropriately. | PASS  | log-in.png |
+| #6 | Prevent unauthorised access | Unauthenticated users cannot access restricted routes (create/edit/delete/moderation). | 1. Attempt direct URL access to restricted page while logged out | User redirected to login page or denied access. | PASS||
+
+---
+
+### Epic 3: Organiser Event Management
+
+| ID | User Story | Acceptance Criteria | Test Steps | Expected Result | Pass/Fail | Evidence |
+|----|------------|--------------------|------------|----------------|-----------|----------|
+| #4 | Create events | Authenticated organiser can submit event. Event status set to pending. | 1. Login <br> 2. Submit event form | Event saved to database with pending status. | PASS | create-event-mob.png create-event-desk.png |
+| #5 | Edit & Delete events | Organiser can edit/delete only their own events. | 1. Login as event owner <br> 2. Edit event <br> 3. Delete event <br> 4. Attempt edit as different user | Owner can edit/delete successfully. Other users denied access. | PASS | |
+
+---
+
+### Epic 4: Moderation & Trust
+
+| ID | User Story | Acceptance Criteria | Test Steps | Expected Result | Pass/Fail | Evidence |
+|----|------------|--------------------|------------|----------------|-----------|----------|
+| #7 | Moderate events | Admin can approve or reject event submissions. | 1. Login as admin <br> 2. Review pending event <br> 3. Approve or reject | Event status updates correctly. Approved events visible publicly. | PASS | ! admin-panel-events.png |
+| #8 | Review pending events | Admin can clearly identify pending events for review. | 1. Login as admin <br> 2. View moderation dashboard/admin panel | Pending events displayed clearly and organised. | PASS  | admin-panel-events.png |
+
+---
+
+### Epic 5: Notifications
+
+| ID | User Story | Acceptance Criteria | Test Steps | Expected Result | Pass/Fail | Evidence |
+|----|------------|--------------------|------------|----------------|-----------|----------|
+| #12 | Notify organisers of moderation decisions | Organiser receives notification after event approval/rejection. | 1. Submit event <br> 2. Admin approves/rejects <br> 3. Login as organiser | Notification message appears once on profile/dashboard. | PASS | profile-approval-msg.png profile-desk.png my-events-desk.png|
+| #13 | Admin feedback on rejected events | Rejected event includes short feedback message visible to organiser. | 1. Reject event with feedback <br> 2. Login as organiser | Feedback reason displayed clearly. | PASS  | profile-rejection-msg.png my-events-desk.png |
+
+---
+
+### Additional User Stories (Completed in MVP)
+
+| ID | User Story | Acceptance Criteria | Test Steps | Expected Result | Pass/Fail | Evidence |
+|----|------------|--------------------|------------|----------------|-----------|----------|
+| #9 | Filter by structured accessibility criteria | Visitors can filter events by access criteria and/or date. | 1. Apply accessibility filter <br> 2. Apply date filter | Event list updates dynamically to match selected filters. | PASS | event-list-desk.png event-list-mob.png |
+| #14 | Display category/access badges | Event cards display clear visual access/category badges. | 1. View event list <br> 2. Inspect event cards | Structured badges visible and styled consistently. | PASS | event-detail-mob.png event-detail-desk.png |
+| #16 | Keyword search events | Visitors can search events by keyword. | 1. Enter keyword in search field <br> 2. Submit | Relevant events returned. No-match message shown when applicable. | PASS | event-list-desk.png event-list-mob.png |
+
+---
+
+### Future Releases (Not Implemented)
+
+| ID | Status | Notes |
+|----|--------|-------|
+| #15 | Could-have | Save/bookmark events – designated future enhancement. |
+| #17 | Could-have | Embedded Google Maps iframe – future enhancement. |
+| #18 | Won’t-have | Ticket sales/payments excluded from MVP scope. |
+| #19 | Won’t-have | Rate & review system excluded from MVP scope. |
+| #20 | Won’t-have | Full Maps API with radius search excluded to prevent scope creep. |
+
+
+ ## Bugs Encountered & Resolutions
+
+### Production Bugs (non-exhaustive list)
 
 | Bug | Issue | Cause | Resolution |
 |-----|-------|--------|------------|
@@ -298,34 +624,6 @@ After resolving the above issues:
 - Lighthouse testing 
 - DevTools testing 
 - Manual testing against User Stories 
-
-Manual testing was conducted throughout development to ensure all core functionality, role-based permissions, and moderation workflows operate correctly.
-
-### Manual Testing (MVP)
-
-| Feature | Test Performed | Expected Result | Actual Result | Status |
-|----------|---------------|----------------|---------------|--------|
-| User Registration | Registered new user with valid details | Account created, redirected to login | Account successfully created | ✅ Pass |
-| Registration Validation | Submitted empty/invalid fields | Clear validation errors displayed | Validation errors displayed correctly | ✅ Pass |
-| Login | Logged in with valid credentials | User logged in and redirected | Login successful | ✅ Pass |
-| Invalid Login | Used incorrect password | Error message displayed | Correct error message shown | ✅ Pass |
-| Logout | Logged out from authenticated session | User redirected and session ended | Logout successful | ✅ Pass |
-| View Events (Visitor) | Accessed event list while logged out | Approved events visible | Events displayed correctly | ✅ Pass |
-| Event Detail Page | Clicked event card | Full event details visible | Details displayed correctly | ✅ Pass |
-| Accessibility Filters | Applied accessibility filters | Only matching events displayed | Filters worked correctly | ✅ Pass |
-| Pagination | Navigated between event pages | Events split correctly across pages | Pagination functioning | ✅ Pass |
-| Create Event (Organiser) | Submitted new event | Event saved as Pending | Event created successfully | ✅ Pass |
-| Edit Own Event | Edited organiser’s own event | Event updated and returned to Pending | Worked as expected | ✅ Pass |
-| Prevent Editing Others’ Events | Attempted editing another organiser’s event | Access denied or redirect | Access correctly blocked | ✅ Pass |
-| Delete Event | Deleted own event | Confirmation shown and event removed | Event deleted successfully | ✅ Pass |
-| Moderation Access | Accessed moderation queue as non-admin | Access denied | Correctly restricted | ✅ Pass |
-| Approve Event (Admin) | Approved pending event | Event becomes publicly visible | Event visible in listings | ✅ Pass |
-| Reject Event (Admin) | Rejected event | Event remains hidden | Event correctly hidden | ✅ Pass |
-| Notification on Moderation | Approved/rejected event | Organiser receives notification | Notification displayed after login | ✅ Pass |
-| Role-Based UI | Logged in as different roles | Only appropriate UI options visible | UI matched role permissions | ✅ Pass |
-| Static Files (Production) | Loaded deployed site | CSS and styling load correctly | Static files served via WhiteNoise | ✅ Pass |
-| Media Upload (Cloudinary) | Uploaded event image | Image stored and displayed | Media displayed correctly | ✅ Pass |
-| Database Separation | Checked local vs production events | Databases operate independently | Confirmed separate SQLite & Postgres DBs | ✅ Pass |
 
 ---
 
@@ -434,7 +732,22 @@ Also, a superuser (admin) was created with:
 The live site can be accessed here:
 https://hannahashe-opencircle-cd40453b0631.herokuapp.com/
 
-## Credits
+ # Ai
+ Ai tools (ChatGPT, Microsoft Copilot, VS Code Copilot) were used to:
+ - Refine user stories
+ - Debug configuration issues 
+ - Profile signal.py setup 
+ - Admin panel development
+ - Login & sign up template implementation
+ - Generate documentation structure 
+ - Improve README table formatting
+ - Troubleshoot deployment errors
+All code was reviewed, understood and adapted before implementation.
 
-- Django documentation
-- Code Institute learning materials
+ # Credits 
+ - Django Documentation
+ - Code Institute course materials
+ - Bootstrap documentation
+ - Heroku documentation
+ - Freepik for free stock images: https://www.freepik.com/app
+ - ChatGPT Codex for debugging and explanatory prompts
